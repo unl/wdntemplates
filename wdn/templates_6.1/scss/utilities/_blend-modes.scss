@@ -1,0 +1,14 @@
+//////////////////////////////////
+// THEME / UTILITIES / BLEND MODES
+//////////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+// Multiply
+.unl-multiply { @include mixins.multiply; }
+
+
+// Soft Light
+.unl-soft-light { @include mixins.soft-light; }

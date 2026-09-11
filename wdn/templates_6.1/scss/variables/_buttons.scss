@@ -1,0 +1,11 @@
+//////////////////////////////
+// THEME / VARIABLES / BUTTONS
+//////////////////////////////
+
+
+@forward "@dcf/scss/variables/buttons" with (
+
+  // Font weight
+  $font-weight-button: 600 !default
+
+);

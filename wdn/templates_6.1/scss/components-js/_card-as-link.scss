@@ -1,0 +1,28 @@
+////////////////////////////////////
+// THEME / COMPONENTS / CARD AS LINK
+////////////////////////////////////
+
+
+@use "../variables/" as var;
+
+
+@layer components {
+
+  // Card-as-link
+  .unl .dcf-card-as-link a:focus {
+    text-decoration: underline;
+  }
+
+
+  .unl .dcf-card-as-link:focus-within {
+    outline: 2px solid var.$color-focus-outline;
+    outline-offset: 3px;
+  }
+
+
+  .unl .dcf-card-as-link:focus-within a.dcf-card-link:focus {
+    // Remove focus ring from primary link when card is focused
+    outline: 3px solid transparent;
+  }
+
+}

@@ -1,0 +1,344 @@
+/////////////////////////////////
+// THEME / COMPONENTS / NAV: MENU
+/////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.unl dialog#dcf-nav-dialog::backdrop {
+  @include mixins.backdrop-blur;
+  background-color: var(--bg-overlay-light) !important;
+}
+
+
+.unl .dcf-nav a,
+.unl .dcf-nav button {
+  display: block;
+  @include mixins.lh-3;
+}
+
+
+.unl .dcf-nav a:link,
+.unl .dcf-nav a:visited,
+.unl .dcf-nav a:hover,
+.unl .dcf-nav a:active,
+.unl .dcf-nav button {
+  @include mixins.cream;
+}
+
+
+.unl .dcf-nav a:hover {
+  text-decoration: underline;
+}
+
+
+.unl .dcf-nav ul,
+.unl .dcf-nav li {
+  margin-bottom: 0;
+}
+
+
+.unl .dcf-nav ul a,
+.unl .dcf-nav ul button {
+  padding-inline: #{var.$ms00}rem;
+}
+
+
+.unl .dcf-nav ul ul a,
+.unl .dcf-nav ul ul button {
+  padding-block: #{var.$ms-8}rem;
+}
+
+/* This is to fix notices that overlay header when nav menu is open */
+.unl .dcf-header {
+  position: relative;
+}
+
+@include mixins.mq(md, max, width) {
+
+  .unl .dcf-nav-primary {
+    display: none;
+  }
+
+
+  .dcf-nav-menu {
+    border-top: 3px solid var.$scarlet;
+  }
+
+
+  .unl .dcf-nav-menu,
+  .unl .dcf-nav-menu-content {
+    bottom: 0;
+    position: fixed;
+  }
+
+
+  .unl .dcf-nav-menu-content {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    overflow-y: clip;
+    bottom: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
+    transform-origin: 50% 100%;
+    transition:
+      opacity var.$transition-duration-opacity-nav-menu-content cubic-bezier(.25, .46, .45, .94) var.$transition-delay-opacity-nav-menu-content,
+      transform var.$transition-duration-transform-nav-menu-content cubic-bezier(.25, .46, .45, .94) var.$transition-delay-transform-nav-menu-content;
+    width: 100%;
+  }
+
+
+  .unl .dcf-nav-menu-content-child {
+    --mask-height: 1.78em;
+    height: 56vh;
+    mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) var(--mask-height),
+      rgba(0, 0, 0, 1) calc(100% - var(--mask-height)),
+      rgba(0, 0, 0, 0));
+    overflow-y: auto;
+    padding-block: var(--mask-height);
+    padding-inline: var.$length-vw-2;
+    position: relative;
+    z-index: 1;
+  }
+
+
+  .unl .dcf-nav a,
+  .unl .dcf-nav button {
+    margin-left: -#{var.$ms00}rem;
+  }
+
+
+  .unl .dcf-nav ul:first-child > li > a,
+  .unl .dcf-nav ul:first-child > li > button {
+    font-size: #{var.$ms01}rem !important;
+  }
+
+
+  .unl dialog#dcf-nav-dialog:open .dcf-nav-menu-content {
+    opacity: 1;
+    transform: translateY(0);
+
+    @starting-style {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+  }
+
+
+  .unl dialog#dcf-nav-dialog.dcf-dialog-is-open .dcf-nav-menu-content {
+    opacity: 1;
+    transform: translateY(0);
+
+    @starting-style {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+  }
+
+
+  .unl dialog#dcf-nav-dialog nav ul li {
+    opacity: 1;
+    transition: opacity 200ms cubic-bezier(.25, .46, .45, .94);
+  }
+
+
+  .unl dialog#dcf-nav-dialog:open nav ul li,
+  .unl dialog#dcf-nav-dialog.dcf-dialog-is-open nav ul li {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+
+  }
+
+
+  @supports (z-index: sibling-index()) {
+
+    @property --parent-stagger-index {
+      syntax: "<integer>";
+      inherits: true;
+      initial-value: 0;
+    }
+
+
+    @property --stagger-index {
+      syntax: "<integer>";
+      inherits: true;
+      initial-value: 0;
+    }
+
+
+    .unl dialog#dcf-nav-dialog nav ul li {
+      --stagger-index: sibling-index();
+    }
+
+
+    .unl dialog#dcf-nav-dialog nav > ul > li {
+      --parent-stagger-index: sibling-index();
+    }
+
+
+    // Primary link stagger
+    .unl dialog#dcf-nav-dialog:open nav > ul > li,
+    .unl dialog#dcf-nav-dialog.dcf-dialog-is-open nav > ul > li {
+      transition-delay: calc(400ms + var(--stagger-index) * 100ms);
+    }
+
+
+    // Secondary link stagger — offset by parent's delay first
+    .unl dialog#dcf-nav-dialog:open nav ul li ul li,
+    .unl dialog#dcf-nav-dialog.dcf-dialog-is-open nav ul li ul li {
+      transition-delay: calc(
+        400ms
+        + var(--parent-stagger-index) * 100ms
+        + var(--stagger-index) * 50ms
+      );
+    }
+
+  }
+
+  html:has(.dcf-header .dcf-dialog-is-open),
+  body:has(.dcf-header .dcf-dialog-is-open) {
+    overflow-y: hidden;
+  }
+
+  .dcf-nav-dialog-backdrop {
+    display: none;
+  }
+
+  .unl .dcf-nav-menu {
+    height: 100dvh;
+  }
+}
+
+
+@include mixins.mq(md, min, width) {
+
+  .unl .dcf-nav-container {
+    position: relative;
+  }
+
+
+  .unl .dcf-nav-dialog {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+
+  .unl .dcf-nav-primary {
+    display: grid;
+    grid-template-columns: #{var.$ms10}rem 1fr;
+    color: #fefdfa;
+  }
+
+
+  .unl .dcf-nav-primary ul ul {
+    display: none;
+  }
+
+
+  .unl .dcf-nav-menu {
+    position: relative;
+    top: 0;
+  }
+
+
+  .unl .dcf-nav-menu-content {
+    background-color: var.$scarlet;
+    overflow-y: auto;
+    // position: fixed;
+  }
+
+
+  .unl .dcf-nav-menu-content-child {
+    overflow-y: auto;
+    padding: 0 var.$length-vw-2 var.$length-em-6;
+  }
+
+
+  .unl .dcf-nav-menu-content-child {
+    display: grid;
+    grid-template-columns: var.$length-em-9 1fr;
+  }
+
+
+  .unl .dcf-nav-toggle-btn-menu {
+    align-self: start;
+    grid-column: 1 / 2;
+  }
+
+
+  .unl .dcf-nav-local {
+    grid-column: 2 / 3;
+  }
+
+
+  .unl .dcf-nav-local ul ul {
+    grid-row: 2 / 3;
+    width: 100%;
+  }
+
+
+  .unl .dcf-nav li {
+    display: grid;
+    grid-row: 1 / 3;
+    grid-template-rows: subgrid;
+  }
+
+
+  .unl .dcf-nav-menu ul:first-child > li > a,
+  .unl .dcf-nav-menu ul:first-child > li > button {
+    grid-row: 1 / 2;
+  }
+
+
+  .unl .dcf-nav-menu ul > li > ul > li > a,
+  .unl .dcf-nav-menu ul > li > ul > li > button {
+    font-size: #{var.$ms-2}rem !important;
+  }
+
+
+  .unl .dcf-nav ul:first-child > li > a,
+  .unl .dcf-nav ul:first-child > li > button {
+    font-size: #{var.$ms-1}rem !important;
+  }
+
+  .dcf-nav-dialog-backdrop {
+    display: none;
+    opacity: 0;
+    transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
+  }
+
+  .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-nav-dialog-backdrop {
+    display: block;
+    z-index: calc(var.$z-modal-behind-nav-toggle-group - 1000);
+    opacity: 1;
+  }
+
+  @starting-style {
+    .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-nav-dialog-backdrop {
+      opacity: 0;
+    }
+  }
+
+  .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) #unl-notice-banner {
+    z-index: calc(var.$z-modal-behind-nav-toggle-group + 2) !important;
+    position: relative;
+  }
+
+  .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) #unlalert {
+    z-index: calc(var.$z-modal-behind-nav-toggle-group + 1) !important;
+  }
+
+  .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-header {
+    z-index: var.$z-modal-behind-nav-toggle-group !important;
+    position: relative;
+    background-color: var(--bg-body);
+  }
+
+}

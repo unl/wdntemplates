@@ -1,0 +1,76 @@
+//////////////////////////////////////////
+// THEME / COMPONENTS / FIGCAPTION TOGGLES
+//////////////////////////////////////////
+
+
+@use "../variables/" as var;
+
+
+@layer components {
+
+  .unl .dcf-btn-toggle-figcaption {
+    padding: 1em;
+  }
+
+  // Figcaption
+  .unl .dcf-figcaption-toggle {
+    background-color: var.$bg-color-overlay-dark;
+    clip-path: polygon(
+        100% 0,
+        100% 100%,
+        calc((#{var.$size-clip-path} * 2) + (#{var.$border-width-button} * 2) + #{var.$size-btn-x}) 100%,
+        calc((#{var.$size-clip-path} * 2) + (#{var.$border-width-button} * 2) + #{var.$size-btn-x}) calc(100% - (#{var.$size-clip-path} * 2) - (#{var.$border-width-button} * 2) - #{var.$size-btn-y}),
+        0 calc(100% - (#{var.$size-clip-path} * 2) - (#{var.$border-width-button} * 2) - #{var.$size-btn-y}),
+        0 0
+    );
+    color: var.$cream;
+    padding: var.$padding-top-caption var.$padding-right-caption var.$padding-bottom-caption var.$padding-left-caption;
+    transition: opacity var.$figcaption-toggle-animation-duration ease-in-out;
+  }
+
+
+  // Toggle Button
+  .unl .dcf-btn-toggle-figcaption {
+    background-color: var.$bg-color-overlay-dark;
+    border-color: transparent;
+    bottom: #{var.$size-clip-path};
+    color: var.$color-button-inverse-tertiary;
+    left: #{var.$size-clip-path};
+  }
+
+
+  // Toggle Button Icon Open
+  .unl .dcf-btn-toggle-figcaption .unl-btn-toggle-figcaption-icon-open{
+    transition: opacity var.$figcaption-toggle-icon-animation-duration ease-in-out;
+  }
+
+  .unl .dcf-btn-toggle-figcaption[aria-expanded="false"] .unl-btn-toggle-figcaption-icon-open {
+    opacity: 1;
+  }
+
+  .unl .dcf-btn-toggle-figcaption[aria-expanded="true"] .unl-btn-toggle-figcaption-icon-open {
+    opacity: 0;
+  }
+
+
+  // Toggle Button Icon Close
+  .unl .dcf-btn-toggle-figcaption .unl-btn-toggle-figcaption-icon-close-1,
+  .unl .dcf-btn-toggle-figcaption .unl-btn-toggle-figcaption-icon-close-2 {
+    transform-origin: 50% 50%;
+    transition: transform var.$figcaption-toggle-icon-animation-duration ease-in-out;
+  }
+
+  .unl .dcf-btn-toggle-figcaption[aria-expanded="false"] .unl-btn-toggle-figcaption-icon-close-1,
+  .unl .dcf-btn-toggle-figcaption[aria-expanded="false"] .unl-btn-toggle-figcaption-icon-close-2 {
+    transform: rotate(0deg);
+  }
+
+  .unl .dcf-btn-toggle-figcaption[aria-expanded="true"] .unl-btn-toggle-figcaption-icon-close-1 {
+    transform: rotate(45deg);
+  }
+
+  .unl .dcf-btn-toggle-figcaption[aria-expanded="true"] .unl-btn-toggle-figcaption-icon-close-2 {
+    transform: rotate(-45deg);
+  }
+
+}

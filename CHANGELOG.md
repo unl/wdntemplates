@@ -1,6 +1,414 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.1.4 (August 12, 2026)
+- Added dark cream to colors
+- Update regions classes to only include unl- classes in theme for better terminal page support
+
+## 6.1.3 (July 28, 2026)
+- Updated University of Nebraska logo in footer
+- Fixed issue with login URL not being set
+
+## 6.1.2 (July 17, 2026)
+- Added cover flow layout for slideshow component
+- Added dynamic toggle buttons option for dialogs
+- Added auto-loader opt-out script
+- Update zip plugin to delete .DS_Store files
+- Update bare list styles
+
+## 6.1.1 (June 12, 2026)
+- Fix bug with autoloader
+- Update critical css
+- Update idm/search spacing
+- fix dark mode images
+
+## 6.1.0 (May 28, 2026)
+- Update desktop and mobile nav
+- Move Visit/Apply/Give links back to top of header
+- Created class registry
+- Updated IDM widget
+- Updated template/include files
+- Update dcf-bleed to not use body width: 100vw;
+- Added ID to notice banner
+
+## 6.0.13 (May 13, 2026)
+- Fix missing CSS for event lists
+
+## 6.0.12 (May 13, 2026)
+- Re-added month widget
+- Fixes for gallery component
+- Move backdrop filters to dcf
+
+## 6.0.11 (Apr 14, 2026)
+- Added config to disable nav on desktop
+- Fix print styles
+- Remove bluesky and snapchat links
+
+## 6.0.10 (Mar 17, 2026)
+- Updated nav accessibility
+- Updated stagger FX styles
+- Updated twitter URL
+
+## 6.0.9 (Feb 11, 2026)
+- Added link tracking for web analytics
+- Fix mobile nav interactions
+- Parallelized autoloader
+- Updated skip nav z index
+- Updated employment footer link
+
+## 6.0.8 (Jan 14, 2026)
+- Added randomizer component
+- Updated copyright
+- Updated nav and dialog styles
+
+## 6.0.7 (Dec 11, 2025)
+- Fix nav menu styles
+- Fix mobile nav menu icon
+- Added file size validator component
+- Added image cropper component
+
+## 6.0.6 (Nov 11, 2025)
+- Fix nav menu bugs
+- Update collapsible fieldset padding
+- Update event grid
+- Updated footer employment url
+
+## 6.0.5 (Oct 16, 2025)
+- Updated order of operations in plugin auto loader
+- Adjusted icon card styles
+- Added datatable library and UNL styles overrides
+- Updated clip-stripe-* classes
+
+## 6.0.4 (Sept 17, 2025)
+- Use mask-image for mobile breadcrumbs mask
+- Bump vite from 6.3.5 to 6.3.6
+- Adjust breadcrumbs mobile height
+- Update font sized
+- Remove `dcf-d-block` class from framework images
+- Add support for AJAX nav loading
+- Fix debug-clean page
+- Added header-global-1-local to templates
+
+## 6.0.3 (Sept 3, 2025)
+- Fix smudging bug with bad quote
+
+## 6.0.2 (Aug 22, 2025)
+- Adding cache busting for imports
+- Fix bugs related to autoloader
+- Added speculation rules
+- Fix misc. styling for components
+- Cleaned up template files
+- Added parallax styles
+- Added clip path styles
+- Fix footer styles and markup
+- Update icons
+
+## 6.0.1 (July 11, 2025)
+- Add data-template attribute to Templates files
+
+## 6.0.0 (July 10, 2025)
+- Initial release of 6.0
+
+## 5.3.57 (June 24, 2025)
+- Load web analytics in a require.js compliant way
+
+## 5.3.56 (June 20, 2025)
+- Update domain for on-prem analytics
+- Fix for form validator message color contrast
+
+## 5.3.55 (April 10, 2025)
+- Add overflow-x: clip to nav menu
+- Update footer links
+- Added analytics events for search modal open and close
+
+## 5.3.54 (January 14, 2025)
+- Update GSAP to fix scroll-to-top bug
+- Update copyright date in footer
+- Hide (most) footer content on printed pages
+- Add mixins/utilities "text-wrap balance" and "pretty"
+- Set width of body tag to 100vw
+
+## 5.3.53 (November 26, 2024)
+- Add container query based events layout
+- Remove In Our Grit... logo from footer
+- Add local version of modular scale function
+
+## 5.3.52 (September 11, 2024)
+- Revert local nav column widths to 1fr
+- Fix absolute path issue in Grunt
+
+## 5.3.51 (August 13, 2024)
+- Remove lingering polyfill.io references
+- Remove the alert banner when an alert grows stale
+- Replace node-sass with sass
+
+## 5.3.50 (May 21, 2024)
+- New Gallery component
+- Remove pollyfill.io dependency
+- Add modular scale as CSS custom properties (vars)
+
+## 5.3.49 (April 24, 2024)
+- Revert copyright change in footer
+
+## 5.3.48 (April 10, 2024)
+- Add $bg-color-foreground variable
+
+## 5.3.47 (March 20, 2024)
+- New background multiply blend mode
+- New soft light blend mode
+- Add text-wrap: balance to headings and text-wrap: pretty
+
+## 5.3.46 (February 13, 2024)
+- .unl-scarlet@dark added
+- Events widget time mode additions
+
+## 5.3.45 (January 12, 2024)
+- Added end time/all day to events widget and updated styles
+
+## 5.3.44 (January 2, 2024)
+- Update copyright year to 2024 in footer
+
+## 5.3.43 (December 18, 2023)
+- Events widget fix
+
+## 5.3.42 (December 14, 2023)
+- Fix typo in font URLs
+
+## 5.3.41 (December 14, 2023)
+- Add role="list" to framework unstyled lists
+- Replaced references for Planet Red with Directory
+- Fix URL path to favicon in manifest.webmanifest
+
+## 5.3.40 (November 14, 2023)
+- Change Matomo file name
+- Toggle fixes
+- Modal fixes
+
+## 5.3.39 (October 12, 2023)
+- Add Matomo analytics
+- Font adjustments
+
+## 5.3.38 (September 14, 2023)
+- Font optimizations
+
+## 5.3.37 (September 12, 2023)
+- Optimize web fonts and critical CSS
+- Add 2 new color variables
+
+## 5.3.36 (September 5, 2023)
+- HTML validation fix on @charset declaration
+
+## 5.3.35 (September 1, 2023)
+- New fonts
+
+## 5.3.34 (August 8, 2023)
+- Adjust modal wrapper max-height 
+- Add --brand-kappa (orange)
+- Update for new version of search
+- Add 25% / 50% / 75% height/width mixins/utilities
+- Ignore empty divs within the tabs component
+- Hide tabs list item if child tab is hidden
+
+## 5.3.33 (July 17, 2023)
+- Add bg diagonal gradients mixin/utility
+- Fix for idm.initialize in analytics.js not running sometimes
+
+## 5.3.32 (June 20, 2023)
+- GA4 analytics update
+- Restore wdn_tabs alongside the new dcf-tabs
+
+## 5.3.31 (June 14, 2023)
+- Update events component layout
+- Add --brand-iota color CSS variable 
+- Remove nav-menu-child pseudo content
+- Remove duplicate nav menu styles from app.scss 
+- Tabs updates
+
+## 5.3.30 (May 23, 2023)
+- Add popups to plugins that load with every request
+
+## 5.3.29 (May 23, 2023)
+- Improve external link CSS selector
+
+## 5.3.28 (May 23, 2023)
+- New popup component 
+- New external link SVG icon
+- Add backdrop-filter var and adjust overlay colors
+
+## 5.3.27 (April 12, 2023)
+- New monospace font utility class
+- New hand-drawn backgrounds
+
+## 5.3.26 (February 14, 2023)
+- Toggle button (part II)
+- Remove the "search as you type" feature from the search box
+- Blockquote style update
+
+## 5.3.25 (January 10, 2023)
+- Update year in footer
+- Toggle button (part I)
+- Remove mobile menu gradient overlays
+
+## 5.3.24 (December 20, 2022)
+- Remove COVID-19 site link from header
+
+## 5.3.23 (November 10, 2022)
+- Replace .dwt "InstanceBeginEditable" statements with "TemplateBeginEditable" (this had been previoulsy done but was erroneously reverted)
+- Add box-shadow Sass file imports
+
+## 5.3.22 (October 11, 2022)
+- Update N logo SVG class names
+- Fix color contrast on notices
+- Make @dark css rules apply only to dark mode
+- Add .unl-box-shadow class
+- Update moment.js
+
+## 5.3.21 (September 14, 2022)
+- Update GSAP to 3.11.1
+
+## 5.3.20 (September 13, 2022)
+- Improved print syles
+- Add screen media query for colors in critical CSS
+- Update GSAP
+
+## 5.3.19 (August 11, 2022)
+- Move In Our Grit Our Glory logo in footer
+- Fix select element corners in input groups
+- Minimize message banner javascript
+
+## 5.3.18 (August 2, 2022)
+- Add link to covid19.unl.edu in the CTA area
+
+## 5.3.17 (July 12, 2022)
+- Remove deprecated ".wdn-*" button styles
+- Update tertiary colors
+- Add radio switch styles
+- Add hr element style
+
+## 5.3.16 (June 14, 2022)
+- Use GSAP/ScrollTrigger for scroll animations
+
+## 5.3.15 (May 10, 2022)
+- Convert prev/next buttons from list to div group
+- Fix modal scrolling issue on iOS
+- Add playsinline attribute for autoplay videos
+
+## 5.3.14 (April 12, 2022)
+- Implement GSAP as npm module
+- Remove Google Tag Manager from "local" template
+- Update Sass temp files (grid renamed gap)
+- Rename BG Video Toggle to Autoplay Video Toggle
+- Remove progress width and max-width
+- Update slideshow styles for alternate display
+
+## 5.3.13 (March 9, 2022)
+- Add new PHP TWIG template file
+- Progress element styles
+- Implement DCF background video toggle
+- DCF update: Add gap mixins and utilites
+
+## 5.3.12 (February 15, 2022)
+- Update Modal video events to handle YouTube embeds
+- Update border variables
+- Update variables in dark mode bookmarklet
+
+## 5.3.11 (January 20, 2022)
+- Update NU System logo in footer
+- Cleanup and reorganize CSS variables
+- Update secondary background-color CSS variables
+
+## 5.3.10 (December 14, 2021)
+- Fix institution title hover color in footer
+- Fix heading color in notices
+- Add sizes="any" to favicon.ico
+
+## 5.3.9 (November 10, 2021)
+- Fix institution title color in footer
+
+## 5.3.8 (November 9, 2021)
+- Notice change from p to div
+- Dark mode fixes (CTA links, button import styles)
+
+## 5.3.7 (October 28, 2021)
+- New DCF notices
+
+## 5.3.6 (Octover 18, 2021)
+- Dark mode
+
+## 5.3.5 (September 14, 2021)
+- Updated DCF slideshow
+- Add utility for dots background images
+- Add form required label color variables
+- Events Plugin Timezone Fix
+
+## 5.3.4 (August 10, 2021)
+- Events updates
+- NPM version requirement increase
+
+## 5.3.3 (July 22, 2021)
+- Events updates
+- Footer background color change
+
+## 5.3.2 (May 14, 2021)
+- Link styling changes for accessibility
+- Added Card display with entire card linked
+
+## 5.3.1 (April 15, 2021)
+- New datepicker
+- Remove object-fit polyfill
+
+## 5.3.0 (February 17, 2021)
+- Initial release
+
+## 5.2.8 (January 13, 2021)
+- Button style updates
+- Fix for Web Audit star in footer
+
+## 5.2.7 (December 8, 2020)
+- New monospace font stack
+- Responsive tables fix
+
+## 5.2.6 (November 12, 2020)
+- Modal fix
+- Add Google Tag Manager code
+- Add dark mode toggle bookmarklet CSS
+
+## 5.2.5 (October 15, 2020)
+- Update UNL Alert styles
+- Update IdM styles to match CTA popovers
+- Add daily cache bust for client chat
+
+## 5.2.4 (September 15, 2020)
+- Add link to accessibility statement in footer
+- Add scroll animations
+
+## 5.2.3 (August 13, 2020)
+- Remove Dark Mode support
+
+## 5.2.2 (August 11, 2020)
+- Remove wdn/templates_5.1 directory
+
+## 5.2.1 (August 9, 2020)
+- 5.2 Initial Release
+
+## 5.1.4 (June 16, 2020)
+- New Slideshow feature
+- Update jQuery to 3.5.1
+
+## 5.1.3 (May 7, 2020)
+- Remove scroll to top from displayWDNNoticeBannerMessage so it doesn't interfere with anchor links
+
+## 5.1.2 (May 3, 2020)
+- Liberator font added
+- New secondary colors
+- IDM Javascript changes
+
+## 5.1.1 (April 3, 2020)
+- Button fixes in visited state
+
+## 5.1.0 (March 25, 2020)
+- 5.1 Initial Release
+
 ## 5.0.17 (March 13, 2020)
 - New WDN Notice javascript to check for campus alert messsages from UComm and prepend a banner
 - IDM updates to access info about logged-in user

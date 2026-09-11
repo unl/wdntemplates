@@ -1,0 +1,67 @@
+////////////////////////////
+// THEME / COMPONENTS / TABS
+////////////////////////////
+
+
+@use "sass:meta";
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/tabs");
+
+
+  .unl .dcf-tab {
+    margin-bottom: -#{var.$border-width-tab};
+  }
+
+
+  .unl .dcf-tab[aria-selected] {
+    border-bottom-color: var.$bg-color-tab-selected; // Match border-bottom-color to background-color of selected tab and tab panel
+    border-left-color: var.$border-color-tab;
+    border-right-color: var.$border-color-tab;
+    border-top-color: var.$border-color-tab;
+    border-style: var.$border-style-tab;
+    border-width: var.$border-width-tab;
+  }
+
+
+  .unl .dcf-tabs-panel > *:last-child {
+    margin-bottom: 0;
+  }
+
+
+  // Responsive tabs
+  @include mixins.mq(md, max, width) {
+
+    .unl .dcf-tabs-responsive .dcf-tab {
+      border-bottom-width: 0;
+      border-left: var.$border-width-tab var.$border-style-tab var.$border-color-tab;
+      border-right: var.$border-width-tab var.$border-style-tab var.$border-color-tab;
+      border-top: var.$border-width-tab var.$border-style-tab var.$border-color-tab;
+      margin-bottom: 0;
+    }
+
+
+    .unl .dcf-tabs-responsive .dcf-tab[aria-selected] {
+      position: relative;
+    }
+
+
+    .unl .dcf-tabs-responsive .dcf-tab[aria-selected]::before {
+      border-bottom: #{var.$ms-5}em solid transparent;
+      border-left: #{var.$ms-5}em solid var.$border-color-tab;
+      border-top: #{var.$ms-5}em solid transparent;
+      content: '';
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+
+}

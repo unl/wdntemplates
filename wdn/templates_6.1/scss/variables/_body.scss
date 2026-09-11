@@ -1,0 +1,15 @@
+///////////////////////////
+// THEME / VARIABLES / BODY
+///////////////////////////
+
+
+@use "./color-palette" as color_palette;
+
+@forward '@dcf/scss/variables/body' with (
+
+  $bg-color-body-light-mode: color_palette.$cream,
+  $bg-color-body-dark-mode: color_palette.$darkest-gray,
+  $color-body-light-mode: color_palette.$darker-gray,
+  $color-body-dark-mode: color_palette.$gray
+
+);

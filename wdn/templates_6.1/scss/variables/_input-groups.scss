@@ -1,0 +1,15 @@
+///////////////////////////////////
+// THEME / VARIABLES / INPUT GROUPS
+///////////////////////////////////
+
+
+@use './color-palette' as color_palette;
+
+@forward "@dcf/scss/variables/input-groups" with (
+
+  $bg-color-input-group-addon-light-mode: color_palette.$lightest-gray,
+  $bg-color-input-group-addon-dark-mode: color_palette.$darker-gray-s1,
+  $color-input-group-addon-light-mode: color_palette.$dark-gray,
+  $color-input-group-addon-dark-mode: color_palette.$gray-s1
+
+);

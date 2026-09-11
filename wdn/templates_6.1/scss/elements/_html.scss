@@ -1,0 +1,13 @@
+//////////////////////////
+// THEME / ELEMENTS / HTML
+//////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+html {
+  @include mixins.font-sans;
+  font-style: normal;
+  font-weight: 500;
+}

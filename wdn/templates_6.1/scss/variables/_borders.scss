@@ -1,0 +1,17 @@
+//////////////////////////////
+// THEME / VARIABLES / BORDERS
+//////////////////////////////
+
+
+@use './color-palette' as color_palette;
+
+@forward '@dcf/scss/variables/borders' with (
+
+  $border-color-light-gray-light-mode: color_palette.$light-gray,
+  $border-color-light-gray-dark-mode: color_palette.$darker-gray,
+  $border-color-lighter-gray-light-mode: color_palette.$lighter-gray,
+  $border-color-lighter-gray-dark-mode: color_palette.$darker-gray,
+  $border-color-lightest-gray-light-mode: color_palette.$lightest-gray,
+  $border-color-lightest-gray-dark-mode: color_palette.$darker-gray
+
+);

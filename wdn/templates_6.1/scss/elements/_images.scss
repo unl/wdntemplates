@@ -1,0 +1,14 @@
+////////////////////////////
+// THEME / ELEMENTS / IMAGES
+////////////////////////////
+
+
+@use "../variables/" as var;
+
+
+// Remove extra vertical space below footer caused by tracking pixel
+body > img[src*="trkn.us"] {
+  bottom: 0;
+  display: block;
+  position: absolute;
+}

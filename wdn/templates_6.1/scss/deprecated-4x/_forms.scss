@@ -1,0 +1,127 @@
+/////////////////////////////
+// THEME / DEPRECATED / FORMS
+/////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+// Form
+form ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+form ul.wdn-std { // restore browser defaults, assumes LTR
+  list-style-type: disc;
+	margin: 1em 0;
+	padding-left: 40px;
+}
+
+form ul.wdn-std li { // restore browser defaults, assumes LTR
+  margin: 0;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="search"],
+form input[type="text"],
+form input[type="url"],
+form input[type="number"],
+form input[type="tel"],
+form textarea {
+  appearance: none;
+  background-color: var(--bg-input);
+  border: 1px solid var(--b-input);
+  border-radius: var.$roundrect;
+  color: inherit;
+  font-family: inherit;
+  padding: var.$padding-top-input var.$padding-right-input var.$padding-bottom-input var.$padding-left-input;
+  transition: border-color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off, box-shadow var.$transition-duration-hover-off var.$transition-timing-fn-hover-off;
+  width: 100%;
+
+  &:hover {
+    border-color: var(--b-input-hover);
+    transition: border-color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+  }
+
+  &:focus {
+    border-color: var(--b-input-focus);
+    box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+    outline: none;
+    transition: box-shadow var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+  }
+
+}
+
+
+@keyframes wdn-error {
+
+  from {
+    border: 1px solid var.$scarlet;
+    box-shadow: 0 0 6px fadeout(var.$scarlet, 20%);
+  }
+
+  to {
+    border: 1px solid fadeout(var.$scarlet, 80%);
+    box-shadow: 0 0 6px fadeout(var.$scarlet, 90%);
+  }
+
+}
+
+form input.wdn-error,
+form textarea.wdn-error,
+form select.wdn-error {
+  animation: wdn-error 1.2s infinite alternate;
+  border: 1px solid var.$scarlet;
+}
+
+form span.required {
+  color: var.$scarlet;
+  @include mixins.txt-xs;
+  font-style: italic;
+}
+
+form span.helper {
+  color: var.$color-dark-gray-light-mode;
+  @include mixins.txt-xs;
+}
+
+
+// Input Group
+.wdn-input-group {
+  display: flex;
+  width: 100%;
+}
+
+.wdn-input-group input[type='text'] {
+  flex-grow: 1;
+  margin-bottom: 0;
+  margin-top: 0;
+  width: 1%;
+}
+
+
+// Webform opt-out
+.wdn-webform-opt-out ol,
+.wdn-webform-opt-out ul {
+  padding-left: 1em;
+}
+
+.wdn-webform-opt-out ol {
+  list-style-type: decimal;
+}
+
+.wdn-webform-opt-out ul {
+  list-style-type: disc;
+}
+
+.wdn-webform-opt-out li {
+  margin: 0;
+}
+
+.wdn-webform-opt-out li li {
+  margin: 0;
+}

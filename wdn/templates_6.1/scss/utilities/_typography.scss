@@ -1,0 +1,31 @@
+/////////////////////////////////
+// THEME / UTILITIES / TYPOGRAPHY
+/////////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+// Font-Size
+.unl-txt-xl { @include mixins.unl-txt-xl; }
+
+
+// Letter Spacing
+.unl-ls-0 { @include mixins.ls-0; }
+.unl-ls-1 { @include mixins.ls-1; }
+.unl-ls-2 { @include mixins.ls-2; }
+.unl-ls-3 { @include mixins.ls-3; }
+.unl-ls-h { @include mixins.ls-h; }
+
+
+// Line-Height Crop
+// Crop to vertically align headings adjacent to photos (e.g. media object layout)
+.unl-lh-crop::before { @include mixins.lh-crop; }
+
+
+// Outline Text: Light
+.unl-txt-outline-light { @include mixins.txt-outline-light; }
+
+
+// Outline Text: Dark
+.unl-txt-outline-dark { @include mixins.txt-outline-dark; }

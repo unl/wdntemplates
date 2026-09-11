@@ -1,0 +1,19 @@
+//////////////////////////
+// THEME / GENERIC / FOCUS
+//////////////////////////
+
+
+@use "../variables/" as var;
+
+
+*:focus-visible {
+  outline: 2px solid var.$color-focus-outline;
+  outline-offset: 3px;
+}
+
+
+// https://css-tricks.com/the-focus-visible-trick/
+// Remove :focus styles for mouse users. Preserve browser defaults for keyboard users.
+*:focus:not(:focus-visible) {
+  outline: 3px solid transparent; // https://sarahmhigley.com/writing/whcm-quick-tips/
+}

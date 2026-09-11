@@ -1,0 +1,166 @@
+////////////////////////////
+// THEME / DEPRECATED / HERO
+////////////////////////////
+
+
+@use "sass:color";
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.wdn-hero {
+  background-color: var.$darker-gray;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.wdn-hero .wdn-button {
+  @include mixins.mt-6;
+}
+
+.wdn-hero .wdn-button:not(:last-child) {
+  @include mixins.mr-3;
+}
+
+.wdn-hero-text-container {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  order: 2;
+  padding: 4vh 5.6%;
+  width: 100%;
+}
+
+.wdn-hero-text-container.locate-center {
+  justify-content: center;
+  text-align: center;
+}
+
+.wdn-hero-heading {
+  color: var.$cream;
+  margin: 0;
+  text-transform: uppercase;
+  @include mixins.txt-h2;
+}
+
+.wdn-hero-initial-line,
+.wdn-hero-impact-line {
+  text-shadow: 1px 1px 16px color.adjust(#000, $alpha: -0.5);
+}
+
+.wdn-hero-initial-line {
+  display: block;
+  font-size: #{var.$ms-8}em;
+  letter-spacing: .1em;
+  @include mixins.lh-2;
+  @include mixins.pb-2;
+  @include mixins.regular;
+}
+
+.wdn-hero-impact-line {
+  display: inline-block;
+  @include mixins.lh-1;
+}
+
+.wdn-hero-impact-line + .wdn-hero-initial-line {
+  @include mixins.mt-3;
+}
+
+.wdn-hero-video,
+.wdn-hero-picture {
+  flex-shrink: 0;
+  order: 1;
+  width: 100%;
+}
+
+.wdn-hero-video {
+  display: none;
+  left: 0;
+}
+
+.wdn-hero-picture img,
+.wdn-hero-video video {
+  display: block;
+  width: 100%;
+}
+
+
+// Media Queries
+
+@media only screen and (min-width:48em) {
+
+  .wdn-hero {
+    height: #{var.$ms22}em;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    @supports (object-fit: cover) {
+      height: 56vh;
+      max-height: #{var.$ms24}em;
+      min-height: #{var.$ms22}em;
+    }
+
+  }
+
+  .wdn-hero video,
+  .wdn-hero img {
+    @include mixins.obj-fit-cover;
+  }
+
+  .wdn-hero-text-container {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .wdn-hero-text-container.locate-right {
+  	justify-content: flex-end;
+  }
+
+  .wdn-hero-heading {
+    @include mixins.txt-xl;
+  }
+
+  .wdn-hero-initial-line {
+    font-size: #{var.$ms-10}em;
+  }
+
+  .wdn-hero-video,
+  .wdn-hero-picture {
+    opacity: .5;
+    overflow: hidden;
+
+    @supports (object-fit: cover) {
+      height: inherit;
+      min-height: #{var.$ms22}em;
+    }
+
+  }
+
+  .wdn-hero-video {
+    display: block;
+  }
+
+  .wdn-hero-video ~ .wdn-hero-picture {
+    display: none;
+  }
+
+}
+
+
+@media only screen and (min-width:80em) and (min-height: #{ms(26)}em) {
+
+  .wdn-hero {
+    height: #{var.$ms24}em;
+
+    @supports (object-fit: cover) {
+      height: 60vh;
+      max-height: #{var.$ms26}em;
+    }
+
+  }
+
+}

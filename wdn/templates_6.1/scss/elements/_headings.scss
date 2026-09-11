@@ -1,0 +1,27 @@
+//////////////////////////////
+// THEME / ELEMENTS / HEADINGS
+//////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+.unl h1,
+.unl h2,
+.unl h3,
+.unl h4,
+.unl h5,
+.unl h6 {
+  font-weight: 600;
+  @include mixins.ls-h;
+}
+
+
+.unl h1 a,
+.unl h2 a,
+.unl h3 a,
+.unl h4 a,
+.unl h5 a,
+.unl h6 a {
+  text-decoration: none;
+}

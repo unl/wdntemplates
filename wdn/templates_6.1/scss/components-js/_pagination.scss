@@ -1,0 +1,15 @@
+//////////////////////////////////
+// THEME / COMPONENTS / PAGINATION
+//////////////////////////////////
+
+
+@use "sass:meta";
+
+@use "../variables/" as var;
+
+
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/pagination");
+
+}

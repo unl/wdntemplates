@@ -1,9 +1,8 @@
 sudo: required
 language: node_js
 node_js:
-  - 8
-before_script:
-  - npm install -g grunt-cli
-  - grunt
+  - "22.13.0"
+script:
+  - npm run build
 addons:
   chrome: stable

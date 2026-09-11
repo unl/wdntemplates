@@ -1,0 +1,30 @@
+////////////////////////////
+// THEME / UTILITIES / FONTS
+////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+// Sans Serif
+.unl-font-sans {
+  @include mixins.font-sans;
+}
+
+
+// Display
+.unl h1.unl-font-display,
+.unl h2.unl-font-display,
+.unl h3.unl-font-display,
+.unl h4.unl-font-display,
+.unl h5.unl-font-display,
+.unl h6.unl-font-display,
+.unl-font-display {
+  @include mixins.font-display;
+}
+
+
+// Monospace
+.unl-font-mono {
+  @include mixins.font-mono;
+}

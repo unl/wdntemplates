@@ -1,0 +1,27 @@
+//////////////////////////////
+// THEME / GENERIC / KEYFRAMES
+//////////////////////////////
+
+
+@use "../variables/" as var;
+
+
+// Parallax
+@keyframes parallax {
+  from {
+    transform: translateY(var(--parallax-offset));
+  }
+  to {
+    transform: translateY(calc(var(--parallax-offset) * -1));
+  }
+}
+
+
+@keyframes bg-parallax {
+  from {
+    background-position: center var.$background-position-parallax-bg;
+  }
+  to {
+    background-position: center 0;
+  }
+}

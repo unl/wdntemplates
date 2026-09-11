@@ -1,0 +1,23 @@
+/////////////////////////
+// THEME / PRINT / HEADER
+/////////////////////////
+
+
+@use "../variables/" as var;
+
+
+.unl .dcf-header-global,
+.unl .dcf-logo-lockup {
+  border-bottom: 1px solid #ccc !important;
+}
+
+
+.unl .dcf-header-global {
+  border-top: none !important;
+}
+
+
+.unl .dcf-logo-lockup {
+  padding-bottom: #{var.$ms01}em !important;
+  padding-top: #{var.$ms02}em !important;
+}

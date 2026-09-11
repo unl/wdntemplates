@@ -1,0 +1,14 @@
+///////////////////////////////
+// THEME / COMPONENTS / REGIONS
+///////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+.unl-hide-idm #unl-idm,
+.unl-hide-footer-unl-logo .unl-footer-logo,
+.unl-hide-qa .unl-wdn-qa,
+.unl-hide-copyright .unl-footer-title-est-copyright {
+  display: none !important;
+}

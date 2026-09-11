@@ -1,0 +1,281 @@
+if (
+    !('UNL' in window) ||
+    typeof window.UNL !== 'object' ||
+    !('autoLoader' in window.UNL) ||
+    typeof window.UNL.autoLoader !== 'object' ||
+    !('config' in window.UNL.autoLoader) ||
+    typeof window.UNL.autoLoader.config !== 'object'
+) {
+    // Load the head-2.js script if it wasn't loaded already
+    await import('@js-src/head-2.js');
+}
+
+document.dispatchEvent(new Event('autoLoaderPreLoad'));
+
+// Setting default values for the autoloader config
+const globalOptInSelector = window.UNL.autoLoader.config.globalOptInSelector ?? null;
+const globalOptOutSelector = window.UNL.autoLoader.config.globalOptOutSelector ?? null;
+const configPluginList = window.UNL.autoLoader.config.plugins ?? {};
+const enabled = window.UNL.autoLoader.config.enabled ?? true;
+const watch = window.UNL.autoLoader.config.watch ?? true;
+
+// This is the list of plugins we will check with when elements are added to the page
+let watchList = [];
+
+// Validate and add all components to watch list
+if (enabled) {
+    window.UNL.autoLoader.plugins = {};
+
+    // Load all plugin modules in parallel
+    const pluginLoadPromises = Object.entries(configPluginList).map(async([pluginName, pluginConfig]) => {
+        if (!('url' in pluginConfig)) {
+            console.error(`Missing URL in autoloader plugin config: ${pluginName}`);
+            return;
+        }
+        let pluginModule = null;
+        try {
+            pluginModule = await import(pluginConfig.url);
+        } catch(err) {
+            console.error(`Error loading plugin: ${pluginName}`);
+            console.error(err);
+            return;
+        }
+        if (typeof pluginModule.getPluginType !== 'function') {
+            console.error(`Plugin missing export: getPluginType (function): ${pluginName}`);
+            return;
+        }
+        if (typeof pluginModule.initialize !== 'function') {
+            console.error(`Plugin missing export: initialize (function): ${pluginName}`);
+            return;
+        }
+        if (typeof pluginModule.getQuerySelector !== 'function') {
+            console.error(`Plugin missing export: getQuerySelector (function): ${pluginName}`);
+            return;
+        }
+        if (pluginModule.getPluginType() === 'single') {
+            if (typeof pluginModule.isOnPage !== 'function') {
+                console.error(`Plugin missing export: isOnPage (function): ${pluginName}`);
+                return;
+            }
+        } else if (pluginModule.getPluginType() === 'multi') {
+            if (typeof pluginModule.loadElement !== 'function') {
+                console.error(`Plugin missing export: loadElement (function): ${pluginName}`);
+                return;
+            }
+            if (typeof pluginModule.loadElements !== 'function') {
+                console.error(`Plugin missing export: loadElements (function): ${pluginName}`);
+                return;
+            }
+        }
+
+        window.UNL.autoLoader.plugins[pluginName] = {
+            loaded: false,
+            optInSelector: pluginConfig?.optInSelector ?? null,
+            optOutSelector: pluginConfig?.optOutSelector ?? null,
+            customConfig: pluginConfig?.customConfig ?? {},
+            onPluginInitialized: pluginConfig?.onPluginInitialized ?? null,
+            onPluginLoadedElement: pluginConfig?.onPluginLoadedElement ?? null,
+            module: pluginModule,
+            elements: [],
+        };
+
+        if (typeof pluginModule.getPluginLoadAfterWatch === 'function' && pluginModule.getPluginLoadAfterWatch() === false) {
+            await loadPlugin(pluginModule, window.UNL.autoLoader.plugins[pluginName], pluginName);
+            window.UNL.autoLoader.plugins[pluginName].loaded = true;
+        }
+
+        watchList.push(pluginName);
+    });
+
+    // Wait for all initializations to complete
+    await Promise.all(pluginLoadPromises);
+}
+
+// Start watching the page for new changes
+if (enabled && watch) {
+    // Loads all elements that are added to the page
+    const mutationCallback = async(mutationList) => {
+        for (const mutationRecord of mutationList) {
+            // Loop through each node added and make sure it is an element
+            for (const nodeAdded of mutationRecord.addedNodes) {
+                if (nodeAdded instanceof Element) {
+                    // Loop through each plugin and check to see if this new element matches it
+                    for (const singlePluginName of watchList) {
+                        const pluginData = window.UNL.autoLoader.plugins[singlePluginName];
+                        const pluginModule = pluginData.module;
+
+                        await checkPluginMutation(nodeAdded, pluginModule, pluginData, singlePluginName);
+                        pluginData.loaded = true;
+                    }
+                }
+            }
+        }
+    };
+
+    const observer = new MutationObserver(mutationCallback);
+    const observerConfig = {
+        subtree: true,
+        childList: true,
+    };
+    observer.observe(document.body, observerConfig);
+}
+
+// Loads all elements that are already on the page
+if (enabled) {
+    const initPromises = Object.entries(window.UNL.autoLoader.plugins).map(async([singlePluginName, pluginData]) => {
+        const pluginModule = pluginData.module;
+
+        if (pluginData.loaded === false) {
+            await loadPlugin(pluginModule, pluginData, singlePluginName);
+        }
+    });
+
+    // Wait for all initializations to complete
+    await Promise.all(initPromises);
+}
+
+window.UNL.autoLoader.loaded = true;
+
+// Clear out the queue and delete it's key-value pair since it is no longer needed
+if ('loadCallbackQueue' in window.UNL.autoLoader && Array.isArray(window.UNL.autoLoader.loadCallbackQueue)) {
+    window.UNL.autoLoader.loadCallbackQueue.forEach((singleCallback) => {
+        singleCallback();
+    });
+    delete window.UNL.autoLoader.loadCallbackQueue;
+}
+// Redefine onload to just call the callback since we have loaded
+window.UNL.autoLoader.onLoad = (callbackFunc) => {
+    callbackFunc();
+};
+
+document.dispatchEvent(new Event('autoLoaderPostLoad'));
+
+async function loadPlugin(pluginModule, pluginData, singlePluginName) {
+    // If the single plugins target is not on the page then we will add it to the watch list
+    //   if it is on the page when we will initialize the plugin
+    if (pluginModule.getPluginType() === 'single') {
+        if (pluginModule.isOnPage()) {
+            try {
+                const element = await pluginModule.initialize(pluginData.customConfig);
+                if (element !== null) {
+                    pluginData.elements.push(element);
+                    if (typeof pluginData.onPluginLoadedElement === 'function') {
+                        pluginData.onPluginLoadedElement({
+                            loadedElement: element,
+                        });
+                    }
+                }
+            } catch (err) {
+                console.error(`Error initializing plugin ${singlePluginName}:`, err);
+            }
+
+            // Filter out the plugins we no longer need
+            watchList = watchList.filter((singlePluginToFilter) => {
+                return singlePluginToFilter !== singlePluginName;
+            });
+        }
+
+    } else if (pluginModule.getPluginType() === 'multi') {
+        let matchingElements = Array.from(document.querySelectorAll(pluginModule.getQuerySelector()));
+
+        // Exit early if it does not find anything
+        if (matchingElements.length === 0) {
+            return;
+        }
+
+        // Filter out opt out
+        if (globalOptOutSelector !== null) {
+            matchingElements = matchingElements.filter((matchingElement) => {
+                return !(matchingElement.matches(globalOptOutSelector));
+            });
+        }
+        if (pluginData.optOutSelector !== null) {
+            matchingElements = matchingElements.filter((matchingElement) => {
+                return !(matchingElement.matches(pluginData.optOutSelector));
+            });
+        }
+
+        // Filter out non-opt in
+        if (globalOptInSelector !== null) {
+            matchingElements = matchingElements.filter((matchingElement) => {
+                return matchingElement.matches(globalOptInSelector);
+            });
+        }
+        if (pluginData.optInSelector !== null) {
+            matchingElements = matchingElements.filter((matchingElement) => {
+                return matchingElement.matches(pluginData.optInSelector);
+            });
+        }
+
+        try {
+            // load the rest of the elements and add the plugin to the watch list
+            const elements = await pluginModule.loadElements(matchingElements, pluginData.customConfig);
+            pluginData.elements = pluginData.elements.concat(elements);
+            if (typeof pluginData.onPluginLoadedElement === 'function') {
+                elements.forEach((singleElement) => {
+                    pluginData.onPluginLoadedElement({
+                        loadedElement: singleElement,
+                    });
+                });
+            }
+        } catch (err) {
+            console.error(`Error loading plugin element for ${singlePluginName}:`, err);
+        }
+    }
+}
+
+async function checkPluginMutation(nodeAdded, pluginModule, pluginData, singlePluginName) {
+    let foundElements = [];
+    if (nodeAdded.matches(pluginModule.getQuerySelector())) {
+        foundElements.push(nodeAdded);
+    }
+    foundElements = foundElements.concat(Array.from(nodeAdded.querySelectorAll(pluginModule.getQuerySelector())));
+
+    for (const singleFoundElement of foundElements) {
+        if (globalOptOutSelector !== null && singleFoundElement.matches(globalOptOutSelector)) {
+            return;
+        }
+        if (globalOptInSelector !== null && !singleFoundElement.matches(globalOptInSelector)) {
+            return;
+        }
+        if (pluginData.optInSelector !== null && !(singleFoundElement.matches(pluginData.optInSelector))) {
+            return;
+        }
+        if (pluginData.optOutSelector !== null && singleFoundElement.matches(pluginData.optOutSelector)) {
+            return;
+        }
+
+        if (pluginModule.getPluginType() === 'single') {
+            try {
+                const element = await pluginModule.initialize(pluginData.customConfig);
+                if (element !== null) {
+                    pluginData.elements.push(element);
+                    if (typeof pluginData.onPluginLoadedElement === 'function') {
+                        pluginData.onPluginLoadedElement({
+                            loadedElement: element,
+                        });
+                    }
+                }
+                // Filter out the plugins we no longer need
+                watchList = watchList.filter((singlePluginToFilter) => {
+                    return singlePluginToFilter !== singlePluginName;
+                });
+            } catch (err) {
+                console.error(`Error initializing plugin ${singlePluginName}:`, err);
+            }
+
+        } else if (pluginModule.getPluginType() === 'multi') {
+            try {
+                const element = await pluginModule.loadElement(singleFoundElement, pluginData.customConfig);
+                pluginData.elements = pluginData.elements.concat(element);
+                if (typeof pluginData.onPluginLoadedElement === 'function') {
+                    pluginData.onPluginLoadedElement({
+                        loadedElement: element,
+                    });
+                }
+            } catch (err) {
+                console.error(`Error loading plugin element for ${singlePluginName}:`, err);
+            }
+        }
+    }
+}

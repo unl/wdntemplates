@@ -1,0 +1,12 @@
+//////////////////////////////////
+// THEME / VARIABLES / BREADCRUMBS
+//////////////////////////////////
+
+
+@use "./color-palette" as color_palette;
+
+@forward "@dcf/scss/variables/breadcrumbs" with (
+
+  $border-color-breadcrumb-arrow: color_palette.$gray
+
+);

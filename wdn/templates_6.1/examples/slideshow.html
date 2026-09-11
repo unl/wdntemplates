@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
+        <title>SlideShow</title>
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/main.css">
+        <script src="/wdn/templates_6.1/js/head-2.js"></script>
+
+        <style>
+            .dcf-slideshow li .example-active-toggle { 
+                opacity: 0;
+                transition: opacity var(--transition-time) var(--transition-easing);
+            }
+
+            .dcf-slideshow li.dcf-slide-active .example-active-toggle {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body class="unl">
+        <main>
+            <h1>Slideshow</h1>
+
+            <h2>Normal</h2>
+            <div id="test" class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow">
+                <ul tabindex="0">
+                    <li>
+                        <figure>
+                            <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+                            <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                            <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Auto Play</h2>
+            <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow" data-play="true">
+                <ul tabindex="0">
+                    <li>
+                        <figure>
+                            <div class="">
+                                <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+                            </div>
+                            <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <div class="">
+                                <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                            </div>
+                            <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <div class="">
+                            <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Fade</h2>
+            <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow" data-transition="fade">
+                <ul tabindex="0">
+                    <li>
+                        <figure>
+                            <div class="">
+                                <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+                            </div>
+                            <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <div class="">
+                                <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                            </div>
+                            <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <div class="">
+                            <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>No toggle caption</h2>
+            <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow" data-toggle-caption="false">
+                <ul tabindex="0">
+                    <li>
+                        <figure>
+                            <div class="">
+                                <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+                            </div>
+                            <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <div class="">
+                                <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                            </div>
+                            <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <div class="">
+                            <img class="dcf-16x9" src="/wdn/templates_6.1/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>No images</h2>
+            <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow" data-toggle-caption="false" data-shuffle="true">
+                <ul tabindex="0">
+                    <li>
+                        <div class="dcf-16x9 dcf-d-flex dcf-jc-center dcf-ai-center">
+                            <p class="dcf-m-0 dcf-p-0">
+                                this is some text 1
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dcf-16x9 dcf-d-flex dcf-jc-center dcf-ai-center">
+                            <p class="dcf-m-0 dcf-p-0">
+                                this is some text 2
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dcf-16x9 dcf-d-flex dcf-jc-center dcf-ai-center">
+                            <p class="dcf-m-0 dcf-p-0">
+                                this is some text 3
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Multi View</h2>
+            <div class="dcf-slideshow unl-slideshow-crop dcf-mb-5 dcf-w-100%" hidden aria-label="WDN Sample Slideshow" data-layout="multi-view" data-button-position="top" data-infinite="true">
+                <ul tabindex="0">
+                    <li>
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3 example-active-toggle" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 1</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3 example-active-toggle" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 2</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3 example-active-toggle" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 3</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3 example-active-toggle" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 4</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3 example-active-toggle" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 5</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3 example-active-toggle" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 6</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="dcf-slideshow dcf-mb-5 dcf-w-100%" hidden aria-label="WDN Sample Slideshow" data-layout="multi-view" data-snap="center" data-infinite="true">
+                <ul tabindex="0">
+                    <li>
+                        <img class="dcf-16x9 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_16x9.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 1</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="dcf-16x9 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_16x9.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 2</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="dcf-16x9 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_16x9.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 3</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="dcf-16x9 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_16x9.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 4</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="dcf-16x9 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_16x9.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 5</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="dcf-slideshow dcf-mb-5 dcf-w-100%" hidden aria-label="WDN Sample Slideshow" data-layout="multi-view" data-snap="left" data-button-position="under">
+                <ul tabindex="0">
+                    <li style="width: clamp(15rem, 25cqw, 20rem);">
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 1</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li style="width: clamp(15rem, 25cqw, 20rem);">
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 2</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li style="width: clamp(15rem, 25cqw, 20rem);">
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 3</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li style="width: clamp(15rem, 25cqw, 20rem);">
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 4</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li style="width: clamp(15rem, 25cqw, 20rem);">
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 5</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                    <li style="width: clamp(15rem, 25cqw, 20rem);">
+                        <img class="dcf-9x16 dcf-h-100% dcf-w-100%" src="/wdn/templates_6.1/images/test/test_9x16.jpg">
+                        <div class="dcf-absolute dcf-bottom-0 dcf-p-3" style="background-color: var(--bg-overlay-dark);">
+                            <p class="unl-cream dcf-txt-lg dcf-mb-0">Big Text 6</p>
+                            <p class="unl-cream dcf-mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <a class="dcf-italic" href="#">Link</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </main>
+
+        <script>
+            document.getElementById('test').addEventListener('slideshowReady', (e) => {
+                console.log('Event Name: slideshowReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            document.addEventListener('UNLPluginLoadedElement', (e) => {
+                console.log('Event Name: UNLPluginLoadedElement', e);
+            });
+            window.UNL.autoLoader.config.plugins.UNLSlideshow.onPluginLoadedElement = (loaded_element) => {
+                console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+            }
+        </script>
+        <script src="/wdn/templates_6.1/js/auto-loader.js" type="module"></script>
+    </body>
+</html>

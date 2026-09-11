@@ -1,0 +1,113 @@
+//////////////////////////////
+// THEME / COMPONENTS / SEARCH
+//////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+@use "../functions/" as fn;
+
+
+@layer components {
+
+  .unl dialog#dcf-search-dialog {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+
+  .unl dialog#dcf-search-dialog::backdrop {
+    @include mixins.backdrop-blur;
+    background-color: var(--bg-overlay-light);
+  }
+
+
+  .unl .dcf-search-input:focus-visible {
+    box-shadow: 0 0 0 3px var.$scarlet, 0 0 0 5px var.$border-color-input-focus !important;
+  }
+
+
+  @include mixins.mq(md, max, width) {
+
+    .unl dialog#dcf-search-dialog {
+      height: 100dvh;
+    }
+
+
+    // Safari does not support `:open`…
+    .unl dialog#dcf-search-dialog:open .dcf-search-dialog-backdrop {
+      display: grid;
+      grid-template-rows: auto 1fr calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
+    }
+
+
+    // …`.dcf-dialog-is-open` is our fallback
+    .unl dialog#dcf-search-dialog.dcf-dialog-is-open .dcf-search-dialog-backdrop {
+      display: grid;
+      grid-template-rows: auto 1fr calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
+    }
+
+
+    .unl .dcf-search-dialog-backdrop {
+      @include mixins.backdrop-blur;
+      background-color: var(--bg-overlay-light);
+      bottom: 0;
+      height: 100dvh;
+      position: fixed;
+      z-index: 998;
+      width: 100%;
+    }
+
+  }
+
+
+  @include mixins.mq(md, min, width) {
+
+    .unl dialog#dcf-search-dialog {
+      height: fit-content;
+    }
+
+
+    // Safari does not support `:open`…
+    .unl dialog#dcf-search-dialog:open .dcf-search-dialog-backdrop {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+
+    // …`.dcf-dialog-is-open` is our fallback
+    .unl dialog#dcf-search-dialog.dcf-dialog-is-open .dcf-search-dialog-backdrop {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+
+    .unl .dcf-search-dialog-backdrop:has(.dcf-search-results-wrapper:not(:empty)) {
+      height: 100dvh;
+    }
+
+
+    .unl .dcf-search-toggle-label {
+      min-width: 6ch; // Maintain same width whether label contains "Search" or "Close"
+    }
+
+
+    .unl .dcf-search-toggle-wrapper .dcf-btn-header-global-toggle-icon {
+      color: var(--inverse);
+    }
+
+
+    .unl .dcf-search-dialog .unl-idm-toggle-button {
+      color: var.$cream;
+    }
+
+
+    .unl .dcf-dialog-header-header {
+      border-bottom-color: var.$scarlet-shade;
+      height: #{var.$ms07}em;
+    }
+
+  }
+
+}

@@ -1,0 +1,87 @@
+name: Bump DCF Version
+
+on:
+  schedule:
+    - cron: "0 */1 * * *"
+
+  workflow_dispatch:
+
+jobs:
+  check-DCF-version:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get latest commit timestamp
+        id: get-commit
+        run: |
+          # Try up to 3 times to get a valid commit timestamp
+          for i in {1..3}; do
+            LATEST_TIMESTAMP=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.1 | jq -r '.commit.committer.date')
+            if [ "$LATEST_TIMESTAMP" != "null" ] && [ -n "$LATEST_TIMESTAMP" ]; then
+              break
+            fi
+            sleep 2
+          done
+
+          # Handle null or missing timestamp
+          if [ "$LATEST_TIMESTAMP" = "null" ] || [ -z "$LATEST_TIMESTAMP" ]; then
+            echo "No valid timestamp retrieved. Skipping commit check."
+            echo "recent_commit=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "timestamp=$LATEST_TIMESTAMP" >> $GITHUB_OUTPUT
+
+      - name: Compare commit timestamps
+        id: compare-commits
+        if: ${{ steps.get-commit.outputs.timestamp != '' && steps.get-commit.outputs.timestamp != 'null' }}
+        run: |
+          CURRENT_TIMESTAMP=$(date +%s)
+          echo "Current timestamp: $CURRENT_TIMESTAMP"
+
+          LATEST_TIMESTAMP=$(date -d "${{ steps.get-commit.outputs.timestamp }}" +%s)
+          echo "Latest commit timestamp: $LATEST_TIMESTAMP"
+
+          TIME_DIFF=$((CURRENT_TIMESTAMP - LATEST_TIMESTAMP))
+          echo "Time difference: $TIME_DIFF seconds"
+
+          if [ $TIME_DIFF -lt 3600 ]; then
+            echo "Recent commit found!"
+            echo "recent_commit=true" >> $GITHUB_OUTPUT
+          else
+            echo "No recent commit"
+            echo "recent_commit=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Modify package-lock.json
+        id: modify-file
+        if: ${{ steps.compare-commits.outputs.recent_commit == 'true' }}
+        run: |
+          FILE_PATH="package-lock.json"
+          FILE_CONTENT=$(cat $FILE_PATH)
+
+          NEW_COMMIT_HASH=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.1 | jq -r '.sha')
+          UPDATED_CONTENT=$(echo "$FILE_CONTENT" | jq --arg new_version "git+ssh://git@github.com/digitalcampusframework/dcf.git#$NEW_COMMIT_HASH" '.packages."node_modules/dcf".resolved = $new_version')
+
+          echo "$UPDATED_CONTENT" > $FILE_PATH
+
+          # Store short hash for use in branch name
+          echo "short_hash=${NEW_COMMIT_HASH:0:7}" >> $GITHUB_OUTPUT
+
+      - name: Create pull request
+        uses: gr2m/create-or-update-pull-request-action@v1
+        if: ${{ steps.compare-commits.outputs.recent_commit == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          title: "Bump DCF (${{ steps.modify-file.outputs.short_hash }})"
+          body: "Updated DCF commit hash"
+          branch: "gw-dcf-bump-branch-${{ steps.modify-file.outputs.short_hash }}"
+          commit-message: "Bumped DCF"
+          labels: dependency
+          reviewers: tommyneu, skoolbus39
+          auto-merge: squash
+          update-pull-request-title-and-body: false

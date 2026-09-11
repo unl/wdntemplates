@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
+        <title>Datatables</title>
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/main.css">
+    </head>
+    <body class="unl">
+        <main>
+            <h1>Datatables</h1>
+
+            <!-- Also add `.unl-dt-headers-align-start`, `.unl-dt-arrows-align-end`, or `.unl-dt-cells-align-start` -->
+            <table id="test_table" class="dcf-table dcf-w-100% unl-dt-inputs-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Number</th>
+                        <th scope="col">Random String</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Notes</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </main>
+
+        <script src="/wdn/templates_6.1/js/auto-loader.js" type="module"></script>
+
+        <script type="module">
+            import * as datatables from '/wdn/templates_6.1/js/plugins/plugin.datatables.js';
+            const $ = await datatables.initialize();
+
+            // Generate 100 rows dynamically instead of writing them by hand
+            const tbody = document.querySelector('#test_table tbody');
+            const colors = ['Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Purple'];
+            const items = ['Car', 'Phone', 'Book', 'Chair', 'Key', 'Apple', 'Laptop'];
+            const categories = ['Electronics', 'Food', 'Furniture', 'Transport', 'Stationery'];
+            const countries = ['USA', 'Canada', 'UK', 'Germany', 'France', 'Mexico'];
+
+            for (let i = 0; i < 100; i++) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td>${generateRandomString()}</td>
+                    <td>${colors[i % colors.length]}</td>
+                    <td>${items[i % items.length]}</td>
+                    <td>${2000 + Math.floor(Math.random() * 50)}-${String((i % 12) + 1).padStart(2, '0')}-${String((i % 28) + 1).padStart(2, '0')}</td>
+                    <td>${i % 2 === 0 ? 'Active' : 'Inactive'}</td>
+                    <td>${categories[i % categories.length]}</td>
+                    <td>$${(Math.random() * 2000).toFixed(2)}</td>
+                    <td>${Math.floor(Math.random() * 500)}</td>
+                    <td>${(Math.random() * 5).toFixed(1)}</td>
+                    <td>${countries[i % countries.length]}</td>
+                    <td>City${i + 1}</td>
+                    <td>user${i}@example.com</td>
+                    <td>555-${String(i).padStart(4,'0')}</td>
+                    <td>Note ${i + 1}</td>
+                `;
+                tbody.appendChild(tr);
+            }
+
+            function generateRandomString() {
+                return Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0");
+            }
+
+            $('#test_table').DataTable({
+                responsive: true,
+                order: [[4, 'desc']],
+                columnDefs: [
+                    { targets: 4, type: 'datetime' },
+                    { targets: [7, 8, 9], className: 'dt-right' }
+                ],
+                buttons: [
+                    {
+                        extend: 'csvHtml5',
+                        text: 'Download CSV',
+                        title: 'random_data',
+                        bom: true,
+                    }
+                ],
+                layout: {
+                    topStart: 'pageLength',
+                    topEnd: ['search', 'buttons'],
+                    bottomStart: 'info',
+                    bottomEnd: 'paging'
+                },
+            });
+        </script>
+    </body>
+</html>

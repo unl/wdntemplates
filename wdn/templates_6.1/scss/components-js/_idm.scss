@@ -1,0 +1,243 @@
+/////////////////////////////////////////////////
+// THEME / COMPONENTS / IDM (IDENTITY MANAGEMENT)
+/////////////////////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+@layer components {
+
+  .unl-idm-personal .dcf-card-as-link:focus:not(:focus-visible),
+  .unl-idm-personal .dcf-card-as-link:focus-within:not(:focus-visible) {
+    outline: none;
+  }
+
+
+  .unl dialog#unl-idm-dialog {
+    width: 100%;
+    max-width: 100%;
+    height: fit-content;
+    max-height: 100dvh;
+  }
+
+
+  .unl dialog#unl-idm-dialog::backdrop {
+    @include mixins.backdrop-blur;
+    background-color: var(--bg-overlay-light);
+  }
+
+
+  .unl-idm-avatar-container {
+    padding: 2px;
+  }
+
+
+  .unl-idm-status-quasi img{
+    filter: blur(3px);
+  }
+
+
+  .unl-idm-services-child {
+    mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) var(--mask-height),
+      rgba(0, 0, 0, 1) calc(100% - var(--mask-height)),
+      rgba(0, 0, 0, 0));
+    padding-block: var(--mask-height);
+  }
+
+
+  .unl-idm-card-body {
+    container-type: inline-size;
+  }
+
+
+  .unl-idm-card-list li {
+    break-inside: avoid-column;
+    margin-bottom: 0;
+  }
+
+
+  @container (min-width: #{var.$ms22}em) {
+
+    .unl-idm-card-list {
+      grid-auto-flow: column;
+      grid-template-columns: 1fr 1fr;
+    }
+
+
+    .unl-idm-ms365-list {
+      grid-template-rows: auto auto;
+    }
+
+
+    .unl-idm-other-services-list {
+      grid-template-rows: auto auto auto auto auto auto;
+    }
+
+  }
+
+
+  @include mixins.mq(md, max, width) {
+
+    .unl .unl-idm-dialog-backdrop {
+      @include mixins.backdrop-blur;
+      background-color: var(--bg-overlay-light);
+      bottom: 0;
+      height: 100dvh;
+      position: fixed;
+      width: 100%;
+      z-index: 998;
+    }
+
+
+    .unl-idm-content {
+      bottom: calc(#{var.$inset-bottom-mobile-toolbar} + #{var.$height-mobile-toolbar});
+      grid-template-rows: 1fr auto;
+      height: 56vh;
+    }
+
+
+    .unl-idm-personal {
+      border-bottom-color: rgba(0,0,0,0.1);
+      bottom: 0;
+      grid-row: 2 / 3;
+      transform-origin: 50% 100%;
+      transition:
+        opacity var.$transition-duration-opacity-idm-personal var.$transition-easing-opacity-idm-personal var.$transition-delay-opacity-idm-personal,
+        transform var.$transition-duration-transform-idm-personal var.$transition-easing-transform-idm-personal var.$transition-delay-transform-idm-personal;
+      width: 100%;
+      z-index: 9999;
+    }
+
+
+    .unl dialog#unl-idm-dialog:open .unl-idm-personal {
+      opacity: 1;
+      transform: translateY(0);
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+    }
+
+
+    .unl dialog#unl-idm-dialog.dcf-dialog-is-open .unl-idm-personal {
+      opacity: 1;
+      transform: translateY(0);
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+    }
+
+
+    .unl-idm-services {
+      grid-row: 1 / 2;
+    }
+
+
+    .unl dialog#unl-idm-dialog .unl-idm-services {
+      transition:
+        opacity var.$transition-duration-opacity-idm-services var.$transition-easing-opacity-idm-services var.$transition-delay-opacity-idm-services,
+        transform var.$transition-duration-transform-idm-services var.$transition-easing-transform-idm-services var.$transition-delay-transform-idm-services;
+    }
+
+
+    .unl dialog#unl-idm-dialog:open .unl-idm-services {
+      opacity: 1;
+      transform: translateY(0%);
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+    }
+
+
+    .unl dialog#unl-idm-dialog.dcf-dialog-is-open .unl-idm-services {
+      opacity: 1;
+      transform: translateY(0%);
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+    }
+
+
+    .unl-idm-services-child {
+      --mask-height: #{var.$length-em-6}; // 1.78em;
+    }
+
+  }
+
+
+  @include mixins.mq(md, min, width) {
+
+    .unl .unl-idm-img {
+      color: var.$light-gray;
+    }
+
+
+    .unl .dcf-header-global-dialog .unl-idm-img {
+      color: var.$cream;
+    }
+
+
+    .unl .unl-idm-dialog .dcf-btn-search-desktop {
+      color: var.$cream;
+    }
+
+
+    .unl .unl-idm-dialog .dcf-btn-search-desktop .dcf-btn-header-global-toggle-icon {
+      color: var.$scarlet;
+    }
+
+
+    .unl-idm-content {
+      grid-template-rows: auto 1fr;
+      max-height: calc(100vh - #{var.$ms07}em - var.$length-em-8);
+    }
+
+
+    .unl-idm-services {
+      --mask-height: #{var.$length-em-8}; // 3.16em;
+    }
+
+  }
+
+
+  @media only screen and (min-width: #{var.$ms31}em) {
+
+    .unl-idm-grid-services {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+
+    .unl-idm-ms365 {
+      grid-column: 1 / span 1;
+    }
+
+
+    .unl-idm-canvas {
+      grid-column: 2 / span 1;
+      grid-row: 1 / 2;
+    }
+
+
+    .unl-idm-other-services {
+      grid-column: 3 / span 2;
+      grid-row-end: 2;
+    }
+
+  }
+
+}

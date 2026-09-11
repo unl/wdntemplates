@@ -1,0 +1,66 @@
+/////////////////////////////////
+// THEME / UTILITIES / ANIMATIONS
+/////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+// Scroll-based animations
+// https://www.bram.us/2024/09/24/feature-detecting-scroll-driven-animations-you-want-to-check-for-animation-range-too/
+@supports ((animation-timeline: view()) and (animation-range: 0% 100%)) {
+
+  // Scroll trigger container
+  .unl-scroll-trigger-container { @include mixins.scroll-trigger; }
+
+
+  // Scroll FX
+  [class*="unl-scroll-fx-"] { @include mixins.scroll-fx; }
+
+
+  // Stagger scroll FX
+  // @supports checks whether the browser understands a specific declaration.
+  // sibling-index() returns a number.
+  // z-index accepts a number value, so it’s a safe property to test with.
+  // If the browser doesn't recognize sibling-index(), the whole declaration becomes invalid and the @supports block will fail.
+  @supports (z-index: sibling-index()) {
+
+    @property --stagger-index {
+      syntax: "<integer>";
+      inherits: true;
+      initial-value: 0;
+    }
+
+    .unl-scroll-trigger-stagger .unl-scroll-trigger-container {
+      --stagger-index: sibling-index();
+    }
+
+    .unl-scroll-trigger-stagger .unl-scroll-trigger-container [class*="unl-scroll-fx-"] {
+      transition-delay: calc(var(--stagger-index) * #{var.$transition-delay-scroll-fx-stagger});
+    }
+
+  }
+
+
+  // Animation options
+  .unl-scroll-fx-fade-in { @include mixins.fade-in-on-scroll; }
+  .unl-scroll-fx-move-left { @include mixins.move-left-on-scroll; }
+  .unl-scroll-fx-move-right { @include mixins.move-right-on-scroll; }
+  .unl-scroll-fx-move-up { @include mixins.move-up-on-scroll; }
+
+
+  // Parallax
+  @include mixins.mq(md, min, width) {
+
+    [class*="unl-parallax-"] { @include mixins.parallax; }
+
+    .unl-parallax-1 { @include mixins.parallax-1; }
+    .unl-parallax-2 { @include mixins.parallax-2; }
+    .unl-parallax-3 { @include mixins.parallax-3; }
+
+  }
+
+  .unl-bg-parallax { @include mixins.bg-parallax; }
+
+}

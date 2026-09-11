@@ -1,0 +1,14 @@
+/////////////////////////////////////////////
+// THEME / UTILITIES / BACKGROUND BLEND MODES
+/////////////////////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+// Multiply
+.unl-bg-multiply { @include mixins.bg-multiply; }
+
+
+// Soft Light
+.unl-bg-soft-light { @include mixins.bg-soft-light; }

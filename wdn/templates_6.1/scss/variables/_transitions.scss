@@ -1,0 +1,15 @@
+//////////////////////////////////
+// THEME / VARIABLES / TRANSITIONS
+//////////////////////////////////
+
+
+@forward "@dcf/scss/variables/transitions";
+// Use `@forward .. with ..` to override variables
+
+
+// Delay
+$transition-delay-scroll-fx-stagger: 100ms;
+
+
+// Timing Function (Easing)
+$transition-timing-fn-scroll-fx-stagger: cubic-bezier(.25, .46, .45, .94);

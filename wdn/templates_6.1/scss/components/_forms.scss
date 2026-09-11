@@ -1,0 +1,77 @@
+/////////////////////////////
+// THEME / COMPONENTS / FORMS
+/////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+// Required
+.unl .dcf-required {
+  background-color: var.$bg-color-required;
+  border: 1px solid var.$border-color-required;
+  border-radius: var.$pill;
+  display: inline-block;
+  @include mixins.lh-1;
+  margin-left: var.$margin-left-required;
+  padding: var.$padding-top-required var.$padding-right-required var.$padding-bottom-required var.$padding-left-required;
+  text-align: center;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+
+// Inputs
+.unl .dcf-input-text,
+.unl .dcf-form input:not([type="submit"]),
+.unl .dcf-form textarea {
+  transition: border-color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off, box-shadow var.$transition-duration-hover-off var.$transition-timing-fn-hover-off;
+}
+
+
+.unl .dcf-input-text:disabled,
+.unl .dcf-form input:not([type="submit"]):disabled,
+.unl .dcf-form textarea:disabled {
+  background-color: var.$bg-color-input-disabled;
+}
+
+
+.unl .dcf-input-text:hover,
+.unl .dcf-form input:not([type="submit"]):hover,
+.unl .dcf-form textarea:hover {
+  transition: border-color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+}
+
+
+.unl .dcf-input-text:focus-visible,
+.unl .dcf-form input:not([type="submit"]):focus-visible,
+.unl .dcf-form textarea:focus-visible {
+  box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px var.$border-color-input-focus;
+  transition: box-shadow var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+}
+
+
+// Input: Control
+.unl .dcf-input-control {
+  @include mixins.mr-1;
+}
+
+
+// Input: File
+.unl .dcf-form input[type="file"] {
+  @include mixins.rounded;
+}
+
+.unl .dcf-form input[type="file"]::-webkit-file-upload-button {
+  @include mixins.txt-sm;
+  @include mixins.bold;
+  padding: var.$padding-top-button var.$padding-right-button var.$padding-bottom-button var.$padding-left-button;
+  @include mixins.mr-4;
+}
+
+
+// Form Controls Inline Label
+.unl .dcf-form-controls-inline label {
+  margin-bottom: 0;
+}

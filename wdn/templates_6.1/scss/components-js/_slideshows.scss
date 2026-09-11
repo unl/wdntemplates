@@ -1,0 +1,39 @@
+//////////////////////////////////
+// THEME / COMPONENTS / SLIDESHOWS
+//////////////////////////////////
+
+
+@use "sass:meta";
+
+@use "../variables/" as var;
+
+
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/slideshows");
+
+
+  .unl .dcf-slideshow-controls button {
+    padding: 1em;
+    color: var(--inverse);
+  }
+
+  .unl .dcf-slideshow.unl-slideshow-crop {
+    --clip-path-inline: 1cqw;
+    --clip-path-block: 1cqw;
+    --gap: 0px;
+  }
+
+  .unl .dcf-slideshow.unl-slideshow-crop li {
+    clip-path: inset(var(--clip-path-block) var(--clip-path-inline) var(--clip-path-block) var(--clip-path-inline) round var.$roundrect);
+    transition:
+      clip-path var(--transition-time) var(--transition-easing),
+      margin-inline var(--transition-time) var(--transition-easing);
+  }
+
+  .unl .dcf-slideshow.unl-slideshow-crop li.dcf-slide-active {
+    clip-path: inset(0% 0% 0% 0% round var.$roundrect);
+    margin-inline: var(--clip-path-inline);
+  }
+
+}

@@ -1,0 +1,55 @@
+//////////////////////////////
+// THEME / COMPONENTS / HEROES
+//////////////////////////////
+
+
+@use "sass:color";
+@use "../variables/" as var;
+
+
+// Hero Sizes
+.unl .dcf-hero-sm {
+  height: #{var.$ms22}vh;
+  max-height: #{var.$ms18}em;
+  min-height: #{var.$ms16}em;
+}
+
+
+.unl .dcf-hero-md {
+  height: #{var.$ms26}vh;
+  max-height: #{var.$ms22}em;
+  min-height: #{var.$ms20}em;
+}
+
+
+.unl .dcf-hero-lg {
+  height: #{var.$ms28}vh;
+  max-height: #{var.$ms24}em;
+  min-height: #{var.$ms22}em;
+}
+
+
+// Page Title
+.unl .dcf-page-title h1 {
+  margin-top: 0;
+}
+
+
+.unl .dcf-page-title h1,
+.unl .dcf-page-title h1 + .dcf-subhead {
+  margin-bottom: 0; // Margin-bottom creates an unwanted vertical gap that shows the hero background-color.
+}
+
+
+.unl .dcf-page-title h1 + .dcf-subhead {
+  margin-top: 1rem;
+}
+
+
+// Photo Credit
+.unl .dcf-hero-photo-credit {
+  margin: 0;
+  right: var.$length-em-1;
+  text-shadow: 1px 1px var.$length-em-4 color.adjust(var.$darkest-gray, $alpha: -0.5);
+  top: var.$length-em-6;
+}

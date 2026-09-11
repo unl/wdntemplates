@@ -1,0 +1,25 @@
+///////////////////////////////////////
+// THEME / COMPONENTS / FORMS - SELECTS
+///////////////////////////////////////
+
+
+@use "../variables/" as var;
+
+
+.unl .dcf-input-select,
+.unl .dcf-form select {
+  transition: border-color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off, box-shadow var.$transition-duration-hover-off var.$transition-timing-fn-hover-off;
+}
+
+
+.unl .dcf-input-select:hover,
+.unl .dcf-form select:hover {
+  transition: border-color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+}
+
+
+.unl .dcf-input-select:focus-visible,
+.unl .dcf-form select:focus-visible {
+  box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px var.$border-color-input-focus;
+  transition: box-shadow var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+}

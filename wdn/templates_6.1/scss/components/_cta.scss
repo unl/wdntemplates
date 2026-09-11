@@ -1,0 +1,65 @@
+///////////////////////////
+// THEME / COMPONENTS / CTA
+///////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+@include mixins.mq(md, max, width) {
+
+  .unl .dcf-cta-nav {
+    display: block;
+  }
+
+
+  .unl .dcf-cta-header {
+    display: none;
+  }
+
+
+  .unl .dcf-cta ul {
+    grid-gap: var.$length-em-6 var.$length-vw-1;
+  }
+
+
+  .unl-cta-heading {
+    font-size: var.$length-em-4;
+    margin-left: 0 !important;
+  }
+
+}
+
+
+@media (min-width: #{var.$ms24}em) {
+
+  .unl .dcf-cta ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+@include mixins.mq(md, min, width) {
+
+  .unl .dcf-cta-nav {
+    display: none;
+  }
+
+
+  .unl .dcf-cta-header {
+    display: flex;
+  }
+
+
+  .unl .dcf-header-global .dcf-cta-header .dcf-list-cta a {
+    color: #fefdfa;
+  }
+
+
+  .unl .dcf-list-cta a:hover {
+    @include mixins.txt-decor-hover-on;
+  }
+
+}

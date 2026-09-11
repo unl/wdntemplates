@@ -1,0 +1,20 @@
+//////////////////////////////
+// THEME / COMPONENTS / POPUPS
+//////////////////////////////
+
+
+@use "sass:meta";
+
+@use "../variables/" as var;
+
+
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/popups");
+
+
+  .unl .dcf-popup-content {
+    transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
+  }
+
+}
