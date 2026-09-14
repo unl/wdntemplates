@@ -27,7 +27,6 @@ export default ({ mode }) => {
     // Default plugins which are loaded every time
     const plugins = [
         wdnCleanupPlugin,
-        wdnCleanupPlugin,
         wdnFinalJsUrlPlugin({
             version: version,
         }),
