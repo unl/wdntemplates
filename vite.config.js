@@ -15,6 +15,24 @@ import wdnImportVersion from './vite.wdnImportVersion.js';
 import wdnMockBannerInjector from './vite.wdnMockBannerInjector.js';
 import wdnCriticalCSSTest from './vite.wdnCriticalCSSTest.js';
 
+function wdnDataTablesPlugin() {
+    const sourcePath = 'wdn/templates_6.1/js-src/lib/datatables.js';
+
+    return {
+        name: 'wdn-datatables',
+
+        buildStart() {
+            this.addWatchFile(sourcePath);
+
+            this.emitFile({
+                type: 'asset',
+                fileName: 'wdn/templates_6.1/js/lib/datatables.js',
+                source: readFileSync(sourcePath, 'utf8'),
+            });
+        },
+    };
+}
+
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
 
@@ -27,6 +45,7 @@ export default ({ mode }) => {
     // Default plugins which are loaded every time
     const plugins = [
         wdnCleanupPlugin,
+        wdnDataTablesPlugin(),
         wdnFinalJsUrlPlugin({
             version: version,
         }),
@@ -182,7 +201,6 @@ export default ({ mode }) => {
                     'lib/jquery-ui'        : 'wdn/templates_6.1/js-src/lib/jquery-ui.js',
                     'lib/jquery-validator' : 'wdn/templates_6.1/js-src/lib/jquery-validator.js',
                     'lib/modal'            : 'wdn/templates_6.1/js-src/lib/modal.js', // Deprecated
-                    'lib/datatables'       : 'wdn/templates_6.1/js-src/lib/datatables.js',
 
                     // We don't need 'css/' to prefix the keys since the assetFileNames will add the css directory for us
                     'affiliate'     : 'wdn/templates_6.1/scss/affiliate.scss',
