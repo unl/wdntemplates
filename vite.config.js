@@ -94,14 +94,13 @@ export default ({ mode }) => {
     }
 
     return defineConfig({
-        esbuild: {
+        oxc: {
             // These options will allow us to keep the class names and other variables in the code
             //   This is super helpful for debugging and console logging
-            minifyIdentifiers: false,
             keepNames: true,
         },
         build: {
-            minify: 'esbuild',
+            minify: 'oxc',
 
             // Tells the bundler to target modern browsers
             //   Specifically allows us to do top level await
