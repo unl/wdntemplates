@@ -23,7 +23,7 @@ export default function wdnCriticalCSSInjector({ cssFile, targets }) {
                     return;
                 }
 
-                const criticalCssRegex = new RegExp('<style id="unl-critical-css">[^<]*</style>');
+                const criticalCssRegex = /<style id="unl-critical-css">[\s\S]*?<\/style>/;
                 const content = readFileSync(targetPath, 'utf-8');
                 const updated = content.replace(criticalCssRegex, wrappedCss);
                 writeFileSync(targetPath, updated, 'utf-8');
