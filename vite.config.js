@@ -124,6 +124,14 @@ export default ({ mode }) => {
             //   Specifically allows us to do top level await
             target: 'esnext',
 
+            cssTarget: [
+                'chrome111',
+                'edge111',
+                'firefox140',
+                'safari16.4',
+                'ios16.4',
+            ],
+
             // outDir is where the files will be built to
             // wdnCleanupPlugin will copy them to the correct locations after the fact
             outDir: './dist',
