@@ -227,7 +227,7 @@ export default ({ mode }) => {
                             if (assetInfo.originalFileNames.length > 0) {
                                 // This will extract the directory the file is in
                                 // If it finds a file it will include it in the returned built file path
-                                const folderRegex = /wdn\/templates_6\.0\/images\/([^/]+)\/[^/]+/i;
+                                const folderRegex = /wdn\/templates_6\.1\/images\/([^/]+)\/[^/]+/i;
                                 const path = folderRegex.exec(assetInfo.originalFileNames[0]);
                                 if (path !== null && path.length === 2) {
                                     return `wdn/templates_6.1/assets/images/${path[1]}/[name][extname]`;
