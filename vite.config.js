@@ -10,7 +10,6 @@ import wdnFinalJsUrlPlugin from './vite.wdnFinalJsUrlPlugin.js';
 import wdnSmudge from './vite.wdnSmudgePlugin.js';
 import wdnZipPlugin from './vite.wdnZipPlugin.js';
 import wdnCriticalCSSInjector from './vite.wdnCriticalCSSInjector.js';
-import wdnLayerPolyfill from './vite.wdnLayerPolyfill.js';
 import wdnImportVersion from './vite.wdnImportVersion.js';
 import wdnMockBannerInjector from './vite.wdnMockBannerInjector.js';
 import wdnCriticalCSSTest from './vite.wdnCriticalCSSTest.js';
@@ -49,7 +48,6 @@ export default ({ mode }) => {
         wdnFinalJsUrlPlugin({
             version: version,
         }),
-        wdnLayerPolyfill(),
         wdnImportVersion({
             version: version,
         }),
