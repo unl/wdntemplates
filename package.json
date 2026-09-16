@@ -38,8 +38,8 @@
     "dev": "vite",
     "build": "vite build",
     "build-watch": "vite build --watch",
-    "build-smudge": "vite build -- --smudge",
-    "build-criticalCSSTest": "vite build -- --criticalCSSTest",
+    "build-smudge": "SMUDGE=true vite build",
+    "build-critical-css-test": "CRITICAL_CSS_TEST=true vite build",
     "preview": "vite preview",
     "lint-js": "eslint wdn/templates_6.1/js-src/**/*.js"
   },

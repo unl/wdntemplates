@@ -70,7 +70,7 @@ export default ({ mode }) => {
         );
     }
 
-    if (process.argv.includes('--criticalCSSTest')) {
+    if (process.env.CRITICAL_CSS_TEST === 'true') {
         plugins.push(
             wdnCriticalCSSTest({
                 targets: [
@@ -82,7 +82,7 @@ export default ({ mode }) => {
     }
 
     // If we are building for the production environment
-    if (process.argv.includes('--smudge')) {
+    if (process.env.SMUDGE === 'true') {
         // We need to smudge the files in specific directories
         //  this will replace specific values (i.e. $DEP_VERSION$, $Id$) in the markup with actual values
         plugins.push(
