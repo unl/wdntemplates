@@ -10,10 +10,27 @@ import wdnFinalJsUrlPlugin from './vite.wdnFinalJsUrlPlugin.js';
 import wdnSmudge from './vite.wdnSmudgePlugin.js';
 import wdnZipPlugin from './vite.wdnZipPlugin.js';
 import wdnCriticalCSSInjector from './vite.wdnCriticalCSSInjector.js';
-import wdnLayerPolyfill from './vite.wdnLayerPolyfill.js';
 import wdnImportVersion from './vite.wdnImportVersion.js';
 import wdnMockBannerInjector from './vite.wdnMockBannerInjector.js';
 import wdnCriticalCSSTest from './vite.wdnCriticalCSSTest.js';
+
+function wdnDataTablesPlugin() {
+    const sourcePath = 'wdn/templates_6.1/js-src/lib/datatables.js';
+
+    return {
+        name: 'wdn-datatables',
+
+        buildStart() {
+            this.addWatchFile(sourcePath);
+
+            this.emitFile({
+                type: 'asset',
+                fileName: 'wdn/templates_6.1/js/lib/datatables.js',
+                source: readFileSync(sourcePath, 'utf8'),
+            });
+        },
+    };
+}
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
@@ -27,11 +44,10 @@ export default ({ mode }) => {
     // Default plugins which are loaded every time
     const plugins = [
         wdnCleanupPlugin,
-        wdnCleanupPlugin,
+        wdnDataTablesPlugin(),
         wdnFinalJsUrlPlugin({
             version: version,
         }),
-        wdnLayerPolyfill(),
         wdnImportVersion({
             version: version,
         }),
@@ -54,7 +70,7 @@ export default ({ mode }) => {
         );
     }
 
-    if (process.argv.includes('--criticalCSSTest')) {
+    if (process.env.CRITICAL_CSS_TEST === 'true') {
         plugins.push(
             wdnCriticalCSSTest({
                 targets: [
@@ -66,7 +82,7 @@ export default ({ mode }) => {
     }
 
     // If we are building for the production environment
-    if (process.argv.includes('--smudge')) {
+    if (process.env.SMUDGE === 'true') {
         // We need to smudge the files in specific directories
         //  this will replace specific values (i.e. $DEP_VERSION$, $Id$) in the markup with actual values
         plugins.push(
@@ -94,18 +110,25 @@ export default ({ mode }) => {
     }
 
     return defineConfig({
-        esbuild: {
+        oxc: {
             // These options will allow us to keep the class names and other variables in the code
             //   This is super helpful for debugging and console logging
-            minifyIdentifiers: false,
             keepNames: true,
         },
         build: {
-            minify: 'esbuild',
+            minify: 'oxc',
 
             // Tells the bundler to target modern browsers
             //   Specifically allows us to do top level await
             target: 'esnext',
+
+            cssTarget: [
+                'chrome111',
+                'edge111',
+                'firefox140',
+                'safari16.4',
+                'ios16.4',
+            ],
 
             // outDir is where the files will be built to
             // wdnCleanupPlugin will copy them to the correct locations after the fact
@@ -184,7 +207,6 @@ export default ({ mode }) => {
                     'lib/jquery-ui'        : 'wdn/templates_6.1/js-src/lib/jquery-ui.js',
                     'lib/jquery-validator' : 'wdn/templates_6.1/js-src/lib/jquery-validator.js',
                     'lib/modal'            : 'wdn/templates_6.1/js-src/lib/modal.js', // Deprecated
-                    'lib/datatables'       : 'wdn/templates_6.1/js-src/lib/datatables.js',
 
                     // We don't need 'css/' to prefix the keys since the assetFileNames will add the css directory for us
                     'affiliate'     : 'wdn/templates_6.1/scss/affiliate.scss',
@@ -211,7 +233,7 @@ export default ({ mode }) => {
                             if (assetInfo.originalFileNames.length > 0) {
                                 // This will extract the directory the file is in
                                 // If it finds a file it will include it in the returned built file path
-                                const folderRegex = /wdn\/templates_6\.0\/images\/([^/]+)\/[^/]+/i;
+                                const folderRegex = /wdn\/templates_6\.1\/images\/([^/]+)\/[^/]+/i;
                                 const path = folderRegex.exec(assetInfo.originalFileNames[0]);
                                 if (path !== null && path.length === 2) {
                                     return `wdn/templates_6.1/assets/images/${path[1]}/[name][extname]`;

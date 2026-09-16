@@ -5,7 +5,7 @@
 
 // Sans Serif
 @mixin font-sans($imp:null) {
-  font-family: 'Work Sans', 'Sans Serif Fallback', sans-serif $imp;
+  font-family: 'Work Sans', 'SansSerifFallback', sans-serif $imp;
 }
 
 

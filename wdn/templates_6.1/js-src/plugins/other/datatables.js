@@ -42,19 +42,29 @@ export async function initialize(options = {}) {
 }
 
 async function fakeDefine(jQuery) {
-    // Save old define
     const oldDefine = window.define;
+
     window.define = (deps, factory) => {
         if (typeof factory !== 'function') {
             return;
         }
+
         factory(jQuery);
     };
     window.define.amd = true;
 
-    // Import which should use the fake define we set up
-    await import('@js-src/lib/datatables.js');
+    try {
+        await new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            const datatablesPath = '../lib/datatables.js';
 
-    // Restore old define
-    window.define = oldDefine;
+            script.src = new URL(datatablesPath, import.meta.url).href;
+            script.onload = resolve;
+            script.onerror = reject;
+
+            document.head.appendChild(script);
+        });
+    } finally {
+        window.define = oldDefine;
+    }
 }

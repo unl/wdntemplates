@@ -18,14 +18,23 @@ export default function wdnCriticalCSSInjector({ cssFile, targets }) {
 
             targets.forEach(targetFile => {
                 const targetPath = path.resolve(targetFile);
+
                 if (!existsSync(targetPath)) {
                     console.warn(`Target file not found: ${targetPath}`);
                     return;
                 }
 
-                const criticalCssRegex = new RegExp('<style id="unl-critical-css">[^<]*</style>');
+                const criticalCssRegex = /<style id="unl-critical-css">[\s\S]*?<\/style>/;
+
                 const content = readFileSync(targetPath, 'utf-8');
+
+                if (!criticalCssRegex.test(content)) {
+                    console.warn(`Critical CSS marker not found: ${targetPath}`);
+                    return;
+                }
+
                 const updated = content.replace(criticalCssRegex, wrappedCss);
+
                 writeFileSync(targetPath, updated, 'utf-8');
             });
         },
