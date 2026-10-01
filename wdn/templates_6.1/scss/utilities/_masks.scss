@@ -1,0 +1,9 @@
+////////////////////////////////
+// CORE / UTILITIES / CLIP PATHS
+////////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+.unl-frame-circle { @include mixins.mask-frame-circle; }

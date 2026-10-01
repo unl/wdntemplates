@@ -1,0 +1,21 @@
+/////////////////////////
+// THEME / MIXINS / MASKS
+/////////////////////////
+
+
+@mixin mask-frame-circle($imp:null) {
+
+  -webkit-mask: radial-gradient(
+    circle closest-side,
+    #000 calc(100% - 5px),
+    transparent 0 calc(100% - 2px),
+    #000 0
+  );
+  mask: radial-gradient(
+    circle closest-side,
+    #000 calc(100% - 5px),
+    transparent 0 calc(100% - 2px),
+    #000 0
+  );
+
+}
