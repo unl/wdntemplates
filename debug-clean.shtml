@@ -90,7 +90,7 @@
       <!-- TemplateBeginEditable name="highlighted" -->
       <!-- TemplateEndEditable -->
       <!-- TemplateBeginEditable name="hero" -->
-      <div class="dcf-hero dcf-hero-default">
+      <div class="dcf-hero dcf-hero-default dcf-d-none">
         <!-- TemplateEndEditable -->
         <div class="dcf-hero-group-1">
           <div class="dcf-breadcrumbs-wrapper">
