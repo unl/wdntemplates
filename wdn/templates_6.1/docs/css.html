@@ -12,92 +12,408 @@
     <main class="dcf-d-flex dcf-jc-center dcf-wrapper dcf-pt-7 dcf-pb-7">
       <div class="dcf-w-100% dcf-max-w-75ch">
         <h1 id="css-reference">CSS</h1>
-        <p>This page documents the CSS objects, components and utility classes available in the Digital Campus Framework (DCF), including UNL-specific brand classes for colors, fonts and scroll animations.</p>
+        <p>This page documents the <abbr title="Cascading Style Sheets">CSS</abbr> cascade layers, objects, components and utility classes available in the Digital Campus Framework (DCF), including UNL-specific brand classes for colors, fonts and scroll animations.</p>
         <ul class="dcf-mt-6 dcf-columns-auto">
+          <li><a href="#cascade-layers">Cascade Layers</a>
+            <ul>
+            <li><a href="#layer-order">Layer Order</a></li>
+            <li><a href="#site-specific-styles">Adding Site-Specific Styles</a></li>
+            <li><a href="#unlayered-styles">Unlayered Styles</a></li>
+            <li><a href="#important-declarations">Important Declarations</a></li>
+            <li><a href="#cascade-layers-best-practices">Best Practices</a></li>
+            </ul>
+          </li>
           <li><a href="#objects">Objects</a>
             <ul>
-              <li><a href="#wrapper">Wrapper</a></li>
-              <li><a href="#bleed">Bleed</a></li>
-              <li><a href="#grids">Grids</a></li>
+            <li><a href="#wrapper">Wrapper</a></li>
+            <li><a href="#bleed">Bleed</a></li>
+            <li><a href="#grids">Grids</a>
+              <ul>
+              <li><a href="#flow">Flow</a></li>
+              <li><a href="#columns">Columns</a></li>
+              <li><a href="#rows">Rows</a></li>
+              </ul>
+            </li>
             </ul>
           </li>
           <li><a href="#components">Components</a>
             <ul>
-              <li><a href="#accordions-collapsible-content">Accordions (Collapsible Content)</a></li>
-              <li><a href="#badges">Badges</a></li>
-              <li><a href="#blockquotes">Blockquotes</a></li>
-              <li><a href="#buttons">Buttons</a></li>
-              <li><a href="#cards">Cards</a></li>
-              <li><a href="#code">Code</a></li>
-              <li><a href="#datepickers">Datepickers</a></li>
-              <li><a href="#dialogs">Dialogs</a></li>
-              <li><a href="#figures">Figures</a></li>
-              <li><a href="#forms">Forms</a></li>
-              <li><a href="#headings">Headings</a></li>
-              <li><a href="#input-groups">Input Groups</a></li>
-              <li><a href="#lists">Lists</a></li>
-              <li><a href="#notices">Notices</a></li>
-              <li><a href="#pagination">Pagination</a></li>
-              <li><a href="#paragraphs">Paragraphs</a></li>
-              <li><a href="#popups">Popups</a></li>
-              <li><a href="#slideshows">Slideshows</a></li>
-              <li><a href="#tables">Tables</a></li>
-              <li><a href="#tabs">Tabs</a></li>
-              <li><a href="#videos">Videos</a></li>
+            <li><a href="#accordions-collapsible-content">Accordions (Collapsible Content)</a></li>
+            <li><a href="#badges">Badges</a>
+              <ul>
+              <li><a href="#roundrect-badges">Roundrect Badges</a></li>
+              <li><a href="#pill-badges">Pill Badges</a></li>
+              </ul>
+            </li>
+            <li><a href="#blockquotes">Blockquotes</a></li>
+            <li><a href="#buttons">Buttons</a>
+              <ul>
+              <li><a href="#primary-buttons">Primary Buttons</a></li>
+              <li><a href="#secondary-buttons">Secondary Buttons</a></li>
+              <li><a href="#tertiary-buttons">Tertiary Buttons</a></li>
+              <li><a href="#inverse-primary-buttons">Inverse Primary Buttons</a></li>
+              <li><a href="#inverse-secondary-buttons">Inverse Secondary Buttons</a></li>
+              <li><a href="#inverse-tertiary-buttons">Inverse Tertiary Buttons</a></li>
+              <li><a href="#button-as-link">Button as Link</a></li>
+              <li><a href="#button-groups">Button Groups</a></li>
+              </ul>
+            </li>
+            <li><a href="#cards">Cards</a></li>
+            <li><a href="#code">Code</a></li>
+            <li><a href="#datepickers">Datepickers</a></li>
+            <li><a href="#dialogs">Dialogs</a></li>
+            <li><a href="#figures">Figures</a></li>
+            <li><a href="#forms">Forms</a>
+              <ul>
+                <li><a href="#form-labels">Labels</a></li>
+                <li><a href="#text-inputs">Text Inputs</a></li>
+                <li><a href="#file-inputs">File Inputs</a></li>
+                <li><a href="#selects">Selects</a></li>
+                <li><a href="#checkboxes">Checkboxes</a></li>
+                <li><a href="#radio-buttons">Radio Buttons</a></li>
+                <li><a href="#switch-buttons">Switch Buttons</a></li>
+                <li><a href="#input-groups">Input Groups</a>
+                  <ul>
+                    <li><a href="#input-groups-with-add-ons">Input Groups With Add-ons</a></li>
+                    <li><a href="#input-groups-with-buttons">Input Groups With Buttons</a></li>
+                    <!-- <li><a href="#input-group-forms">Input Group Forms</a></li> -->
+                  </ul>
+                </li>
+                <!-- <li><a href="#input-controls">Input Controls</a></li> -->
+              </ul>
+            </li>
+            <li><a href="#headings">Headings</a>
+              <ul>
+              <li><a href="#subheads">Subheads</a></li>
+              </ul>
+            </li>
+            <li><a href="#lists">Lists</a>
+              <ul>
+              <li><a href="#bare-lists">Bare Lists</a></li>
+              <li><a href="#inline-lists">Inline Lists</a></li>
+              </ul>
+            </li>
+            <li><a href="#notices">Notices</a></li>
+            <li><a href="#pagination">Pagination</a></li>
+            <li><a href="#paragraphs">Paragraphs</a></li>
+            <li><a href="#popups">Popups</a></li>
+            <li><a href="#progress-indicators">Progress Indicators</a>
+              <ul>
+              <li><a href="#progress-spinner">Progress Spinner</a></li>
+              </ul>
+            </li>
+            <li><a href="#slideshows">Slideshows</a></li>
+            <li><a href="#tables">Tables</a>
+              <ul>
+              <li><a href="#bordered-tables">Bordered Tables</a></li>
+              <li><a href="#striped-tables">Striped Tables</a></li>
+              <li><a href="#responsive-tables">Responsive Tables</a></li>
+              <li><a href="#scrollable-tables">Scrollable Tables</a></li>
+              </ul>
+            </li>
+            <li><a href="#tabs">Tabs</a></li>
+            <li><a href="#videos">Videos</a></li>
             </ul>
           </li>
           <li><a href="#utilities">Utilities</a>
             <ul>
-              <li><a href="#aspect-ratio">Aspect Ratio</a></li>
-              <li><a href="#background">Background</a></li>
-              <li><a href="#border-color">Border Color</a></li>
-              <li><a href="#border-radius">Border Radius</a></li>
-              <li><a href="#border-style">Border Style</a></li>
-              <li><a href="#border-width">Border Width</a></li>
-              <li><a href="#box-alignment">Box Alignment</a></li>
-              <li><a href="#color">Color</a></li>
-              <li><a href="#container-queries">Container Queries</a></li>
-              <li><a href="#css-columns">CSS Columns</a></li>
-              <li><a href="#display">Display</a></li>
-              <li><a href="#flexbox">Flexbox</a></li>
-              <li><a href="#float">Float</a></li>
-              <li><a href="#gap">Gap</a></li>
-              <li><a href="#height-width">Height &amp; Width</a></li>
-              <li><a href="#margin">Margin</a></li>
-              <li><a href="#object-fit">Object-Fit</a></li>
-              <li><a href="#object-position">Object-Position</a></li>
-              <li><a href="#opacity">Opacity</a></li>
-              <li><a href="#order">Order (for Flexbox and Grid)</a></li>
-              <li><a href="#overflow">Overflow</a></li>
-              <li><a href="#padding">Padding</a></li>
-              <li><a href="#pointer-events">Pointer Events</a></li>
-              <li><a href="#position">Position</a></li>
-              <li><a href="#svg">SVG</a></li>
-              <li><a href="#table-layout">Table Layout</a></li>
-              <li><a href="#typography">Typography</a></li>
-              <li><a href="#visibility">Visibility</a></li>
-              <li><a href="#z-index">Z-index</a></li>
+            <li><a href="#aspect-ratio">Aspect Ratio</a></li>
+            <li><a href="#background">Background</a>
+              <ul>
+              <li><a href="#background-color">Background Color</a></li>
+              <li><a href="#background-position">Background Position</a></li>
+              <li><a href="#background-repeat">Background Repeat</a></li>
+              <li><a href="#background-size">Background Size</a></li>
+              <li><a href="#background-none">Background None</a></li>
+              </ul>
+            </li>
+            <li><a href="#border-color">Border Color</a>
+              <ul>
+              <li><a href="#border-color-all-sides">Border Color (All Sides)</a></li>
+              <li><a href="#border-top-color">Border Top Color</a></li>
+              <li><a href="#border-right-color">Border Right Color</a></li>
+              <li><a href="#border-bottom-color">Border Bottom Color</a></li>
+              <li><a href="#border-left-color">Border Left Color</a></li>
+              </ul>
+            </li>
+            <li><a href="#border-radius">Border Radius</a></li>
+            <li><a href="#border-style">Border Style</a>
+              <ul>
+              <li><a href="#border-style-all-sides">Border Style (All Sides)</a></li>
+              <li><a href="#border-top-style">Border Top Style</a></li>
+              <li><a href="#border-right-style">Border Right Style</a></li>
+              <li><a href="#border-bottom-style">Border Bottom Style</a></li>
+              <li><a href="#border-left-style">Border Left Style</a></li>
+              </ul>
+            </li>
+            <li><a href="#border-width">Border Width</a>
+              <ul>
+              <li><a href="#border-width-all-sides">Border Width (All Sides)</a></li>
+              <li><a href="#border-top-width">Border Top Width</a></li>
+              <li><a href="#border-right-width">Border Right Width</a></li>
+              <li><a href="#border-bottom-width">Border Bottom Width</a></li>
+              <li><a href="#border-left-width">Border Left Width</a></li>
+              </ul>
+            </li>
+            <li><a href="#box-alignment">Box Alignment</a>
+              <ul>
+              <li><a href="#align-content">Align Content</a></li>
+              <li><a href="#align-items">Align Items</a></li>
+              <li><a href="#align-self">Align Self</a></li>
+              <li><a href="#justify-content">Justify Content</a></li>
+              <li><a href="#justify-items">Justify Items</a></li>
+              <li><a href="#justify-self">Justify Self</a></li>
+              <li><a href="#place-content">Place Content</a></li>
+              <li><a href="#place-items">Place Items</a></li>
+              <li><a href="#place-self">Place Self</a></li>
+              </ul>
+            </li>
+            <li><a href="#color">Color</a></li>
+            <li><a href="#container-queries">Container Queries</a></li>
+            <li><a href="#css-columns">CSS Columns</a></li>
+            <li><a href="#display">Display</a></li>
+            <li><a href="#flexbox">Flexbox</a>
+              <ul>
+              <li><a href="#flex-direction">Direction</a></li>
+              <li><a href="#flex-wrap">Wrap</a></li>
+              <li><a href="#flex-grow-shrink">Grow &amp; Shrink</a></li>
+              <li><a href="#flex-basis">Basis</a></li>
+              </ul>
+            </li>
+            <li><a href="#float">Float</a></li>
+            <li><a href="#gap">Gap</a>
+              <ul>
+              <li><a href="#gap-for-flexbox-and-grid">Gap (for Flexbox and Grid)</a></li>
+              <li><a href="#column-gap">Column Gap</a></li>
+              <li><a href="#row-gap">Row Gap</a></li>
+              </ul>
+            </li>
+            <li><a href="#height-width">Height &amp; Width</a>
+              <ul>
+              <li><a href="#height">Height</a></li>
+              <li><a href="#min-height">Min-Height</a></li>
+              <li><a href="#max-height">Max-Height</a></li>
+              <li><a href="#width">Width</a></li>
+              <li><a href="#min-width">Min-Width</a></li>
+              <li><a href="#max-width">Max-Width</a></li>
+              </ul>
+            </li>
+            <li><a href="#margin">Margin</a>
+              <ul>
+              <li><a href="#margin-all-sides">Margin (All Sides)</a></li>
+              <li><a href="#margin-top">Margin Top</a></li>
+              <li><a href="#margin-right">Margin Right</a></li>
+              <li><a href="#margin-bottom">Margin Bottom</a></li>
+              <li><a href="#margin-left">Margin Left</a></li>
+              </ul>
+            </li>
+            <li><a href="#object-fit">Object-Fit</a></li>
+            <li><a href="#object-position">Object-Position</a></li>
+            <li><a href="#opacity">Opacity</a></li>
+            <li><a href="#order">Order (for Flexbox and Grid)</a></li>
+            <li><a href="#overflow">Overflow</a></li>
+            <li><a href="#padding">Padding</a>
+              <ul>
+              <li><a href="#padding-all-sides">Padding (All Sides)</a></li>
+              <li><a href="#padding-top">Padding Top</a></li>
+              <li><a href="#padding-right">Padding Right</a></li>
+              <li><a href="#padding-bottom">Padding Bottom</a></li>
+              <li><a href="#padding-left">Padding Left</a></li>
+              </ul>
+            </li>
+            <li><a href="#pointer-events">Pointer Events</a></li>
+            <li><a href="#position">Position</a>
+              <ul>
+              <li><a href="#positioning-schemes">Positioning Schemes</a></li>
+              <li><a href="#coordinates">Coordinates</a></li>
+              </ul>
+            </li>
+            <li><a href="#svg">SVG</a></li>
+            <li><a href="#table-layout">Table Layout</a></li>
+            <li><a href="#typography">Typography</a>
+              <ul>
+              <li><a href="#font-size">Font Size</a></li>
+              <li><a href="#horizontal-text-alignment">Horizontal Text Alignment</a></li>
+              <li><a href="#vertical-text-alignment">Vertical Text Alignment</a></li>
+              <li><a href="#text-decoration">Text Decoration</a></li>
+              <li><a href="#text-wrap">Text Wrap</a></li>
+              <li><a href="#font-style">Font Style</a></li>
+              <li><a href="#font-weight">Font Weight</a></li>
+              <li><a href="#line-height">Line Height</a></li>
+              <li><a href="#text-transform">Text Transform</a></li>
+              </ul>
+            </li>
+            <li><a href="#visibility">Visibility</a></li>
+            <li><a href="#z-index">Z-index</a></li>
             </ul>
           </li>
           <li><a href="#unl-specific-classes">UNL-Specific Classes</a>
             <ul>
-              <li><a href="#animations">Animations</a></li>
-              <li><a href="#background-blend-modes">Background Blend Modes</a></li>
-              <li><a href="#background-colors">Background Colors</a></li>
-              <li><a href="#background-images">Background Images</a></li>
-              <li><a href="#blend-modes">Blend Modes</a></li>
-              <li><a href="#border-colors">Border Colors</a></li>
-              <li><a href="#box-shadows">Box Shadows</a></li>
-              <li><a href="#clip-paths">Clip Paths</a></li>
-              <li><a href="#colors">Colors</a></li>
-              <li><a href="#filters">Filters</a></li>
-              <li><a href="#fonts">Fonts</a></li>
-              <li><a href="#heroes">Heroes</a></li>
-              <li><a href="#letter-spacing">Letter Spacing</a></li>
+            <li><a href="#animations">Animations</a></li>
+            <li><a href="#background-blend-modes">Background Blend Modes</a></li>
+            <li><a href="#background-colors">Background Colors</a>
+              <ul>
+              <li><a href="#primary-brand-background-colors">Primary Brand Background Colors</a></li>
+              <li><a href="#secondary-brand-background-colors">Secondary Brand Background Colors</a></li>
+              <li><a href="#user-interface-background-colors">User Interface Background Colors</a></li>
+              </ul>
+            </li>
+            <li><a href="#background-images">Background Images</a></li>
+            <li><a href="#blend-modes">Blend Modes</a></li>
+            <li><a href="#border-colors">Border Colors</a>
+              <ul>
+              <li><a href="#border-colors-all-sides">Border Colors (All Sides)</a></li>
+              <li><a href="#border-top-colors">Border Top Colors</a></li>
+              <li><a href="#border-right-colors">Border Right Colors</a></li>
+              <li><a href="#border-bottom-colors">Border Bottom Colors</a></li>
+              <li><a href="#border-left-colors">Border Left Colors</a></li>
+              </ul>
+            </li>
+            <li><a href="#box-shadows">Box Shadows</a></li>
+            <li><a href="#clip-paths">Clip Paths</a></li>
+            <li><a href="#colors">Colors</a>
+              <ul>
+              <li><a href="#primary-brand-colors">Primary Brand Colors</a></li>
+              <li><a href="#secondary-brand-colors">Secondary Brand Colors</a></li>
+              <li><a href="#user-interface-brand-colors">User Interface Brand Colors</a></li>
+              <li><a href="#color-variables">Color Variables</a></li>
+              </ul>
+            </li>
+            <li><a href="#filters">Filters</a></li>
+            <li><a href="#fonts">Fonts</a></li>
+            <li><a href="#heroes">Heroes</a>
+              <ul>
+              <li><a href="#legacy-hero">Legacy Hero</a></li>
+              </ul>
+            </li>
+            <li><a href="#letter-spacing">Letter Spacing</a></li>
             </ul>
           </li>
           <li><a href="#print">Print</a></li>
+            </ul>
+          </li>
         </ul>
+        <h2 class="dcf-mt-7" id="cascade-layers">Cascade Layers</h2>
+        <p>The Digital Campus Framework (DCF) and University of Nebraska–Lincoln (UNL) Web Framework use <abbr title="Cascading Style Sheets">CSS</abbr> cascade layers (<code>@layer</code>) to organize styles and establish a predictable order of precedence.</p>
+        <p>Cascade layers allow developers to override framework styles without unnecessarily increasing selector specificity or using <code>!important</code>.</p>
+        <h3 class="dcf-mt-6" id="layer-order">Layer Order</h3>
+        <p>The framework establishes the complete cascade-layer order through critical <abbr title="Cascading Style Sheets">CSS</abbr> inlined in a <code>&lt;style&gt;</code> element in the document’s <code>&lt;head&gt;</code>, before the external <code>main.css</code> stylesheet is loaded. Subsequent layer declarations in <code>main.css</code> preserve this established order. Developers should ensure that the critical <abbr title="Cascading Style Sheets">CSS</abbr> precedes <code>main.css</code> to maintain the intended layer precedence.</p>
+        <p>The framework defines eight cascade layers, listed in order of increasing precedence:</p>
+        <pre class="unl-code-snippet" data-type="CSS">
+@layer vendor, critical, generic, elements, objects, components, utilities, custom;
+        </pre>
+        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
+          <table class="dcf-table dcf-table-bordered dcf-table-striped">
+            <thead>
+              <tr>
+                <th>Layer</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>vendor</code></td>
+                <td>Styles provided by third-party libraries and dependencies.</td>
+              </tr>
+              <tr>
+                <td><code>critical</code></td>
+                <td>Critical styles required for the initial rendering of the page.</td>
+              </tr>
+              <tr>
+                <td><code>generic</code></td>
+                <td>Foundational styles, including resets and global defaults such as <code>box-sizing</code>.</td>
+              </tr>
+              <tr>
+                <td><code>elements</code></td>
+                <td>Default styles for HTML elements such as headings, paragraphs, links and lists.</td>
+              </tr>
+              <tr>
+                <td><code>objects</code></td>
+                <td>Reusable layout patterns, including wrappers and grids.</td>
+              </tr>
+              <tr>
+                <td><code>components</code></td>
+                <td>Styles for interface components such as buttons, cards, forms and dialogs.</td>
+              </tr>
+              <tr>
+                <td><code>utilities</code></td>
+                <td>Single-purpose classes for adjusting properties such as spacing, typography, display and positioning.</td>
+              </tr>
+              <tr>
+                <td><code>custom</code></td>
+                <td>Site-specific styles and overrides.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>For normal <abbr title="Cascading Style Sheets">CSS</abbr> declarations, layers appearing later in the list take precedence over earlier layers.</p>
+        <p>For example, a declaration in the <code>utilities</code> layer overrides a conflicting declaration in the <code>components</code> layer, regardless of selector specificity.</p>
+        <h3 class="dcf-mt-6" id="site-specific-styles">Adding Site-Specific Styles</h3>
+        <p>Developers should place site-specific styles and overrides in the <code>custom</code> layer.</p>
+        <pre class="unl-code-snippet" data-type="CSS">
+@layer custom {
+  .my-custom-component {
+    background-color: #eee;
+    padding: 2rem;
+  }
+
+  .dcf-card {
+    border-radius: .5rem;
+  }
+}
+        </pre>
+        <p>Because <code>custom</code> is the last layer in the framework’s layer order, these declarations take precedence over conflicting normal declarations in earlier layers.</p>
+        <p>This allows developers to customize framework components without increasing selector specificity or relying on <code>!important</code>.</p>
+        <p><strong>Important:</strong> The framework’s layer order must be established before any of its layers are first declared. Once a layer’s position has been established, subsequent <code>@layer</code> declarations do not change its precedence.</p>
+        <h3 class="dcf-mt-6" id="unlayered-styles">Unlayered Styles</h3>
+        <p>Normal <abbr title="Cascading Style Sheets">CSS</abbr> declarations that are not assigned to a layer take precedence over normal declarations in every named layer.</p>
+        <p>For example:</p>
+        <pre class="unl-code-snippet" data-type="CSS">
+@layer custom {
+  .example {
+    color: red;
+  }
+}
+
+.example {
+  color: blue;
+}
+        </pre>
+        <p>The text will be <code>blue</code>, even though the <code>custom</code> layer has the highest precedence among the framework’s named layers.</p>
+        <p>For this reason, developers should place site-specific styles inside <code>@layer custom</code> rather than leaving them unlayered.</p>
+        <p>This maintains a predictable cascade and avoids unintentionally overriding framework styles.</p>
+
+        <h3 class="dcf-mt-6" id="important-declarations">Important Declarations</h3>
+        <p>The precedence of cascade layers is <strong>reversed for declarations using <code>!important</code></strong>.</p>
+        <p>For normal declarations, later layers take precedence. For important declarations, earlier layers take precedence.</p>
+        <p>Consider the following example:</p>
+        <pre class="unl-code-snippet" data-type="CSS">
+@layer components {
+  .example {
+    color: red !important;
+  }
+}
+
+@layer custom {
+  .example {
+    color: blue !important;
+  }
+}
+        </pre>
+        <p>The text will be <code>red</code> because important declarations in the <code>components</code> layer take precedence over important declarations in the <code>custom</code> layer.</p>
+        <p>Important declarations within named layers also take precedence over unlayered important declarations of the same origin.</p>
+        <p>Because <code>!important</code> changes the expected layer precedence, developers should avoid using it unless necessary.</p>
+        <h3 class="dcf-mt-6" id="cascade-layers-best-practices">Best Practices</h3>
+        <p>When writing site-specific <abbr title="Cascading Style Sheets">CSS</abbr>:</p>
+        <ol>
+          <li><strong>Use <code>@layer custom</code></strong> for custom components and framework overrides.</li>
+          <li><strong>Keep selectors simple.</strong> A class selector is often sufficient to override declarations from an earlier layer.</li>
+          <li><strong>Avoid <code>!important</code></strong> unless absolutely necessary, since it reverses layer precedence.</li>
+          <li><strong>Avoid unlayered declarations</strong> to maintain the framework’s intended cascade.</li>
+          <li><strong>Use utility classes when appropriate</strong> instead of writing additional <abbr title="Cascading Style Sheets">CSS</abbr> for properties already supported by the framework.</li>
+          <li><strong>Remember that specificity still matters within a layer.</strong> When two declarations compete within the same layer, normal <abbr title="Cascading Style Sheets">CSS</abbr> specificity and source-order rules apply.</li>
+        </ol>
+        <p>For additional information, see <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers">MDN: <abbr title="Cascading Style Sheets">CSS</abbr> Cascade Layers</a>.</p>
         <h2 class="dcf-mt-7" id="objects">Objects</h2>
         <h3 class="dcf-mt-6" id="wrapper">Wrapper</h3>
         <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
@@ -745,11 +1061,11 @@
         <p><code>.dcf-btn-group</code></p>
         <p>Group two or more buttons together.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;div class="dcf-btn-group"&gt;
-            &lt;button class="dcf-btn dcf-btn-primary"&gt;Button 1&lt;/button&gt;
-            &lt;button class="dcf-btn dcf-btn-primary"&gt;Button 2&lt;/button&gt;
-            &lt;button class="dcf-btn dcf-btn-primary"&gt;Button 3&lt;/button&gt;
-          &lt;/div&gt;
+&lt;div class="dcf-btn-group"&gt;
+  &lt;button class="dcf-btn dcf-btn-primary"&gt;Button 1&lt;/button&gt;
+  &lt;button class="dcf-btn dcf-btn-primary"&gt;Button 2&lt;/button&gt;
+  &lt;button class="dcf-btn dcf-btn-primary"&gt;Button 3&lt;/button&gt;
+&lt;/div&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-btn-group">
@@ -757,51 +1073,6 @@
             <button class="dcf-btn dcf-btn-primary">Button 2</button>
             <button class="dcf-btn dcf-btn-primary">Button 3</button>
           </div>
-        </figure>
-        <h4 class="dcf-mt-5" id="switch-buttons">Switch Buttons</h4>
-        <p><code>.dcf-input-switch</code></p>
-        <p>Style a radio input like a button inside a button group.</p>
-        <pre class="unl-code-snippet" data-type="HTML">
-          &lt;form class="dcf-form" action="?" method="post"&gt;
-            &lt;fieldset class="dcf-m-0 dcf-p-0 dcf-b-0"&gt;
-              &lt;legend class="dcf-legend"&gt;Campus&lt;/legend&gt;
-              &lt;div class="dcf-form-group dcf-d-inline-flex dcf-flex-nowrap dcf-p-1 dcf-rounded dcf-b-1 dcf-b-solid unl-b-light-gray"&gt;
-                &lt;div class="dcf-input-switch"&gt;
-                  &lt;input id="campus-city" name="campus" type="radio" value="city" checked&gt;
-                  &lt;label for="campus-city"&gt;City&lt;/label&gt;
-                &lt;/div&gt;
-                &lt;div class="dcf-input-switch"&gt;
-                  &lt;input id="campus-east" name="campus" type="radio" value="east"&gt;
-                  &lt;label for="campus-east"&gt;East&lt;/label&gt;
-                &lt;/div&gt;
-                &lt;div class="dcf-input-switch"&gt;
-                  &lt;input id="campus-innovation" name="campus" type="radio" value="innovation"&gt;
-                  &lt;label for="campus-innovation"&gt;Innovation&lt;/label&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/fieldset&gt;
-          &lt;/form&gt;
-        </pre>
-        <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
-          <form class="dcf-form" action="?" method="post">
-            <fieldset class="dcf-m-0 dcf-p-0 dcf-b-0">
-              <legend class="dcf-legend">Campus</legend>
-              <div class="dcf-form-group dcf-d-inline-flex dcf-flex-nowrap dcf-mb-0 dcf-p-1 dcf-rounded dcf-b-1 dcf-b-solid unl-b-light-gray">
-                <div class="dcf-input-switch">
-                  <input id="campus-city" name="campus" type="radio" value="city" checked>
-                  <label for="campus-city">City</label>
-                </div>
-                <div class="dcf-input-switch">
-                  <input id="campus-east" name="campus" type="radio" value="east">
-                  <label for="campus-east">East</label>
-                </div>
-                <div class="dcf-input-switch">
-                  <input id="campus-innovation" name="campus" type="radio" value="innovation">
-                  <label for="campus-innovation">Innovation</label>
-                </div>
-              </div>
-            </fieldset>
-          </form>
         </figure>
         <h3 class="dcf-mt-6" id="cards">Cards</h3>
         <p><code>.dcf-card</code></p>
@@ -814,14 +1085,14 @@
         <p><code>.dcf-card-link</code></p>
         <p>The card needs a link defined to be used for the whole card. Apply this class to your source link.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;div class="dcf-card dcf-card-as-link dcf-d-flex dcf-flex-col dcf-bg-white"&gt;
-            &lt;div class="dcf-card-block dcf-2nd"&gt;
-              &lt;h3 class="dcf-txt-h4"&gt;Example Card&lt;/h3&gt;
-              &lt;p&gt;Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.&lt;/p&gt;
-              &lt;a class="dcf-card-link dcf-btn dcf-btn-primary" href="https://www.unl.edu"&gt;Go to Home Page&lt;/a&gt;
-            &lt;/div&gt;
-            &lt;img class="dcf-1st" src="https://placehold.co/800x600" alt="Placeholder image."&gt;
-          &lt;/div&gt;
+&lt;div class="dcf-card dcf-card-as-link dcf-d-flex dcf-flex-col dcf-bg-white"&gt;
+  &lt;div class="dcf-card-block dcf-2nd"&gt;
+    &lt;h3 class="dcf-txt-h4"&gt;Example Card&lt;/h3&gt;
+    &lt;p&gt;Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.&lt;/p&gt;
+    &lt;a class="dcf-card-link dcf-btn dcf-btn-primary" href="https://www.unl.edu"&gt;Go to Home Page&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;img class="dcf-1st" src="https://placehold.co/800x600" alt="Placeholder image."&gt;
+&lt;/div&gt;
         </pre>
         <figure class="dcf-max-w-sm dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray unl-bg-lighter-gray">
           <div class="dcf-card dcf-card-as-link dcf-d-flex dcf-flex-col dcf-bg-white">
@@ -840,12 +1111,12 @@
         <p><code>.dcf-datepicker</code></p>
         <p>This class is applied to the wrapper <code>&lt;div&gt;</code> and is what the JavaScript targets to add functionality.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;form class="dcf-form" action="#" method="get"&gt;
-            &lt;div class="dcf-datepicker"&gt;
-              &lt;label for="sample-date"&gt;Date&lt;/label&gt;
-              &lt;input id="sample-date" type="text" name="sample-date"&gt;
-            &lt;/div&gt;
-          &lt;/form&gt;
+&lt;form class="dcf-form" action="#" method="get"&gt;
+  &lt;div class="dcf-datepicker"&gt;
+    &lt;label for="sample-date"&gt;Date&lt;/label&gt;
+    &lt;input id="sample-date" type="text" name="sample-date"&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <form class="dcf-form" action="#" method="get">
@@ -868,16 +1139,16 @@
         <p>This button is located in the dialog content and closes the currently open dialog.</p>
         <p>While developers can – and should – add classes to style dialogs as needed, at a minimum, a dialog requires the following markup for functionality:</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;button class="dcf-btn-toggle-dialog" data-controls="my-unique-dialog-id" type="button" disabled&gt;Toggle Dialog&lt;/button&gt;
-          &lt;dialog class="dcf-dialog" id="my-unique-dialog-id" hidden&gt;
-            &lt;div class="dcf-dialog-header"&gt;
-              &lt;h2&gt;Your dialog heading&lt;/h2&gt;
-              &lt;button class="dcf-btn-close-dialog"&gt;Close&lt;/button&gt;
-            &lt;/div&gt;
-            &lt;div class="dcf-dialog-content"&gt;
-              &lt;p&gt;Your dialog content goes here&lt;/p&gt;
-            &lt;/div&gt;
-          &lt;/dialog&gt;
+&lt;button class="dcf-btn-toggle-dialog" data-controls="my-unique-dialog-id" type="button" disabled&gt;Toggle Dialog&lt;/button&gt;
+&lt;dialog class="dcf-dialog" id="my-unique-dialog-id" hidden&gt;
+  &lt;div class="dcf-dialog-header"&gt;
+    &lt;h2&gt;Your dialog heading&lt;/h2&gt;
+    &lt;button class="dcf-btn-close-dialog"&gt;Close&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="dcf-dialog-content"&gt;
+    &lt;p&gt;Your dialog content goes here&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/dialog&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray dcf-mb-4">
           <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-unique-dialog-id" type="button" disabled>Toggle Dialog</button>
@@ -895,6 +1166,8 @@
         <h3 class="dcf-mt-6" id="figures">Figures</h3>
         <p><code>.dcf-figcaption</code></p>
         <p>Figures do not require any additional classes, but <code>.dcf-figcaption</code> provides consistent styles for the <code>&lt;figcaption&gt;</code>. It reduces the <code>font-size</code> and lightens the text to help distinguish it from body copy. Use utility classes to add <a href="#margin">margins</a> or <a href="#padding">padding</a> as needed by the content in your <code>&lt;figure&gt;</code>.</p>
+
+
         <h3 class="dcf-mt-6" id="forms">Forms</h3>
         <p><code>.dcf-form</code></p>
         <p>Style a form and its children.</p>
@@ -906,68 +1179,133 @@
         <p>Formats help/description text that displays adjacent to a form element.</p>
         <p><code>.dcf-required</code></p>
         <p>Indicate that an adjacent form input is required to submit the form.</p>
-        <p><code>.dcf-input-checkbox</code></p>
+        <p>Unless you are using an <a href="#input-groups-with-buttons">input group with a button</a>, labels should be placed <a href="https://www.nngroup.com/articles/form-design-white-space/">above the corresponding text fields</a>. Form fields and buttons should be presented in a <a href="https://www.nngroup.com/articles/web-form-design/">left-aligned, single-column layout</a> so users aren’t required to visually reorient themselves when scanning the form.</p>
+        <p>Use of <a href="https://www.nngroup.com/articles/reset-and-cancel-buttons/">Reset and Cancel buttons</a> is discouraged.</p>
+        <h4 class="dcf-mt-5" id="form-labels">Labels</h4>
+        <p><code>.dcf-label</code></p>
+        <p>Apply the framework’s label typography to a <code>&lt;label&gt;</code> element without requiring a parent element with the <code>dcf-form</code> class. Labels within a <code>dcf-form</code> are styled automatically.</p>
+        <p>Associate each label with its corresponding form control using the <code>for</code> attribute and a matching control <code>id</code>.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;form class="dcf-form"&gt;
-            &lt;fieldset class="dcf-form-group dcf-d-flex dcf-flex-col"&gt;
-              &lt;legend class="dcf-legend"&gt;Checkboxes&lt;/legend&gt;
-              &lt;div class="dcf-input-checkbox"&gt;
-                &lt;input id="checkbox1" type="checkbox" value="1" aria-labelledby="checkbox1-label"&gt;
-                &lt;label for="checkbox1" id="checkbox1-label"&gt;Checkbox 1&lt;/label&gt;
-              &lt;/div&gt;
-              &lt;div class="dcf-input-checkbox"&gt;
-                &lt;input id="checkbox2" type="checkbox" value="2" aria-labelledby="checkbox2-label"&gt;
-                &lt;label for="checkbox2" id="checkbox2-label"&gt;Checkbox 2&lt;/label&gt;
-              &lt;/div&gt;
-              &lt;div class="dcf-input-checkbox"&gt;
-                &lt;input id="checkbox3" type="checkbox" value="3" aria-labelledby="checkbox3-label"&gt;
-                &lt;label for="checkbox3" id="checkbox3-label"&gt;Checkbox 3&lt;/label&gt;
-              &lt;/div&gt;
-            &lt;/fieldset&gt;
-          &lt;/form&gt;
+&lt;label class="dcf-label" for="example-name"&gt;Name&lt;/label&gt;
+&lt;input class="dcf-input-text" id="example-name" name="name" type="text"&gt;
+        </pre>
+        <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+          <label class="dcf-label" for="example-name">Name</label>
+          <input class="dcf-input-text" id="example-name" name="name" type="text">
+        </figure>
+        <h4 class="dcf-mt-5" id="text-inputs">Text Inputs</h4>
+        <p><code>.dcf-input-text</code></p>
+        <p>Apply the framework’s text input styling to an individual form control without requiring a parent element with the <code>dcf-form</code> class. Text inputs within a <code>dcf-form</code> are styled automatically.</p>
+        <p>The class provides consistent typography, padding, borders, background color and focus styling. It can be used with text-based input types such as <code>text</code>, <code>email</code>, <code>tel</code> and <code>url</code>.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;label class="dcf-label" for="example-email"&gt;Email Address&lt;/label&gt;
+&lt;input class="dcf-input-text" id="example-email" name="email" type="email" autocomplete="email"&gt;
+        </pre>
+        <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+          <label class="dcf-label" for="example-email">Email Address</label>
+          <input class="dcf-input-text" id="example-email" name="email" type="email" autocomplete="email">
+        </figure>
+        <h4 class="dcf-mt-5" id="file-inputs">File Inputs</h4>
+        <p><code>.dcf-input-file</code></p>
+        <p>Apply the framework’s file input styling to an individual <code>&lt;input type="file"&gt;</code> element without requiring a parent element with the <code>dcf-form</code> class.</p>
+        <p>Use the optional <code>accept</code> attribute to indicate supported file types and the <code>multiple</code> attribute when more than one file may be selected.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;label class="dcf-label" for="example-file"&gt;Upload a Document&lt;/label&gt;
+&lt;input class="dcf-input-file" id="example-file" name="document" type="file" accept=".pdf,.doc,.docx"&gt;
+        </pre>
+        <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+          <label class="dcf-label" for="example-file">Upload a Document</label>
+          <input class="dcf-input-file" id="example-file" name="document" type="file" accept=".pdf,.doc,.docx">
+        </figure>
+        <p><strong>Note:</strong> The <code>accept</code> attribute provides a file-selection hint but does not validate uploaded files. File type and size restrictions must also be enforced by the application.</p>
+        <h4 class="dcf-mt-5" id="selects">Selects</h4>
+        <p><code>.dcf-input-select</code></p>
+        <p>Apply the framework’s select styling to an individual <code>&lt;select&gt;</code> element without requiring a parent element with the <code>dcf-form</code> class. Select elements within a <code>dcf-form</code> are styled automatically.</p>
+        <p>The class provides consistent typography, padding, borders, background colors and a custom dropdown indicator. Select controls occupy the full available width of their container by default.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;label class="dcf-label" for="example-campus"&gt;Campus&lt;/label&gt;
+&lt;select class="dcf-input-select" id="example-campus" name="campus"&gt;
+  &lt;option value=""&gt;Select a campus&lt;/option&gt;
+  &lt;option value="city"&gt;City Campus&lt;/option&gt;
+  &lt;option value="east"&gt;East Campus&lt;/option&gt;
+  &lt;option value="innovation"&gt;Nebraska Innovation Campus&lt;/option&gt;
+&lt;/select&gt;
+        </pre>
+        <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+          <label class="dcf-label" for="example-campus">Campus</label>
+          <select class="dcf-input-select" id="example-campus" name="campus">
+            <option value="">Select a campus</option>
+            <option value="city">City Campus</option>
+            <option value="east">East Campus</option>
+            <option value="innovation">Nebraska Innovation Campus</option>
+          </select>
+        </figure>
+        <h4 class="dcf-mt-5" id="checkboxes">Checkboxes</h4>
+        <p><code>.dcf-input-checkbox</code></p>
+        <p>Wrap a checkbox input and its label for consistent cross-browser styling.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;form class="dcf-form"&gt;
+  &lt;fieldset class="dcf-form-group dcf-d-flex dcf-flex-col"&gt;
+    &lt;legend class="dcf-legend"&gt;Checkboxes&lt;/legend&gt;
+    &lt;div class="dcf-input-checkbox"&gt;
+      &lt;input id="checkbox1" type="checkbox" value="1"&gt;
+      &lt;label for="checkbox1"&gt;Checkbox 1&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="dcf-input-checkbox"&gt;
+      &lt;input id="checkbox2" type="checkbox" value="2"&gt;
+      &lt;label for="checkbox2"&gt;Checkbox 2&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="dcf-input-checkbox"&gt;
+      &lt;input id="checkbox3" type="checkbox" value="3"&gt;
+      &lt;label for="checkbox3"&gt;Checkbox 3&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray dcf-mb-4">
           <form class="dcf-form">
             <fieldset class="dcf-form-group dcf-d-flex dcf-flex-col dcf-mb-0">
               <legend class="dcf-legend">Checkboxes</legend>
               <div class="dcf-input-checkbox">
-                <input id="checkbox1" type="checkbox" value="1" aria-labelledby="checkbox1-label">
-                <label for="checkbox1" id="checkbox1-label">Checkbox 1</label>
+                <input id="checkbox1" type="checkbox" value="1">
+                <label for="checkbox1">Checkbox 1</label>
               </div>
               <div class="dcf-input-checkbox">
-                <input id="checkbox2" type="checkbox" value="2" aria-labelledby="checkbox2-label">
-                <label for="checkbox2" id="checkbox2-label">Checkbox 2</label>
+                <input id="checkbox2" type="checkbox" value="2">
+                <label for="checkbox2">Checkbox 2</label>
               </div>
               <div class="dcf-input-checkbox">
-                <input id="checkbox3" type="checkbox" value="3" aria-labelledby="checkbox3-label">
-                <label for="checkbox3" id="checkbox3-label">Checkbox 3</label>
+                <input id="checkbox3" type="checkbox" value="3">
+                <label for="checkbox3">Checkbox 3</label>
               </div>
             </fieldset>
           </form>
         </figure>
+        <h4 class="dcf-mt-5" id="radio-buttons">Radio Buttons</h4>
         <p><code>.dcf-input-radio</code></p>
+        <p>Wrap a radio input and its label for consistent cross-browser styling. Radio inputs within the same group must share a <code>name</code> attribute so that only one option can be selected at a time.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;form class="dcf-form"&gt;
-            &lt;fieldset class="dcf-form-group dcf-d-flex dcf-flex-col"&gt;
-              &lt;legend class="dcf-legend"&gt;Position&lt;/legend&gt;
-              &lt;div class="dcf-input-radio"&gt;
-                &lt;input id="position-student" name="position" type="radio" value="student"&gt;
-                &lt;label for="position-student"&gt;Student&lt;/label&gt;
-              &lt;/div&gt;
-              &lt;div class="dcf-input-radio"&gt;
-                &lt;input id="position-faculty" name="position" type="radio" value="faculty"&gt;
-                &lt;label for="position-faculty"&gt;Faculty&lt;/label&gt;
-              &lt;/div&gt;
-              &lt;div class="dcf-input-radio"&gt;
-                &lt;input id="position-staff" name="position" type="radio" value="staff"&gt;
-                &lt;label for="position-staff"&gt;Staff&lt;/label&gt;
-              &lt;/div&gt;
-              &lt;div class="dcf-input-radio"&gt;
-                &lt;input id="position-other" name="position" type="radio" value="other"&gt;
-                &lt;label for="position-other"&gt;Other&lt;/label&gt;
-              &lt;/div&gt;
-            &lt;/fieldset&gt;
-          &lt;/form&gt;
+&lt;form class="dcf-form"&gt;
+  &lt;fieldset class="dcf-form-group dcf-d-flex dcf-flex-col"&gt;
+    &lt;legend class="dcf-legend"&gt;Position&lt;/legend&gt;
+    &lt;div class="dcf-input-radio"&gt;
+      &lt;input id="position-student" name="position" type="radio" value="student"&gt;
+      &lt;label for="position-student"&gt;Student&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="dcf-input-radio"&gt;
+      &lt;input id="position-faculty" name="position" type="radio" value="faculty"&gt;
+      &lt;label for="position-faculty"&gt;Faculty&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="dcf-input-radio"&gt;
+      &lt;input id="position-staff" name="position" type="radio" value="staff"&gt;
+      &lt;label for="position-staff"&gt;Staff&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="dcf-input-radio"&gt;
+      &lt;input id="position-other" name="position" type="radio" value="other"&gt;
+      &lt;label for="position-other"&gt;Other&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-mb-4 dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <form class="dcf-form">
@@ -992,29 +1330,67 @@
             </fieldset>
           </form>
         </figure>
-        <p>Wrap a checkbox or radio input and label pair for consistent cross-browser styling.</p>
-        <p>Unless you are using an <a href="#input-groups-with-buttons">input group with a button</a>, labels should be placed <a href="https://www.nngroup.com/articles/form-design-white-space/">above the corresponding text fields</a>. Form fields and buttons should be presented in a <a href="https://www.nngroup.com/articles/web-form-design/">left-aligned, single column layout</a> so users aren’t required to visually reorient themselves when scanning the form.</p>
-        <p>Use of <a href="https://www.nngroup.com/articles/reset-and-cancel-buttons/">Reset and Cancel buttons</a> is discouraged.</p>
-        <h3 class="dcf-mt-6" id="headings">Headings</h3>
-        <h4 class="dcf-mt-5" id="subheads">Subheads</h4>
-        <p><code>.dcf-subhead</code></p>
-        <p>A subhead is smaller and slightly lighter in appearance than a heading.</p>
-        <h3 class="dcf-mt-6" id="input-groups">Input Groups</h3>
+        <h4 class="dcf-mt-5" id="switch-buttons">Switch Buttons</h4>
+        <p><code>.dcf-input-switch</code></p>
+        <p>Style a group of radio inputs as buttons. Each option retains the behavior and accessibility semantics of a radio input while presenting a button-like appearance.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;form class="dcf-form" action="?" method="post"&gt;
+  &lt;fieldset class="dcf-m-0 dcf-p-0 dcf-b-0"&gt;
+    &lt;legend class="dcf-legend"&gt;Campus&lt;/legend&gt;
+    &lt;div class="dcf-form-group dcf-d-inline-flex dcf-flex-nowrap dcf-p-1 dcf-rounded dcf-b-1 dcf-b-solid unl-b-light-gray"&gt;
+      &lt;div class="dcf-input-switch"&gt;
+        &lt;input id="campus-city" name="campus" type="radio" value="city" checked&gt;
+        &lt;label for="campus-city"&gt;City&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="dcf-input-switch"&gt;
+        &lt;input id="campus-east" name="campus" type="radio" value="east"&gt;
+        &lt;label for="campus-east"&gt;East&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="dcf-input-switch"&gt;
+        &lt;input id="campus-innovation" name="campus" type="radio" value="innovation"&gt;
+        &lt;label for="campus-innovation"&gt;Innovation&lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+        </pre>
+        <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+          <form class="dcf-form" action="?" method="post">
+            <fieldset class="dcf-m-0 dcf-p-0 dcf-b-0">
+              <legend class="dcf-legend">Campus</legend>
+              <div class="dcf-form-group dcf-d-inline-flex dcf-flex-nowrap dcf-mb-0 dcf-p-1 dcf-rounded dcf-b-1 dcf-b-solid unl-b-light-gray">
+                <div class="dcf-input-switch">
+                  <input id="campus-city" name="campus" type="radio" value="city" checked>
+                  <label for="campus-city">City</label>
+                </div>
+                <div class="dcf-input-switch">
+                  <input id="campus-east" name="campus" type="radio" value="east">
+                  <label for="campus-east">East</label>
+                </div>
+                <div class="dcf-input-switch">
+                  <input id="campus-innovation" name="campus" type="radio" value="innovation">
+                  <label for="campus-innovation">Innovation</label>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </figure>
+        <h4 class="dcf-mt-5" id="input-groups">Input Groups</h4>
         <p><code>.dcf-input-group</code></p>
         <p>An input group prepends or appends text or a button to a text input. The form label must be placed outside of the input group. It can be vertically aligned with the input group by adding <code>.dcf-d-flex</code> and <code>.dcf-ai-center</code> to the input group’s parent element.</p>
-        <h4 class="dcf-mt-5" id="input-groups-with-add-ons">Input Groups With Add-ons</h4>
+        <h5 class="dcf-mt-4" id="input-groups-with-add-ons">Input Groups With Add-ons</h5>
         <p><code>.dcf-input-group-addon</code></p>
         <p>An add-on provides additional context for a text input in a form. It can be placed before and/or after the text input.</p>
-        <h4 class="dcf-mt-5" id="input-groups-with-buttons">Input Groups With Buttons</h4>
+        <h5 class="dcf-mt-4" id="input-groups-with-buttons">Input Groups With Buttons</h5>
         <p>If a form consists of a single field and button, consider using an input group for a more compact layout.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;form class="dcf-form"&gt;
-            &lt;label for="dcf-input-group-button-input"&gt;Label&lt;/label&gt;
-            &lt;div class="dcf-input-group"&gt;
-              &lt;input id="dcf-input-group-button-input"&gt;
-              &lt;button class="dcf-btn dcf-btn-primary" type="submit"&gt;Submit&lt;/button&gt;
-            &lt;/div&gt;
-          &lt;/form&gt;
+&lt;form class="dcf-form"&gt;
+  &lt;label for="dcf-input-group-button-input"&gt;Label&lt;/label&gt;
+  &lt;div class="dcf-input-group"&gt;
+    &lt;input id="dcf-input-group-button-input"&gt;
+    &lt;button class="dcf-btn dcf-btn-primary" type="submit"&gt;Submit&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <form class="dcf-form">
@@ -1025,6 +1401,73 @@
             </div>
           </form>
         </figure>
+        <!-- <h5 class="dcf-mt-4" id="input-group-forms">Input Group Forms</h5>
+        <p><code>.dcf-input-group-form</code></p>
+        <p>Arrange form controls and related elements in a flexible horizontal layout at the small breakpoint (<code>42.09em</code>) and wider.</p>
+        <p>At narrower viewport widths, the class does not apply additional layout styling. At the small breakpoint, it establishes a flex container, allows its children to wrap onto additional lines and aligns items along their text baselines.</p>
+        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
+          <table class="dcf-table dcf-table-bordered dcf-table-striped">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Declarations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>.dcf-input-group-form</code></td>
+                <td>
+                  <code>display: flex;</code><br>
+                  <code>flex-wrap: wrap;</code><br>
+                  <code>align-items: baseline;</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Note:</strong> These declarations apply only at viewport widths of <code>42.09em</code> and greater. Use additional utility classes to control spacing and sizing as needed.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;form class="dcf-form dcf-input-group-form"&gt;
+  &lt;div class="dcf-form-group"&gt;
+    &lt;label for="example-search"&gt;Search&lt;/label&gt;
+    &lt;input id="example-search" name="search" type="search"&gt;
+  &lt;/div&gt;
+  &lt;button class="dcf-btn dcf-btn-primary" type="submit"&gt;Search&lt;/button&gt;
+&lt;/form&gt;
+        </pre>
+        <figure class="dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+          <form class="dcf-form  dcf-input-group-form">
+            <div class="">
+              <label for="example-search">Search</label>
+              <input id="example-search" name="search" type="search">
+            </div>
+            <button class="dcf-btn dcf-btn-primary" type="submit">Search</button>
+          </form>
+        </figure> -->
+        <!-- <h4 class="dcf-mt-5" id="input-controls">Input Controls</h4>
+        <p><code>.dcf-input-control</code></p>
+        <p>This UNL-specific class adds a small right margin to a form control, providing spacing between the control and adjacent content.</p>
+        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
+          <table class="dcf-table dcf-table-bordered dcf-table-striped">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Declaration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>.dcf-input-control</code></td>
+                <td><code>margin-right: .42em;</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Use this class when additional spacing is needed between a form control and neighboring content. It does not provide the complete styling of a form control.</p> -->
+        <h3 class="dcf-mt-6" id="headings">Headings</h3>
+        <h4 class="dcf-mt-5" id="subheads">Subheads</h4>
+        <p><code>.dcf-subhead</code></p>
+        <p>A subhead is smaller and slightly lighter in appearance than a heading.</p>
         <h3 class="dcf-mt-6" id="lists">Lists</h3>
         <h4 class="dcf-mt-5" id="bare-lists">Bare Lists</h4>
         <p><code>.dcf-list-bare</code></p>
@@ -1049,30 +1492,30 @@
         <p><code>data-overlay="dcf-main"</code></p>
         <p>This notice overlays the main content.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;div class="dcf-notice dcf-notice-info" hidden&gt;
-            &lt;h2&gt;Info&lt;/h2&gt;
-            &lt;div&gt;This is additional information for this notice.&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class="dcf-notice dcf-notice-success" hidden&gt;
-            &lt;h2&gt;Success!&lt;/h2&gt;
-            &lt;div&gt;You’ve successfully completed an action.&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class="dcf-notice dcf-notice-warning" hidden&gt;
-            &lt;h2&gt;Warning!&lt;/h2&gt;
-            &lt;div&gt;Proceed with caution.&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class="dcf-notice dcf-notice-danger" hidden&gt;
-            &lt;h2&gt;Danger!&lt;/h2&gt;
-            &lt;div&gt;Uh-oh. Something wrong happened.&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class="dcf-notice dcf-notice-info" hidden data-overlay="dcf-header"&gt;
-            &lt;h2&gt;I’m Floating!&lt;/h2&gt;
-            &lt;div&gt;This notice overlays the header.&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class="dcf-notice dcf-notice-success" hidden data-overlay="dcf-main"&gt;
-            &lt;h2&gt;Success!&lt;/h2&gt;
-            &lt;div&gt;This notice overlays the main content.&lt;/div&gt;
-          &lt;/div&gt;
+&lt;div class="dcf-notice dcf-notice-info" hidden&gt;
+  &lt;h2&gt;Info&lt;/h2&gt;
+  &lt;div&gt;This is additional information for this notice.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="dcf-notice dcf-notice-success" hidden&gt;
+  &lt;h2&gt;Success!&lt;/h2&gt;
+  &lt;div&gt;You’ve successfully completed an action.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="dcf-notice dcf-notice-warning" hidden&gt;
+  &lt;h2&gt;Warning!&lt;/h2&gt;
+  &lt;div&gt;Proceed with caution.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="dcf-notice dcf-notice-danger" hidden&gt;
+  &lt;h2&gt;Danger!&lt;/h2&gt;
+  &lt;div&gt;Uh-oh. Something wrong happened.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="dcf-notice dcf-notice-info" hidden data-overlay="dcf-header"&gt;
+  &lt;h2&gt;I’m Floating!&lt;/h2&gt;
+  &lt;div&gt;This notice overlays the header.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="dcf-notice dcf-notice-success" hidden data-overlay="dcf-main"&gt;
+  &lt;h2&gt;Success!&lt;/h2&gt;
+  &lt;div&gt;This notice overlays the main content.&lt;/div&gt;
+&lt;/div&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-notice dcf-notice-info" hidden>
@@ -1116,18 +1559,18 @@
         <p><code>.dcf-pagination-last</code></p>
         <p>Adds a rightwards arrow to bar Unicode glyph after the button text.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;nav class="dcf-pagination"&gt;
-            &lt;ol class="dcf-list-bare dcf-list-inline"&gt;
-              &lt;li&gt;&lt;a class="dcf-pagination-first" href="#"&gt;First&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a class="dcf-pagination-prev" href="#"&gt;Prev&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;span class="dcf-pagination-selected"&gt;3&lt;/span&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;span class="dcf-pagination-ellipsis"&gt;…&lt;/span&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a class="dcf-pagination-next" href="#"&gt;Next&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a class="dcf-pagination-last" href="#"&gt;Last&lt;/a&gt;&lt;/li&gt;
-            &lt;/ol&gt;
-          &lt;/nav&gt;
+&lt;nav class="dcf-pagination"&gt;
+  &lt;ol class="dcf-list-bare dcf-list-inline"&gt;
+    &lt;li&gt;&lt;a class="dcf-pagination-first" href="#"&gt;First&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dcf-pagination-prev" href="#"&gt;Prev&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class="dcf-pagination-selected"&gt;3&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class="dcf-pagination-ellipsis"&gt;…&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dcf-pagination-next" href="#"&gt;Next&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dcf-pagination-last" href="#"&gt;Last&lt;/a&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <nav class="dcf-pagination">
@@ -1165,13 +1608,13 @@
         <p><code>data-alignment="*"</code></p>
         <p>This optional <code>data-*</code> attribute is placed on the <code>&lt;div class="dcf-popup"&gt;</code> and controls the position of the (triangle) point on the popup content. Valid values are <code>start</code>, <code>center</code> and <code>end</code>.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;div class="dcf-popup" data-point="true"&gt;
-            &lt;button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup"&gt;Toggle Popup&lt;/button&gt;
-            &lt;div class="dcf-popup-content dcf-w-12 dcf-pt-4 dcf-pr-5 dcf-pb-4 dcf-pl-5 dcf-rounded dcf-bg-overlay-dark unl-cream"&gt;
-              &lt;p class="dcf-txt-xs"&gt;Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue.&lt;/p&gt;
-              &lt;button class="dcf-btn dcf-btn-secondary dcf-btn-close-popup"&gt;Close Popup&lt;/button&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
+&lt;div class="dcf-popup" data-point="true"&gt;
+  &lt;button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup"&gt;Toggle Popup&lt;/button&gt;
+  &lt;div class="dcf-popup-content dcf-w-12 dcf-pt-4 dcf-pr-5 dcf-pb-4 dcf-pl-5 dcf-rounded dcf-bg-overlay-dark unl-cream"&gt;
+    &lt;p class="dcf-txt-xs"&gt;Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue.&lt;/p&gt;
+    &lt;button class="dcf-btn dcf-btn-secondary dcf-btn-close-popup"&gt;Close Popup&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-popup" data-point="true">
@@ -1182,30 +1625,48 @@
             </div>
           </div>
         </figure>
+        <h3 class="dcf-mt-6" id="progress-indicators">Progress Indicators</h3>
+        <h4 class="dcf-mt-5" id="progress-spinner">Progress Spinner</h4>
+        <p><code>.dcf-progress-spinner</code></p>
+        <p>Display an animated circular spinner to indicate that an operation is in progress. The spinner inherits its color from the <code>currentColor</code> of its element and can be resized using the <a href="#height-width">height and width utilities</a>.</p>
+        <p>The spinner is purely visual and does not communicate loading status to assistive technologies. When using a spinner to indicate an ongoing operation, provide an accessible status message. Use <code>role="status"</code> to announce the loading state without interrupting the user.</p>
+        <p>The animation respects the user’s reduced-motion preference through the framework’s global motion settings.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;div class="dcf-d-flex dcf-ai-center dcf-col-gap-3" role="status"&gt;
+  &lt;span class="dcf-progress-spinner" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;span&gt;Loading…&lt;/span&gt;
+&lt;/div&gt;
+        </pre>
+        <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+          <div class="dcf-d-flex dcf-ai-center dcf-col-gap-3" role="status">
+            <span class="dcf-progress-spinner" aria-hidden="true"></span>
+            <span>Loading…</span>
+          </div>
+        </figure>
         <h3 class="dcf-mt-6" id="slideshows">Slideshows</h3>
         <p>Slideshows require a minimal amount of code from the developer. JavaScript handles the output of all the necessary attributes for state management and accessibility. Each slideshow requires a list of slides to be placed inside a wrapper <code>&lt;div&gt;</code>. The list of slides may be either an ordered or unordered list, depending on your content. If your image requires a caption, use a <code>&lt;figcaption&gt;</code> inside of a <code>&lt;figure&gt;</code> (as shown in the sample code below). If your image doesn’t require a caption, do not use a <code>&lt;figure&gt;</code>.</p>
         <p><code>.dcf-slideshow</code></p>
         <p>This class is applied to the wrapper <code>&lt;div&gt;</code> and is what the JavaScript targets to add functionality.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;div class="dcf-slideshow"&gt;
-            &lt;ul&gt;
-              &lt;li&gt;
-                &lt;figure&gt;
-                  &lt;img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/640x360" alt="Placeholder image."&gt;
-                  &lt;figcaption&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. &lt;small class="dcf-txt-xs dcf-txt-nowrap"&gt;Illustration by Jane Doe&lt;/small&gt;&lt;/figcaption&gt;
-                &lt;/figure&gt;
-              &lt;/li&gt;
-              &lt;li&gt;
-                &lt;figure&gt;
-                  &lt;img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/640x360" alt="Placeholder image."&gt;
-                  &lt;figcaption&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. &lt;small class="dcf-txt-xs dcf-txt-nowrap"&gt;Illustration by Jane Doe&lt;/small&gt;&lt;/figcaption&gt;
-                &lt;/figure&gt;
-              &lt;/li&gt;
-              &lt;li&gt;
-                &lt;img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/640x360" alt="Placeholder image."&gt;
-              &lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/div&gt;
+&lt;div class="dcf-slideshow"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;figure&gt;
+        &lt;img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/640x360" alt="Placeholder image."&gt;
+        &lt;figcaption&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. &lt;small class="dcf-txt-xs dcf-txt-nowrap"&gt;Illustration by Jane Doe&lt;/small&gt;&lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;figure&gt;
+        &lt;img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/640x360" alt="Placeholder image."&gt;
+        &lt;figcaption&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. &lt;small class="dcf-txt-xs dcf-txt-nowrap"&gt;Illustration by Jane Doe&lt;/small&gt;&lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/640x360" alt="Placeholder image."&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-slideshow">
@@ -1252,26 +1713,26 @@
         <p>This optional class can be added to stack tabs vertically at narrower viewport widths.</p>
         <p>Be sure to give each tab panel a unique id and enter that same value in the corresponding tab’s <code>href</code>.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;div class="dcf-tabs dcf-tabs-responsive"&gt;
-            &lt;h3&gt;Tab Group Example Using Unordered List and Divs&lt;/h3&gt;
-            &lt;ul&gt;
-              &lt;li&gt;&lt;a href="#example-panel-1"&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="#example-panel-2"&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="#example-panel-3"&gt;Tab 3&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-            &lt;div id="example-panel-1"&gt;
-              &lt;h4&gt;Panel 1&lt;/h4&gt;
-              &lt;p&gt;Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna.&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;div id="example-panel-2"&gt;
-              &lt;h4&gt;Panel 2&lt;/h4&gt;
-              &lt;p&gt;Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;div id="example-panel-3"&gt;
-              &lt;h4&gt;Panel 3&lt;/h4&gt;
-              &lt;p&gt;Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.&lt;/p&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
+&lt;div class="dcf-tabs dcf-tabs-responsive"&gt;
+  &lt;h3&gt;Tab Group Example Using Unordered List and Divs&lt;/h3&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#example-panel-1"&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#example-panel-2"&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#example-panel-3"&gt;Tab 3&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div id="example-panel-1"&gt;
+    &lt;h4&gt;Panel 1&lt;/h4&gt;
+    &lt;p&gt;Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div id="example-panel-2"&gt;
+    &lt;h4&gt;Panel 2&lt;/h4&gt;
+    &lt;p&gt;Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div id="example-panel-3"&gt;
+    &lt;h4&gt;Panel 3&lt;/h4&gt;
+    &lt;p&gt;Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-tabs dcf-tabs-responsive">
@@ -1300,11 +1761,11 @@
         <p>This class must be applied to the parent element of all autoplay videos to add a toggle button to play/pause videos. When a user pauses an autoplay video, all autoplay videos on UNL sites will pause. Likewise, if a paused autoplay video is played, all autoplay videos will resume playing.</p>
         <p>The <code>autoplay</code>, <code>muted</code> and <code>playsinline</code> attributes are required on all autoplay <code>&lt;video&gt;</code> elements. The <code>loop</code> attribute is optional.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;div class="dcf-autoplay-video"&gt;
-            &lt;video class="dcf-16x9 dcf-obj-fit-cover" poster="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-wooooo.jpg" autoplay loop muted playsinline&gt;
-              &lt;source src="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-fingers-crossed.mp4" type="video/mp4"&gt;
-            &lt;/video&gt;
-          &lt;/div&gt;
+&lt;div class="dcf-autoplay-video"&gt;
+  &lt;video class="dcf-16x9 dcf-obj-fit-cover" poster="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-wooooo.jpg" autoplay loop muted playsinline&gt;
+    &lt;source src="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-fingers-crossed.mp4" type="video/mp4"&gt;
+  &lt;/video&gt;
+&lt;/div&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-autoplay-video">
@@ -1355,7 +1816,7 @@
           </table>
         </div>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/400" alt="Placeholder image."&gt;
+&lt;img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/400" alt="Placeholder image."&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/400" alt="Placeholder image.">
@@ -2273,7 +2734,7 @@
             </tbody>
           </table>
         </div>
-        <h4 class="dcf-mt-5" id="place-items">Place Self</h4>
+        <h4 class="dcf-mt-5" id="place-self">Place Self</h4>
         <p>Utility classes for <code>place-self</code> use the <code>ps</code> notation.</p>
         <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
           <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -2284,6 +2745,10 @@
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td><code>.dcf-ps-auto</code></td>
+                <td><code>place-self: auto;</code></td>
+              </tr>
               <tr>
                 <td><code>.dcf-ps-center</code></td>
                 <td><code>place-self: center;</code></td>
@@ -2360,7 +2825,7 @@
           </table>
         </div>
         <h3 class="dcf-mt-6" id="css-columns">CSS Columns</h3>
-        <p>All CSS column utilities have a <code>column-gap</code> of <code>3.16vw</code> (viewport width). Responsive suffixes (<code>@sm</code>, <code>@md</code>, <code>@lg</code>, <code>@xl</code>) can be added to target desired breakpoints.</p>
+        <p>All <abbr title="Cascading Style Sheets">CSS</abbr> column utilities have a <code>column-gap</code> of <code>3.16vw</code> (viewport width). Responsive suffixes (<code>@sm</code>, <code>@md</code>, <code>@lg</code>, <code>@xl</code>) can be added to target desired breakpoints.</p>
         <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
           <table class="dcf-table dcf-table-bordered dcf-table-striped">
             <thead>
@@ -2562,7 +3027,7 @@
             <tbody>
               <tr>
                 <td><code>.dcf-flex-basis-auto</code></td>
-                <td><code>flex-basis: 0;</code></td>
+                <td><code>flex-basis: auto;</code></td>
               </tr>
               <tr>
                 <td><code>.dcf-flex-basis-0</code></td>
@@ -2859,6 +3324,18 @@
                 <td><code>height: 100%;</code></td>
               </tr>
               <tr>
+                <td><code>.dcf-h-25vh</code></td>
+                <td><code>height: 25vw;</code></td>
+              </tr>
+              <tr>
+                <td><code>.dcf-h-50vh</code></td>
+                <td><code>height: 50vw;</code></td>
+              </tr>
+              <tr>
+                <td><code>.dcf-h-75vh</code></td>
+                <td><code>height: 75vw;</code></td>
+              </tr>
+              <tr>
                 <td><code>.dcf-h-100vh</code></td>
                 <td><code>height: 100vw;</code></td>
               </tr>
@@ -3011,6 +3488,18 @@
               <tr>
                 <td><code>.dcf-w-100%</code></td>
                 <td><code>width: 100%;</code></td>
+              </tr>
+              <tr>
+                <td><code>.dcf-w-25vw</code></td>
+                <td><code>width: 25vw;</code></td>
+              </tr>
+              <tr>
+                <td><code>.dcf-w-50vw</code></td>
+                <td><code>width: 50vw;</code></td>
+              </tr>
+              <tr>
+                <td><code>.dcf-w-75vw</code></td>
+                <td><code>width: 75vw;</code></td>
               </tr>
               <tr>
                 <td><code>.dcf-w-100vw</code></td>
@@ -4021,7 +4510,7 @@
           </table>
         </div>
         <h3 class="dcf-mt-6" id="position">Position</h3>
-        <h4 class="dcf-mt-5" id="flow">Flow</h4>
+        <h4 class="dcf-mt-5" id="positioning-schemes">Positioning Schemes</h4>
         <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
           <table class="dcf-table dcf-table-bordered dcf-table-striped">
             <thead>
@@ -5154,7 +5643,7 @@
             </tbody>
           </table>
         </div>
-        <h3 class="dcf-mt-6" id="frames">Clip Paths</h3>
+        <h3 class="dcf-mt-6" id="clip-paths">Clip Paths</h3>
         <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
           <table class="dcf-table dcf-table-bordered dcf-table-striped">
             <thead>
@@ -5907,39 +6396,39 @@
         <h4 class="dcf-mt-5" id="legacy-hero">Legacy Hero</h4>
         <p>Code for legacy hero:</p>
         <pre class="unl-code-snippet" data-type="HTML">
-          &lt;!-- InstanceBeginEditable name="hero" --&gt;
-          &lt;div class="dcf-hero dcf-d-flex dcf-relative unl-hero-legacy unl-bg-darkest-gray"&gt;
-          &lt;!-- InstanceEndEditable --&gt;
-            &lt;div class="dcf-hero-group-1"&gt;
-              &lt;div class="dcf-breadcrumbs-wrapper"&gt;
-                &lt;nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs"&gt;
-                  &lt;!-- InstanceBeginEditable name="breadcrumbs" --&gt;
-                  &lt;ol&gt;
-                    &lt;li&gt;&lt;a href="https://arts.unl.edu/music"&gt;Glenn Korff School of Music&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="https://arts.unl.edu/music/beyond-classroom"&gt;Beyond the Classroom&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;span aria-current="page"&gt;Ensembles&lt;/span&gt;&lt;/li&gt;
-                  &lt;/ol&gt;
-                  &lt;!-- InstanceEndEditable --&gt;
-                &lt;/nav&gt;
-              &lt;/div&gt;
-              &lt;header class="dcf-page-title" id="dcf-page-title"&gt;
-                &lt;!-- InstanceBeginEditable name="pagetitle" --&gt;
-                &lt;p class="dcf-subhead unl-font-sans unl-cream"&gt;Overline lorem ipsum&lt;/p&gt;
-                &lt;h1 class="dcf-uppercase unl-cream"&gt;Undergraduate Page title&lt;/h1&gt;
-                &lt;p class="dcf-subhead dcf-mt-4 unl-font-sans unl-cream"&gt;Subhead lorem ipsum&lt;/p&gt;
-                &lt;!-- InstanceEndEditable --&gt;
-              &lt;/header&gt;
-              &lt;!-- InstanceBeginEditable name="herogroup1" --&gt;
-              &lt;a class="dcf-mt-5 dcf-btn dcf-btn-inverse-primary" href="#"&gt;Button 1&lt;/a&gt;
-              &lt;a class="dcf-mt-5 dcf-btn dcf-btn-inverse-secondary" href="#"&gt;Button 2&lt;/a&gt;
-              &lt;!-- InstanceEndEditable --&gt;
-            &lt;/div&gt;
-            &lt;!-- InstanceBeginEditable name="herogroup2" --&gt;
-            &lt;div class="dcf-hero-group-2 dcf-w-100% dcf-overflow-hidden"&gt;
-              &lt;!-- InstanceEndEditable --&gt;
-            &lt;/div&gt;
-            &lt;!-- Image goes here --&gt;
-          &lt;/div&gt;
+&lt;!-- InstanceBeginEditable name="hero" --&gt;
+&lt;div class="dcf-hero dcf-d-flex dcf-relative unl-hero-legacy unl-bg-darkest-gray"&gt;
+&lt;!-- InstanceEndEditable --&gt;
+  &lt;div class="dcf-hero-group-1"&gt;
+    &lt;div class="dcf-breadcrumbs-wrapper"&gt;
+      &lt;nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs"&gt;
+        &lt;!-- InstanceBeginEditable name="breadcrumbs" --&gt;
+        &lt;ol&gt;
+          &lt;li&gt;&lt;a href="https://arts.unl.edu/music"&gt;Glenn Korff School of Music&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="https://arts.unl.edu/music/beyond-classroom"&gt;Beyond the Classroom&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span aria-current="page"&gt;Ensembles&lt;/span&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;!-- InstanceEndEditable --&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+    &lt;header class="dcf-page-title" id="dcf-page-title"&gt;
+      &lt;!-- InstanceBeginEditable name="pagetitle" --&gt;
+      &lt;p class="dcf-subhead unl-font-sans unl-cream"&gt;Overline lorem ipsum&lt;/p&gt;
+      &lt;h1 class="dcf-uppercase unl-cream"&gt;Undergraduate Page title&lt;/h1&gt;
+      &lt;p class="dcf-subhead dcf-mt-4 unl-font-sans unl-cream"&gt;Subhead lorem ipsum&lt;/p&gt;
+      &lt;!-- InstanceEndEditable --&gt;
+    &lt;/header&gt;
+    &lt;!-- InstanceBeginEditable name="herogroup1" --&gt;
+    &lt;a class="dcf-mt-5 dcf-btn dcf-btn-inverse-primary" href="#"&gt;Button 1&lt;/a&gt;
+    &lt;a class="dcf-mt-5 dcf-btn dcf-btn-inverse-secondary" href="#"&gt;Button 2&lt;/a&gt;
+    &lt;!-- InstanceEndEditable --&gt;
+  &lt;/div&gt;
+  &lt;!-- InstanceBeginEditable name="herogroup2" --&gt;
+  &lt;div class="dcf-hero-group-2 dcf-w-100% dcf-overflow-hidden"&gt;
+    &lt;!-- InstanceEndEditable --&gt;
+  &lt;/div&gt;
+  &lt;!-- Image goes here --&gt;
+&lt;/div&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <!-- InstanceBeginEditable name="hero" -->
