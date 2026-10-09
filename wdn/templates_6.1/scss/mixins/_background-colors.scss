@@ -13,6 +13,8 @@
 // Cream
 @mixin bg-cream($imp:null) { background-color: var.$bg-color-body $imp; }
 @mixin bg-cream-at-dark($imp:null) { background-color: var.$cream $imp; }
+@mixin bg-dark-cream($imp:null) { background-color: var.$bg-color-brand-beta-shade $imp; }
+@mixin bg-dark-cream-at-dark($imp:null) { background-color: var.$cream-shade $imp; }
 
 
 // Gray

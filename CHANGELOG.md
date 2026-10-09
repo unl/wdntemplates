@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.1.6 (September 8, 2026)
+- Fix in plugin autoloader opt-out
+
+## 6.1.5 (August 18, 2026)
+- Link updates in header and footer
+
+## 6.1.4 (August 12, 2026)
+- Added dark cream to colors
+- Update regions classes to only include unl- classes in theme for better terminal page support
+
 ## 6.1.3 (July 28, 2026)
 - Updated University of Nebraska logo in footer
 - Fixed issue with login URL not being set

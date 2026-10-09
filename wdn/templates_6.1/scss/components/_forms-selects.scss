@@ -18,8 +18,8 @@
 }
 
 
-.unl .dcf-input-select:focus-visible,
-.unl .dcf-form select:focus-visible {
+.unl .dcf-input-select:focus,
+.unl .dcf-form select:focus {
   box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px var.$border-color-input-focus;
   transition: box-shadow var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
 }

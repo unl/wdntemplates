@@ -14,6 +14,7 @@
 
   // Cream
   .unl-bg-cream { @include mixins.bg-cream; }
+  .unl-bg-dark-cream { @include mixins.bg-dark-cream; }
 
 
   // Gray
@@ -58,6 +59,7 @@
 
   // Cream
   .unl-bg-cream\@dark { @include mixins.bg-cream-at-dark; }
+  .unl-bg-dark-cream\@dark { @include mixins.bg-dark-cream-at-dark; }
 
 
   // Gray
