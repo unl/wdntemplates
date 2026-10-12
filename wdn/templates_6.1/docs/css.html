@@ -12,7 +12,10 @@
     <main class="dcf-d-flex dcf-jc-center dcf-wrapper dcf-pt-7 dcf-pb-7">
       <div class="dcf-w-100% dcf-max-w-75ch">
         <h1 id="css-reference">CSS</h1>
-        <p>This page documents the <abbr title="Cascading Style Sheets">CSS</abbr> cascade layers, objects, components and utility classes available in the Digital Campus Framework (<abbr>DCF</abbr>), including UNL-specific brand classes for colors, fonts and scroll animations.</p>
+        <p>This page documents the <abbr title="Cascading Style Sheets">CSS</abbr> cascade layers, objects, components and utility classes available in the Digital Campus Framework (<abbr>DCF</abbr>), including <abbr title="University of Nebraska–Lincoln">UNL</abbr>-specific brand classes for colors, fonts and scroll animations.</p>
+
+        <hr>
+
         <ul class="dcf-mt-6 dcf-columns-auto">
           <li><a href="#cascade-layers">Cascade Layers</a>
             <ul>
@@ -295,6 +298,9 @@
           </li>
           <li><a href="#print">Print</a></li>
         </ul>
+
+        <hr>
+
         <h2 class="dcf-mt-7" id="cascade-layers">Cascade Layers</h2>
         <p>The Digital Campus Framework (<abbr>DCF</abbr>) and University of Nebraska–Lincoln (<abbr>UNL</abbr>) Web Framework use <abbr title="Cascading Style Sheets">CSS</abbr> cascade layers (<code>@layer</code>) to organize styles and establish a predictable order of precedence.</p>
         <p>Cascade layers allow developers to override framework styles without unnecessarily increasing selector specificity or using <code>!important</code>.</p>
@@ -327,7 +333,7 @@
               </tr>
               <tr>
                 <td><code>elements</code></td>
-                <td>Default styles for HTML elements such as headings, paragraphs, links and lists.</td>
+                <td>Default styles for <abbr title="Hypertext Markup Language">HTML</abbr> elements such as headings, paragraphs, links and lists.</td>
               </tr>
               <tr>
                 <td><code>objects</code></td>
@@ -1778,7 +1784,7 @@
         </figure>
         <h3 class="dcf-mt-6" id="videos">Videos</h3>
         <p><code>.dcf-autoplay-video</code></p>
-        <p>This class must be applied to the parent element of all autoplay videos to add a toggle button to play/pause videos. When a user pauses an autoplay video, all autoplay videos on UNL sites will pause. Likewise, if a paused autoplay video is played, all autoplay videos will resume playing.</p>
+        <p>This class must be applied to the parent element of all autoplay videos to add a toggle button to play/pause videos. When a user pauses an autoplay video, all autoplay videos on <abbr title="University of Nebraska–Lincoln">UNL</abbr> sites will pause. Likewise, if a paused autoplay video is played, all autoplay videos will resume playing.</p>
         <p>The <code>autoplay</code>, <code>muted</code> and <code>playsinline</code> attributes are required on all autoplay <code>&lt;video&gt;</code> elements. The <code>loop</code> attribute is optional.</p>
         <pre class="unl-code-snippet" data-type="HTML">
 &lt;div class="dcf-autoplay-video"&gt;
@@ -2937,7 +2943,7 @@
         </div>
         <h4 class="dcf-mt-5" id="important-display-utilities">Important Display Utilities</h4>
         <p>Display utilities can be appended with an exclamation mark (<code>!</code>) to apply their declarations with <code>!important</code>. These classes override conflicting normal declarations, regardless of selector specificity or cascade-layer precedence.</p>
-        <p>The exclamation mark is part of the class name in <abbr title="Hypertext Markup Language">HTML</abbr>. In CSS selectors, it must be escaped with a backslash (<code>\!</code>).</p>
+        <p>The exclamation mark is part of the class name in <abbr title="Hypertext Markup Language">HTML</abbr>. In <abbr title="Cascading Style Sheets">CSS</abbr> selectors, it must be escaped with a backslash (<code>\!</code>).</p>
         <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
           <table class="dcf-table dcf-table-bordered dcf-table-striped">
             <thead>
@@ -3000,14 +3006,14 @@
   This content is hidden.
 &lt;/div&gt;
         </pre>
-        <p>In the compiled CSS, the corresponding selector escapes the exclamation mark:</p>
+        <p>In the compiled <abbr title="Cascading Style Sheets">CSS</abbr>, the corresponding selector escapes the exclamation mark:</p>
         <pre class="unl-code-snippet" data-type="CSS">
 .dcf-d-none\! {
   display: none !important;
 }
         </pre>
-        <p><strong>Note:</strong> Because the framework uses <a href="#cascade-layers">CSS cascade layers</a>, important declarations follow a different precedence order than normal declarations. Earlier layers take precedence over later layers for competing important declarations. Consequently, an important declaration in the <code>utilities</code> layer may not override an important declaration in an earlier layer.</p>
-        <p>Use important display utilities sparingly. They are intended for situations where an element’s display must take precedence over conflicting normal styles. Whenever possible, use the standard <a href="#display">display utilities</a> instead to preserve the flexibility of the CSS cascade.</p>
+        <p><strong>Note:</strong> Because the framework uses <a href="#cascade-layers"><abbr title="Cascading Style Sheets">CSS</abbr> cascade layers</a>, important declarations follow a different precedence order than normal declarations. Earlier layers take precedence over later layers for competing important declarations. Consequently, an important declaration in the <code>utilities</code> layer may not override an important declaration in an earlier layer.</p>
+        <p>Use important display utilities sparingly. They are intended for situations where an element’s display must take precedence over conflicting normal styles. Whenever possible, use the standard <a href="#display">display utilities</a> instead to preserve the flexibility of the <abbr title="Cascading Style Sheets">CSS</abbr> cascade.</p>
         <p><strong>Accessibility:</strong> Elements hidden with <code>display: none</code> are removed from the accessibility tree. Do not use <code>.dcf-d-none!</code> to visually hide content that should remain available to screen readers. Instead, use the <a href="#visibility">screen-reader-only utility</a> when appropriate.</p>
         <h3 class="dcf-mt-6" id="flexbox">Flexbox</h3>
         <h4 class="dcf-mt-5" id="flex-direction">Direction</h4>
