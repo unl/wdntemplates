@@ -1197,36 +1197,48 @@
         <p>Apply the framework’s label typography to a <code>&lt;label&gt;</code> element without requiring a parent element with the <code>dcf-form</code> class. Labels within a <code>dcf-form</code> are styled automatically.</p>
         <p>Associate each label with its corresponding form control using the <code>for</code> attribute and a matching control <code>id</code>.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-&lt;label class="dcf-label" for="example-name"&gt;Name&lt;/label&gt;
-&lt;input class="dcf-input-text" id="example-name" name="name" type="text"&gt;
+&lt;form class="dcf-form" action="#" method="get"&gt;
+  &lt;label class="dcf-label" for="example-name"&gt;Name&lt;/label&gt;
+  &lt;input class="dcf-input-text" id="example-name" name="name" type="text"&gt;
+&lt;/form&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
-          <label class="dcf-label" for="example-name">Name</label>
-          <input class="dcf-input-text" id="example-name" name="name" type="text">
+          <form class="dcf-form" action="#" method="get">
+            <label class="dcf-label" for="example-name">Name</label>
+            <input class="dcf-input-text" id="example-name" name="name" type="text">
+          </form>
         </figure>
         <h4 class="dcf-mt-5" id="text-inputs">Text Inputs</h4>
         <p><code>.dcf-input-text</code></p>
         <p>Apply the framework’s text input styling to an individual form control without requiring a parent element with the <code>dcf-form</code> class. Text inputs within a <code>dcf-form</code> are styled automatically.</p>
         <p>The class provides consistent typography, padding, borders, background color and focus styling. It can be used with text-based input types such as <code>text</code>, <code>email</code>, <code>tel</code> and <code>url</code>.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-&lt;label class="dcf-label" for="example-email"&gt;Email Address&lt;/label&gt;
-&lt;input class="dcf-input-text" id="example-email" name="email" type="email" autocomplete="email"&gt;
+&lt;form class="dcf-form" action="#" method="get"&gt;
+  &lt;label class="dcf-label" for="example-email"&gt;Email Address&lt;/label&gt;
+  &lt;input class="dcf-input-text" id="example-email" name="email" type="email" autocomplete="email"&gt;
+&lt;/form&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
-          <label class="dcf-label" for="example-email">Email Address</label>
-          <input class="dcf-input-text" id="example-email" name="email" type="email" autocomplete="email">
+          <form class="dcf-form" action="#" method="get">
+            <label class="dcf-label" for="example-email">Email Address</label>
+            <input class="dcf-input-text" id="example-email" name="email" type="email" autocomplete="email">
+          </form>
         </figure>
         <h4 class="dcf-mt-5" id="file-inputs">File Inputs</h4>
         <p><code>.dcf-input-file</code></p>
         <p>Apply the framework’s file input styling to an individual <code>&lt;input type="file"&gt;</code> element without requiring a parent element with the <code>dcf-form</code> class.</p>
         <p>Use the optional <code>accept</code> attribute to indicate supported file types and the <code>multiple</code> attribute when more than one file may be selected.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-&lt;label class="dcf-label" for="example-file"&gt;Upload a Document&lt;/label&gt;
-&lt;input class="dcf-input-file" id="example-file" name="document" type="file" accept=".pdf,.doc,.docx"&gt;
+&lt;form class="dcf-form" action="#" method="get"&gt;
+  &lt;label class="dcf-label" for="example-file"&gt;Upload a Document&lt;/label&gt;
+  &lt;input class="dcf-input-file" id="example-file" name="document" type="file" accept=".pdf,.doc,.docx"&gt;
+&lt;/form&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
-          <label class="dcf-label" for="example-file">Upload a Document</label>
-          <input class="dcf-input-file" id="example-file" name="document" type="file" accept=".pdf,.doc,.docx">
+          <form class="dcf-form" action="#" method="get">
+            <label class="dcf-label" for="example-file">Upload a Document</label>
+            <input class="dcf-input-file" id="example-file" name="document" type="file" accept=".pdf,.doc,.docx">
+          </form>
         </figure>
         <p><strong>Note:</strong> The <code>accept</code> attribute provides a file-selection hint but does not validate uploaded files. File type and size restrictions must also be enforced by the application.</p>
         <h4 class="dcf-mt-5" id="selects">Selects</h4>
@@ -1234,22 +1246,25 @@
         <p>Apply the framework’s select styling to an individual <code>&lt;select&gt;</code> element without requiring a parent element with the <code>dcf-form</code> class. Select elements within a <code>dcf-form</code> are styled automatically.</p>
         <p>The class provides consistent typography, padding, borders, background colors and a custom dropdown indicator. Select controls occupy the full available width of their container by default.</p>
         <pre class="unl-code-snippet" data-type="HTML">
-&lt;label class="dcf-label" for="example-campus"&gt;Campus&lt;/label&gt;
-&lt;select class="dcf-input-select" id="example-campus" name="campus"&gt;
-  &lt;option value=""&gt;Select a campus&lt;/option&gt;
-  &lt;option value="city"&gt;City Campus&lt;/option&gt;
-  &lt;option value="east"&gt;East Campus&lt;/option&gt;
-  &lt;option value="innovation"&gt;Nebraska Innovation Campus&lt;/option&gt;
-&lt;/select&gt;
+&lt;form class="dcf-form" action="#" method="get"&gt;
+  &lt;label class="dcf-label" for="example-campus"&gt;Campus&lt;/label&gt;
+  &lt;select class="dcf-input-select" id="example-campus" name="campus"&gt;
+    &lt;option value=""&gt;Select a campus&lt;/option&gt;
+    &lt;option value="city"&gt;City Campus&lt;/option&gt;
+    &lt;option value="east"&gt;East Campus&lt;/option&gt;
+    &lt;option value="innovation"&gt;Nebraska Innovation Campus&lt;/option&gt;
+&lt;/form&gt;
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
-          <label class="dcf-label" for="example-campus">Campus</label>
-          <select class="dcf-input-select" id="example-campus" name="campus">
-            <option value="">Select a campus</option>
-            <option value="city">City Campus</option>
-            <option value="east">East Campus</option>
-            <option value="innovation">Nebraska Innovation Campus</option>
-          </select>
+          <form class="dcf-form" action="#" method="get">
+            <label class="dcf-label" for="example-campus">Campus</label>
+            <select class="dcf-input-select" id="example-campus" name="campus">
+              <option value="">Select a campus</option>
+              <option value="city">City Campus</option>
+              <option value="east">East Campus</option>
+              <option value="innovation">Nebraska Innovation Campus</option>
+            </select>
+          </form>
         </figure>
         <h4 class="dcf-mt-5" id="checkboxes">Checkboxes</h4>
         <p><code>.dcf-input-checkbox</code></p>
@@ -1735,12 +1750,12 @@
         <h4 class="dcf-mt-5" id="scrollable-tables">Scrollable Tables</h4>
         <p>Wrap your table in a <code>&lt;div class="dcf-overflow-x-auto" tabindex="0"&gt;</code>.</p>
         <h3 class="dcf-mt-6" id="tabs">Tabs</h3>
-        <p>Tabs require a minimal amount of code from the developer. <a href="https://github.com/unl/wdntemplates/wiki/JavaScript#tabs">JavaScript</a> handles the output of all the necessary attributes for state management and accessibility. Each tab group requires a wrapper <code>&lt;div&gt;</code> and a heading, which may be <a href="#visibility">visually hidden</a> if necessary. The list of tabs may be either an ordered or unordered list, depending on your content. The tab panels may be either <code>&lt;div&gt;</code>s or <code>&lt;sections&gt;</code>s, however <code>&lt;div&gt;</code>s will suffice most of the time.</p>
+        <p>Tabs require a minimal amount of code from the developer. JavaScript handles the output of all the necessary attributes for state management and accessibility. Each tab group requires a wrapper <code>&lt;div&gt;</code> and a heading, which may be <a href="#visibility">visually hidden</a> if necessary. The list of tabs may be either an ordered or unordered list, depending on your content. The tab panels may be either <code>&lt;div&gt;</code>s or <code>&lt;sections&gt;</code>s, however <code>&lt;div&gt;</code>s will suffice most of the time.</p>
         <p><code>.dcf-tabs</code></p>
         <p>This class is applied to the wrapper <code>&lt;div&gt;</code> and is what the JavaScript targets to add functionality.</p>
         <p><code>.dcf-tabs-responsive</code></p>
         <p>This optional class can be added to stack tabs vertically at narrower viewport widths.</p>
-        <p>Be sure to give each tab panel a unique id and enter that same value in the corresponding tab’s <code>href</code>.</p>
+        <p>Be sure to give each tab panel a unique <code>id</code> and enter that same value in the corresponding tab’s <code>href</code>.</p>
         <pre class="unl-code-snippet" data-type="HTML">
 &lt;div class="dcf-tabs dcf-tabs-responsive"&gt;
   &lt;h3&gt;Tab Group Example Using Unordered List and Divs&lt;/h3&gt;
@@ -1765,7 +1780,6 @@
         </pre>
         <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-tabs dcf-tabs-responsive">
-            <h3>Tab Group Example Using Unordered List and Divs</h3>
             <ul>
               <li><a href="#example-panel-1">Tab 1</a></li>
               <li><a href="#example-panel-2">Tab 2</a></li>
@@ -1784,6 +1798,7 @@
               <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
             </div>
           </div>
+          <figcaption class="dcf-figcaption dcf-pt-3">Responsive tabs example using unordered list and <code>&lt;div&gt;</code>s</figcaption>
         </figure>
         <h3 class="dcf-mt-6" id="videos">Videos</h3>
         <p><code>.dcf-autoplay-video</code></p>
