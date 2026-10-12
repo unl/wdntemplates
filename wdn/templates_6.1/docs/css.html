@@ -1524,69 +1524,65 @@
         <p>This includes styles common to all notices and requires one of the following modifier classes to fully style a notice.</p>
         <p><code>.dcf-notice-info</code></p>
         <p>This notice is for general informational content.</p>
-        <p><code>.dcf-notice-success</code></p>
-        <p>This notice signals completion of a successful action to a user.</p>
-        <p><code>.dcf-notice-warning</code></p>
-        <p>This notice should be used to warn users to proceed with caution.</p>
-        <p><code>.dcf-notice-danger</code></p>
-        <p>This notice indicates an error or dangerous content.</p>
-        <p>By default <code>.dcf-header</code> and <code>.dcf-main</code> don’t have <code>position: relative;</code> set so the overlay notices just appear at the top of the page. To reproduce: add the code to a notice</p>
-        <p><code>data-overlay="dcf-header"</code></p>
-        <p>This notice overlays the header.</p>
-        <p><code>data-overlay="dcf-main"</code></p>
-        <p>This notice overlays the main content.</p>
         <pre class="unl-code-snippet" data-type="HTML">
 &lt;div class="dcf-notice dcf-notice-info" hidden&gt;
   &lt;h2&gt;Info&lt;/h2&gt;
   &lt;div&gt;This is additional information for this notice.&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="dcf-notice dcf-notice-success" hidden&gt;
-  &lt;h2&gt;Success!&lt;/h2&gt;
-  &lt;div&gt;You’ve successfully completed an action.&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="dcf-notice dcf-notice-warning" hidden&gt;
-  &lt;h2&gt;Warning!&lt;/h2&gt;
-  &lt;div&gt;Proceed with caution.&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="dcf-notice dcf-notice-danger" hidden&gt;
-  &lt;h2&gt;Danger!&lt;/h2&gt;
-  &lt;div&gt;Uh-oh. Something wrong happened.&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="dcf-notice dcf-notice-info" hidden data-overlay="dcf-header"&gt;
-  &lt;h2&gt;I’m Floating!&lt;/h2&gt;
-  &lt;div&gt;This notice overlays the header.&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="dcf-notice dcf-notice-success" hidden data-overlay="dcf-main"&gt;
-  &lt;h2&gt;Success!&lt;/h2&gt;
-  &lt;div&gt;This notice overlays the main content.&lt;/div&gt;
-&lt;/div&gt;
         </pre>
-        <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <figure class="dcf-w-fit-content dcf-mb-4 dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-notice dcf-notice-info" hidden>
             <h2>Info</h2>
             <div>This is additional information for this notice.</div>
           </div>
+        </figure>
+        <p><code>.dcf-notice-success</code></p>
+        <p>This notice signals completion of a successful action to a user.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;div class="dcf-notice dcf-notice-success" hidden&gt;
+  &lt;h2&gt;Success!&lt;/h2&gt;
+  &lt;div&gt;You’ve successfully completed an action.&lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+        <figure class="dcf-w-fit-content dcf-mb-4 dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-notice dcf-notice-success" hidden>
             <h2>Success!</h2>
             <div>You’ve successfully completed an action.</div>
           </div>
+        </figure>
+        <p><code>.dcf-notice-warning</code></p>
+        <p>This notice should be used to warn users to proceed with caution.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;div class="dcf-notice dcf-notice-warning" hidden&gt;
+  &lt;h2&gt;Warning!&lt;/h2&gt;
+  &lt;div&gt;Proceed with caution.&lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+        <figure class="dcf-w-fit-content dcf-mb-4 dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-notice dcf-notice-warning" hidden>
             <h2>Warning!</h2>
             <div>Proceed with caution.</div>
           </div>
+        </figure>
+        <p><code>.dcf-notice-danger</code></p>
+        <p>This notice indicates an error or dangerous content.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;div class="dcf-notice dcf-notice-danger" hidden&gt;
+  &lt;h2&gt;Danger!&lt;/h2&gt;
+  &lt;div&gt;Uh-oh. Something wrong happened.&lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+        <figure class="dcf-w-fit-content dcf-mb-4 dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
           <div class="dcf-notice dcf-notice-danger" hidden>
             <h2>Danger!</h2>
             <div>Uh-oh. Something wrong happened.</div>
           </div>
-          <div class="dcf-notice dcf-notice-info" hidden data-overlay="dcf-header">
-            <h2>I’m Floating!</h2>
-            <div>This notice overlays the header.</div>
-          </div>
-          <div class="dcf-notice dcf-notice-success" hidden data-overlay="dcf-main">
-            <h2>Success!</h2>
-            <div>This notice overlays the main content.</div>
-          </div>
         </figure>
+        <p>By default <code>.dcf-header</code> and <code>.dcf-main</code> don’t have <code>position: relative;</code> set so the overlay notices just appear at the top of the page. To reproduce, add the code to a notice:</p>
+        <p><code>data-overlay="dcf-header"</code></p>
+        <p>This notice overlays the header.</p>
+        <p><code>data-overlay="dcf-main"</code></p>
+        <p>This notice overlays the main content.</p>
         <h3 class="dcf-mt-6" id="pagination">Pagination</h3>
         <p>Pagination requires a minimal amount of code from the developer. JavaScript handles the output of all the necessary attributes for state management and accessibility. Because pagination is, by its nature, an ordered collection of links, be sure to use an ordered list instead of an unordered list.</p>
         <p><code>.dcf-pagination</code></p>
@@ -1633,6 +1629,14 @@
         <h3 class="dcf-mt-6" id="paragraphs">Paragraphs</h3>
         <p><code>.dcf-drop-cap</code></p>
         <p>Convert the first letter in a paragraph to a drop cap.</p>
+        <pre class="unl-code-snippet" data-type="HTML">
+&lt;p class="dcf-drop-cap"&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+&lt;p&gt;Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur.&lt;/p&gt;
+        </pre>
+        <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+          <p class="dcf-drop-cap">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p class="dcf-mb-0">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </figure>
         <h3 class="dcf-mt-6" id="popups">Popups</h3>
         <p>Popups can be configured to open content when the user clicks on – or, optionally, hovers over – a button. Popup content is displayed below the toggle button by default, but can be positioned on any side of the toggle button. Triangle-shaped points can optionally be added to popup content, and those points can be aligned to the start, center or end of the popup.</p>
         <p><code>.dcf-popup</code></p>
