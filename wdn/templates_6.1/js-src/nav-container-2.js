@@ -538,6 +538,6 @@ function setDesktopStyles() {
 function checkForSecondaryNav() {
     const navLocal = document.getElementById('dcf-navigation');
     const navLocalList = navLocal?.querySelector('ul');
-    
+
     return navLocalList?.querySelector('ul') !== null;
 }
