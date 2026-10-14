@@ -8,9 +8,9 @@ const wdnCleanupPlugin = {
     name: 'WDN: Cleanup Files',
     enforce: 'pre',
     async buildStart() {
-        const jsDir     = resolve(__dirname, './wdn/templates_6.1/js');
-        const cssDir    = resolve(__dirname, './wdn/templates_6.1/css');
-        const assetsDir = resolve(__dirname, './wdn/templates_6.1/assets');
+        const jsDir     = resolve(import.meta.dirname, './wdn/templates_6.1/js');
+        const cssDir    = resolve(import.meta.dirname, './wdn/templates_6.1/css');
+        const assetsDir = resolve(import.meta.dirname, './wdn/templates_6.1/assets');
 
         // Delete js folder to remove old built files
         if (await exists(jsDir)) {
@@ -28,27 +28,27 @@ const wdnCleanupPlugin = {
         }
 
         // Delete zipped files if they are there
-        await rm(resolve(__dirname, './downloads/UNLTemplates_6.1.tar.gz'), { force: true });
-        await rm(resolve(__dirname, './downloads/UNLTemplates_6.1.zip'),    { force: true });
-        await rm(resolve(__dirname, './downloads/wdn_6.1.tar.gz'),          { force: true });
-        await rm(resolve(__dirname, './downloads/wdn_6.1.zip'),             { force: true });
-        await rm(resolve(__dirname, './downloads/wdn_includes_6.1.tar.gz'), { force: true });
-        await rm(resolve(__dirname, './downloads/wdn_includes_6.1.zip'),    { force: true });
+        await rm(resolve(import.meta.dirname, './downloads/UNLTemplates_6.1.tar.gz'), { force: true });
+        await rm(resolve(import.meta.dirname, './downloads/UNLTemplates_6.1.zip'),    { force: true });
+        await rm(resolve(import.meta.dirname, './downloads/wdn_6.1.tar.gz'),          { force: true });
+        await rm(resolve(import.meta.dirname, './downloads/wdn_6.1.zip'),             { force: true });
+        await rm(resolve(import.meta.dirname, './downloads/wdn_includes_6.1.tar.gz'), { force: true });
+        await rm(resolve(import.meta.dirname, './downloads/wdn_includes_6.1.zip'),    { force: true });
     },
     closeBundle() {
-        const srcJs     = resolve(__dirname, './dist/wdn/templates_6.1/js');
-        const srcCss    = resolve(__dirname, './dist/wdn/templates_6.1/css');
-        const srcAssets = resolve(__dirname, './dist/wdn/templates_6.1/assets');
+        const srcJs     = resolve(import.meta.dirname, './dist/wdn/templates_6.1/js');
+        const srcCss    = resolve(import.meta.dirname, './dist/wdn/templates_6.1/css');
+        const srcAssets = resolve(import.meta.dirname, './dist/wdn/templates_6.1/assets');
 
         // Copy files from dist to correct places in template_6.1
         if (existsSync(srcJs)) {
-            cpSync(srcJs, resolve(__dirname, './wdn/templates_6.1/js'), { recursive: true, force: true });
+            cpSync(srcJs, resolve(import.meta.dirname, './wdn/templates_6.1/js'), { recursive: true, force: true });
         }
         if (existsSync(srcCss)) {
-            cpSync(srcCss, resolve(__dirname, './wdn/templates_6.1/css'), { recursive: true, force: true });
+            cpSync(srcCss, resolve(import.meta.dirname, './wdn/templates_6.1/css'), { recursive: true, force: true });
         }
         if (existsSync(srcAssets)) {
-            cpSync(srcAssets, resolve(__dirname, './wdn/templates_6.1/assets'), { recursive: true, force: true });
+            cpSync(srcAssets, resolve(import.meta.dirname, './wdn/templates_6.1/assets'), { recursive: true, force: true });
         }
     },
 };
