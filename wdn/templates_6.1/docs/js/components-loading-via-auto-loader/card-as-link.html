@@ -24,7 +24,7 @@
           </div>
         </div>
         <p>To create the component you can add the class <code>dcf-card-as-link</code> to your <code>dcf-card</code> element. You then just need a link to serve as the main link that the card will navigate to when clicked. That link will need the <code>dcf-card-link</code> class added to it.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Component Example">
+        <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
 &lt;div id="test" class="dcf-card dcf-card-as-link dcf-d-flex dcf-flex-col">
   &lt;div class="dcf-card-block dcf-2nd">
       &lt;h2>
@@ -47,7 +47,7 @@
         <p>If the component or its link tag do not have <code>id</code>s then a randomly generated one will be assigned to them. Once initialized the class <code>dcf-card-as-link-initialized</code> will be added to the component and it will remove the <code>hidden</code> attribute from the card. The class will also add itself to the <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference of the class instance.</p>
         <h2>Events</h2>
         <p>The Card as Link component dispatches a few events. When the class is finished initializing it will dispatch <code>cardAsLinkReady</code> and <code>UNLClassReady</code> both from the card element.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Events">
+        <pre class="unl-code-snippet" data-title="Javascript - Events" data-language="js">
 // Listening for class to be ready
 document.getElementById('test').addEventListener('cardAsLinkReady', (e) => {
   console.log('Event Name: cardAsLinkReady', e);
@@ -57,7 +57,7 @@ document.getElementById('test').addEventListener('UNLClassReady', (e) => {
 });
         </pre>
         <p>You can also use the plugin/auto-loader events to catch when the plugin/element is loaded.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - More Events">
+        <pre class="unl-code-snippet" data-title="Javascript - More Events" data-language="js">
 document.addEventListener('UNLPluginInitialized', (e) => {
   console.log('Event Name: UNLPluginInitialized', e);
 });

@@ -21,7 +21,7 @@
           </div>
         </form>
         <p>To create the component you can add the class <code>dcf-datepicker</code> to a <code>&lt;div&gt;</code> wrapping your input. Your datepicker will need to be in a <code>dcf-form</code> for them to get the correct input styles applied to them. You will need the input to be of type <code>text</code>.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Component Example">
+        <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
 &lt;form class="dcf-form" action="#" method="get">
   &lt;div id="test" class="dcf-datepicker">
       &lt;label for="sample-date">Date 1</label>
@@ -34,7 +34,7 @@
         <p>When opened the date picker has standard keyboard interactions where the arrow keys can be used to navigate the calendar grid, and tab can be used to navigate the dialog. <kbd>space</kbd> can be used to select a date and <kbd>esc</kbd> can be used to close the dialog.</p>
         <h2>Events</h2>
         <p>The Datepicker component dispatches a few events. When the class is finished initializing it will dispatch <code>datepickerReady</code> and <code>UNLClassReady</code> both from the wrapper element.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Events">
+        <pre class="unl-code-snippet" data-title="Javascript - Events" data-language="js">
 // Listening for class to be ready
 document.getElementById('test').addEventListener('datepickerReady', (e) => {
   console.log('Event Name: datepickerReady', e);
@@ -44,7 +44,7 @@ document.getElementById('test').addEventListener('UNLClassReady', (e) => {
 });
         </pre>
         <p>You can also use the plugin/auto-loader events to catch when the plugin/element is loaded.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - More Events">
+        <pre class="unl-code-snippet" data-title="Javascript - More Events" data-language="js">
 document.addEventListener('UNLPluginInitialized', (e) => {
   console.log('Event Name: UNLPluginInitialized', e);
 });

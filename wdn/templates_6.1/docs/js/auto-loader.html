@@ -15,8 +15,8 @@
         <p>The plugin auto-loader serves as the modern replacement for <a href="https://requirejs.org/">RequireJS</a>, which was previously utilized in version 5.3 of the framework.</p>
         <p>Instead of forcing a heavy, bundled asset payload on every visitor when the page may not have all the JavaScript components, the auto-loader dynamically scans the <abbr title="Document Object Model">DOM</abbr> on page load and fetches the JavaScript and <abbr title="Cascading Style Sheets">CSS</abbr> dependencies required <em>only</em> for the components present on the page. To maximize efficiency and optimize load times, the auto-loader pulls these plugins and components in parallel.</p>
         <p><strong>Note:</strong> Using the auto-loader is completely optional. It can be disabled or entirely removed from your application's environment; however, doing so means some of the base page template functionality will be lost. To fix these you can use <code>wdn/templates_6.1/js/auto-loader-opt-out.js</code> instead. This will only load the few components in the header and footer leaving the main content area open for you to develop as you wish.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Auto-Loader Opt-Out Script">
-&lt;script src="/wdn/templates_6.1/js/auto-loader-opt-out.js" type="module">&lt;/script>
+        <pre class="unl-code-snippet" data-title="HTML - Auto-Loader Opt-Out Script" data-language="html">
+          &lt;script src="/wdn/templates_6.1/js/auto-loader-opt-out.js" type="module">&lt;/script>
         </pre>
         <h2>How It Works</h2>
         <p>To keep assets modular, every framework component has its core logic and styling isolated into standalone files. Manually tracking and declaring these imports for every unique page layout would be incredibly tedious. The framework abstracts this through a two-layer architecture:</p>
@@ -39,10 +39,10 @@
         </ul>
         <h3>Lifecycle Events & Callbacks</h3>
         <p>The auto-loader dispatches standard <abbr title="Document Object Model">DOM</abbr> events, specifically <code>autoLoaderPreLoad</code> and <code>autoLoaderPostLoad</code>, to mark its initialization timeline. You can wire native listeners directly to the document:</p>
-        <pre class="unl-code-snippet" data-type="Javascript">
-document.addEventListener('autoLoaderPostLoad', () => {
-    console.log('Framework auto-loader is fully ready.');
-});
+        <pre class="unl-code-snippet" data-title="Javascript" data-language="js">
+          document.addEventListener('autoLoaderPostLoad', () => {
+              console.log('Framework auto-loader is fully ready.');
+          });
         </pre>
         <p>Alternatively, you can register callbacks using the utility method: <code>window.UNL.autoLoader.onLoad(callbackFunction)</code>. If registered before the system completes loading, the callback function is securely queued and executed the instant initialization finishes. If registered <em>after</em> the framework is already live, the callback fires immediately.</p>
         <h3>Plugins</h3>
@@ -58,11 +58,11 @@ document.addEventListener('autoLoaderPostLoad', () => {
         <p>Once initialization wraps up, you can inspect active plugins and their associated states via <code>window.UNL.autoLoader.plugins</code>. This namespace contains state logs tracking whether the plugin script successfully completed its fetch, references to the imported module definitions, and an array mapping active class instances back to their respective <abbr title="Document Object Model">DOM</abbr> nodes.</p>
         <p>Because filtering through raw plugin state arrays to locate a single element's instance can be tricky, a cleaner utility method is provided in <code>/wdn/templates_6.1/js/lib/unl-utility.js</code> called <code>getClassInstance</code>.</p>
         <p>This function relies on the fact that all <abbr title="University of Nebraska–Lincoln">UNL</abbr> components register their running instances to a global dictionary registry at <code>window.UNL.classes</code> (key value pair with the key being the <code>id</code> of the element and the value being the class instance), and returns a clean promise that resolves the moment the instance is safe to interact with:</p>
-        <pre class="unl-code-snippet" data-type="Javascript">
-import { getClassInstance } from '/wdn/templates_6.1/lib/unl-utility';
+        <pre class="unl-code-snippet" data-title="Javascript" data-language="js">
+          import { getClassInstance } from '/wdn/templates_6.1/lib/unl-utility';
 
-const dialogClass = await getClassInstance('my-dialog');
-dialogClass.open();
+          const dialogClass = await getClassInstance('my-dialog');
+          dialogClass.open();
         </pre>
       </div>
     </main>

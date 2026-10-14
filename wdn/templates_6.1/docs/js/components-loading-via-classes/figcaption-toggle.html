@@ -21,7 +21,7 @@
           </figcaption>
         </figure>
         <p>To create the component you will need your image and caption inside a <code>&lt;figure&gt;</code> element. You can then add the class <code>dcf-figcaption-toggle</code> to the figure.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Component Example">
+        <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
 &lt;figure class="dcf-mb-4">
     &lt;img class="dcf-16x9 dcf-obj-fit-cover" src="/image.jpg" alt="">
     &lt;figcaption id="test" class="dcf-figcaption dcf-figcaption-toggle">
@@ -45,7 +45,7 @@
         <p>The toggle button, when the user focuses on it, has the default toggle button keyboard interactions. Where <kbd>enter</kbd>, <kbd>space</kbd> will toggle the caption; and <kbd>esc</kbd> will close it.</p>
         <h2>Methods</h2>
         <p>While the figcaption toggle class does not expose any methods the toggle button class does expose one method for toggling, opening, and closing the fieldset. The <code>toggleSwitched</code> method handles all three actions which seemed like a good idea at the time but feels like a bad decision now. By passing no value the toggle button will toggle, or by passing in the string <code>'open'</code> or <code>'close'</code> it will do the respective action. That toggle button class instance is accessible through the property <code>toggleButtonInstance</code>.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Method">
+        <pre class="unl-code-snippet" data-title="Javascript - Method" data-language="js">
 import { getClassInstance } from '/wdn/templates_6.1/lib/unl-utility';
 const figcaptionClass = await getClassInstance('test');
 // You could also use window.UNL.classes['test'] once the class is initialized
@@ -57,7 +57,7 @@ figcaptionClass.toggleButtonInstance.toggleSwitched();
         </pre>
         <h2>Events</h2>
         <p>The Figcaption Toggle component dispatches a few events. When the class is finished initializing it will dispatch <code>figcaptionToggleReady</code> and <code>UNLClassReady</code> both from the <code>&lt;fieldset&gt;</code> element.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Events">
+        <pre class="unl-code-snippet" data-title="Javascript - Events" data-language="js">
 // Listening for class to be ready
 document.getElementById('test').addEventListener('figcaptionToggleReady', (e) => {
     console.log('Event Name: figcaptionToggleReady', e);
@@ -67,7 +67,7 @@ document.getElementById('test').addEventListener('UNLClassReady', (e) => {
 });
         </pre>
         <p>Since this component uses the toggle buttons under the hood we also get access to all the toggle button events. The button in the figure is the toggle button and the toggle element is the <code>&lt;figcaption&gt;</code> element. So there are 4 events for toggling the fieldset open and closes those 4 events dispatched from the button and the figcaption: <code>toggleButtonOn</code>, <code>toggleButtonOff</code>, <code>toggleElementOn</code>, <code>toggleElementOff</code>. The toggle button and toggle element also listen for 3 command events to trigger specific actions in the component: <code>commandOpen</code>, <code>commandClose</code>, and <code>commandToggle</code>.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Toggle Button Events">
+        <pre class="unl-code-snippet" data-title="Javascript - Toggle Button Events" data-language="js">
 // Listening for button to be toggled to open
 document.querySelector('#test button.dcf-btn-toggle-figcaption').addEventListener('toggleButtonOn', (e) => {
     console.log('Event Name: toggleButtonOn', e);

@@ -1,4 +1,16 @@
-import { uuidv4, unescapeHTML, dedent } from '../lib/unl-utility.js';
+import { uuidv4, unescapeHTML, dedent, loadStyleSheets } from '@js-src/lib/unl-utility.js';
+
+/**
+ * Downloaded highlight.js from https://highlightjs.org/download
+ * This downloaded included the core as well as the XML, CSS, and JS languages
+ * I picked the github theme for best accessibility
+ */
+import hljs from '@js-src/lib/highlight.min.js';
+import javascript from '@js-src/lib/highlight-js-languages/javascript.min.js';
+import xml from '@js-src/lib/highlight-js-languages/xml.min.js';
+import css from '@js-src/lib/highlight-js-languages/css.min.js';
+import githubCssUrl from '@scss/vendor/github.css?url';
+import githubDarkCssUrl from '@scss/vendor/github-dark.css?url';
 
 export default class UNLCodeSnippet {
     uuid = uuidv4();
@@ -12,6 +24,7 @@ export default class UNLCodeSnippet {
      * @param { HTMLElement } codeBlock
      */
     constructor(codeBlock) {
+        loadStyleSheets([githubCssUrl, githubDarkCssUrl]);
         this.codeBlock = codeBlock;
         if (this.codeBlock.getAttribute('id') === '' || this.codeBlock.getAttribute('id') === null) {
             this.codeBlock.setAttribute('id', this.uuid.concat('-code-snippet'));
@@ -21,7 +34,7 @@ export default class UNLCodeSnippet {
         this.codeSnippetElement.classList.add('dcf-grid-full', 'dcf-overflow-hidden', 'dcf-mb-5');
         this.codeSnippetElement.innerHTML = `
             <div class="dcf-ai-center unl-bg-scarlet unl-cream" style="display: grid; grid-template-columns: 1fr auto;">
-                <span class="dcf-bold dcf-pl-3">${codeBlock.dataset.type}</span>
+                <span class="dcf-bold dcf-pl-3">${this.codeBlock.dataset.title ?? ''}</span>
                 <button id="${this.uuid.concat('-code-snippet-copy')}" class="dcf-btn dcf-btn-primary dcf-m-1 dcf-d-flex dcf-ai-center" type="button">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -48,22 +61,32 @@ export default class UNLCodeSnippet {
                     </svg>
                 </button>
             </div>
-            <pre
-                id="${this.uuid.concat('-code-snippet-content')}"
-                class="dcf-m-0 dcf-sharp dcf-p-3 dcf-overflow-x-auto dcf-txt-sm"
-                style="white-space: pre;background-color: var(--bg-code);"
-            >
-            </pre>
         `;
         this.codeBlock.after(this.codeSnippetElement);
+        this.codeSnippetElement.append(this.codeBlock);
 
-        document.getElementById(this.uuid.concat('-code-snippet-content')).innerText = unescapeHTML(dedent(codeBlock.innerHTML));
+        this.codeBlock.innerHTML = dedent(this.codeBlock.innerHTML);
 
-        this.codeBlock.classList.add('dcf-d-none!', 'unl-code-snippet-initialized');
+        this.codeBlock.classList.add('unl-code-snippet-initialized', 'dcf-m-0', 'dcf-sharp', 'dcf-p-3', 'dcf-overflow-x-auto', 'dcf-txt-sm');
+        this.codeBlock.style.whiteSpace = 'pre';
+        this.codeBlock.setAttribute('tabindex', 0);
 
         document.getElementById(this.uuid.concat('-code-snippet-copy')).addEventListener('click', async() => {
-            await navigator.clipboard.writeText(unescapeHTML(dedent(codeBlock.innerHTML)));
+            await navigator.clipboard.writeText(unescapeHTML(dedent(this.codeBlock.innerHTML)));
         });
+
+        const language = (this.codeBlock.getAttribute('data-language') ?? '').toLowerCase();
+        if (language === 'js' || language === 'javascript') {
+            this.codeBlock.classList.add('language-javascript');
+            hljs.registerLanguage('javascript', javascript);
+        } else if (language === 'html' || language === 'xml') {
+            this.codeBlock.classList.add('language-xml');
+            hljs.registerLanguage('xml', xml);
+        } else if (language === 'css') {
+            this.codeBlock.classList.add('language-css');
+            hljs.registerLanguage('css', css);
+        }
+        hljs.highlightElement(this.codeBlock);
 
         window.UNL = window.UNL || {};
         window.UNL.classes = window.UNL.classes || {};

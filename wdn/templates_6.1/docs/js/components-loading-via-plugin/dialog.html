@@ -28,7 +28,7 @@
         <p>To create the component you can add the class <code>dcf-dialog</code> onto a <code>&lt;dialog&gt;</code> element. This will make the dialog itself, but you will need a button to open that dialog. For that you will need a <code>&lt;button&gt;</code> element with the <code>dcf-btn-toggle-dialog</code> class on it. You can have multiple dialogs on a page so you need to tell the button which dialog it toggles and for that you need to add the attribute <code>data-controls</code> to the button whose value is the <code>id</code> of the dialog you want to toggle.</p>
         <p>You will also want to disable the button since it will not work before the JavaScript has been ran. Once the Dialog component has been initialized it will remove the <code>disabled</code> attribute from the button.</p>
         <p>The plugin will be looking for <code>.dcf-dialog:not(.dcf-dialog-initialized)</code> when you run <code>loadElementsOnPage</code>, or you can pass in individual elements that you know are valid Dialog components using <code>loadElement</code> or <code>loadElements</code>.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Component Example">
+        <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
 &lt;button id="test-button" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="test" disabled>Dialog Toggle&lt;/button>
 &lt;dialog id="test" class="dcf-dialog">
     &lt;div class="dcf-dialog-header">
@@ -61,7 +61,7 @@
             <p>Dialog Contents</p>
           </div>
         </dialog>
-        <pre class="unl-code-snippet" data-type="HTML - Confirm Close">
+        <pre class="unl-code-snippet" data-title="HTML - Confirm Close" data-language="html">
 &lt;dialog id="confirm-close" class="dcf-dialog" data-confirmClose="Are you sure you want to close the dialog?">
     &lt;div class="dcf-dialog-header">
         &lt;h2>Dialog Confirm Close</h2>
@@ -84,7 +84,7 @@
             <p>Dialog Contents</p>
           </div>
         </dialog>
-        <pre class="unl-code-snippet" data-type="HTML - Deliberate Close">
+        <pre class="unl-code-snippet" data-title="HTML - Deliberate Close" data-language="html">
 &lt;dialog id="deliberate-close" class="dcf-dialog" data-deliberateCloseOnly="true">
     &lt;div class="dcf-dialog-header">
         &lt;h2>Dialog Deliberate Close</h2>
@@ -107,7 +107,7 @@
             <p>Dialog Contents</p>
           </div>
         </dialog>
-        <pre class="unl-code-snippet" data-type="HTML - Non-Modal">
+        <pre class="unl-code-snippet" data-title="HTML - Non-Modal" data-language="html">
 &lt;--
     I added the classes `dcf-w-100%`, `unl-bg-scarlet` and `unl-cream` to make
     the dialog a little better looking for this example
@@ -134,7 +134,7 @@
             <p>Dialog Contents</p>
           </div>
         </dialog>
-        <pre class="unl-code-snippet" data-type="HTML - Disable Default Classes">
+        <pre class="unl-code-snippet" data-title="HTML - Disable Default Classes" data-language="html">
 &lt;dialog id="default-classes" class="dcf-dialog" data-default-classes="false">
     &lt;div class="dcf-dialog-header">
         &lt;h2>Dialog Disable Default Classes</h2>
@@ -147,7 +147,7 @@
         </pre>
         <h3>Dynamic Toggle Buttons</h3>
         <p>There are some cases where you would want to have toggle buttons work even after the dialog has been initialized. You can use the dynamic toggle buttons option to listen for click events all throughout the page and if the event target is a toggle button which controls the dialog it will register the toggle event. To add this to your dialog you can add <code>data-dynamicToggleBtns="true"</code> as an attribute to your <code>&lt;dialog&gt;</code> element.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Disable Default Classes">
+        <pre class="unl-code-snippet" data-title="HTML - Dynamic Toggle Buttons" data-language="html">
 &lt;dialog id="dynamic-toggles" class="dcf-dialog" data-dynamicToggleBtns="true">
     &lt;div class="dcf-dialog-header">
         &lt;h2>Dialog Dynamic Toggle Buttons</h2>
@@ -162,7 +162,7 @@
         <p>When opened a dialog is open has standard keyboard interactions are defined by browser standards since this component is build around the default <code>&lt;dialog&gt;</code> element. The main keyboard interaction is that <kbd>Esc</kbd> will close the dialog.</p>
         <h2>Methods</h2>
         <p>There are a couple methods that are exposed on the dialog class. <code>close</code>, <code>open</code>, and <code>toggle</code>. These methods do what you expect.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Methods">
+        <pre class="unl-code-snippet" data-title="Javascript - Methods" data-language="js">
 import { getClassInstance } from '/wdn/templates_6.1/lib/unl-utility';
 const dialogClass = await getClassInstance('test');
 // You could also use window.UNL.classes['test'] once the class is initialized
@@ -173,7 +173,7 @@ dialogClass.toggle();
         </pre>
         <h2>Events</h2>
         <p>The Dialog component dispatches a few events. When the class is finished initializing it will dispatch <code>dialogReady</code> (from the <code>&lt;dialog&gt;</code> element) and <code>UNLClassReady</code> (from the <code>&lt;dialog&gt;</code> element and the toggle buttons).</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Events">
+        <pre class="unl-code-snippet" data-title="Javascript - Events" data-language="js">
 // Listening for class to be ready
 document.getElementById('test').addEventListener('dialogReady', (e) => {
     console.log('Event Name: dialogReady', e);
@@ -184,7 +184,7 @@ document.getElementById('test').addEventListener('UNLClassReady', (e) => {
         </pre>
         <p>There are events that are fired before and after the <code>&lt;dialog&gt;</code> element has opened and closed. These events are <code>dialogPreOpen</code>, <code>dialogPostOpen</code>, <code>dialogPreClose</code>, and <code>dialogPostClose</code>. This are dispatched from the <code>&lt;dialog&gt;</code> element.</p>
         <p>These events also have a <code>detail</code> property in the event object which includes information about what type of input triggered the dialog to open/close and if it was a button which button caused the dialog to open/close.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Dialog Open/Close">
+        <pre class="unl-code-snippet" data-title="Javascript - Dialog Open/Close" data-language="js">
 // Listening for dialog to open and close
 document.getElementById('test').addEventListener('dialogPreOpen', (e) => {
     console.log('Event Name: dialogPreOpen', e);
@@ -196,13 +196,13 @@ document.getElementById('test').addEventListener('dialogPreClose', (e) => {
 });
         </pre>
         <p>There are also events that the dialog listens for which can be used to perform actions on the dialog similar to calling the exposed methods. These events would be dispatched onto the <code>&lt;dialog&gt;</code> element and are <code>commandClose</code>, <code>commandOpen</code>, and <code>commandToggle</code>.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Command Events">
+        <pre class="unl-code-snippet" data-title="Javascript - Command Events" data-language="js">
 // Opening and closing dialog via event dispatch
 document.getElementById('test').dispatchEvent(new CustomEvent('commandOpen'));
 document.getElementById('test').dispatchEvent(new CustomEvent('commandClose'));
         </pre>
         <p>You can also use the plugin events to catch when the plugin/element is loaded.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - More Events">
+        <pre class="unl-code-snippet" data-title="Javascript - More Events" data-language="js">
 document.addEventListener('UNLPluginInitialized', (e) => {
     console.log('Event Name: UNLPluginInitialized', e);
 });
@@ -242,7 +242,7 @@ document.addEventListener('UNLPluginLoadedElement', (e) => {
               </video>
             </div>
           </dialog>
-          <pre class="unl-code-snippet" data-type="Javascript - MediaHub Example">
+          <pre class="unl-code-snippet" data-title="HTML - MediaHub Example" data-language="html">
 &lt;dialog id="mediahub" class="dcf-dialog">
     &lt;div class="dcf-dialog-header">
         &lt;h2>Dialog MediaHub Embed&lt;/h2>
@@ -261,7 +261,7 @@ document.addEventListener('UNLPluginLoadedElement', (e) => {
     &lt;/div>
 &lt;/dialog>
           </pre>
-          <pre class="unl-code-snippet" data-type="Javascript - Video Example">
+          <pre class="unl-code-snippet" data-title="Javascript - Video Example" data-language="html">
 &lt;dialog id="video" class="dcf-dialog">
     &lt;div class="dcf-dialog-header">
         &lt;h2>Dialog Video&lt;/h2>

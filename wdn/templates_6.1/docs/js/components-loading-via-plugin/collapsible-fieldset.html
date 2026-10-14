@@ -40,7 +40,7 @@
           </fieldset>
         </form>
         <p>To create the component you can add the class <code>dcf-collapsible-fieldset</code> to your <code>&lt;fieldset&gt;</code> element. Your fieldsets will need to be in a <code>dcf-form</code> for them to get the correct fieldset styles applied to them.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Component Example">
+        <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
 &lt;form class="dcf-form">
     &lt;fieldset id="test" class="dcf-collapsible-fieldset">
         &lt;legend>Checkboxes&lt;/legend>
@@ -64,7 +64,7 @@
         <p>The toggle button, when the user focuses on it, has the default toggle button keyboard interactions. Where <kbd>enter</kbd>, <kbd>space</kbd> will toggle the fieldset; and <kbd>esc</kbd> will collapse it.</p>
         <h2>Methods</h2>
         <p>While the collapsible fieldset class does not expose any methods the toggle button class does expose one method for toggling, opening, and closing the fieldset. The <code>toggleSwitched</code> method handles all three actions which seemed like a good idea at the time but feels like a bad decision now. By passing no value the toggle button will toggle, or by passing in the string <code>'open'</code> or <code>'close'</code> it will do the respective action. That toggle button class instance is accessible through the property <code>toggleButtonInstance</code>.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Method">
+        <pre class="unl-code-snippet" data-title="Javascript - Method" data-language="js">
 import * as collapsibleFieldsetPlugin from '/wdn/templates_6.1/js/plugins/plugin.collapsible-fieldset.js';
 const testElement = document.getElementById('test');
 const fieldsetClass = await collapsibleFieldsetPlugin.loadElement(testElement);
@@ -77,7 +77,7 @@ fieldsetClass.toggleButtonInstance.toggleSwitched();
         </pre>
         <h2>Events</h2>
         <p>The collapsible fieldset component dispatches a few events. When the class is finished initializing it will dispatch <code>collapsibleFieldsetReady</code> and <code>UNLClassReady</code> both from the <code>&lt;fieldset&gt;</code> element.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Events">
+        <pre class="unl-code-snippet" data-title="Javascript - Events" data-language="js">
 // Listening for class to be ready
 document.getElementById('test').addEventListener('collapsibleFieldsetReady', (e) => {
     console.log('Event Name: collapsibleFieldsetReady', e);
@@ -87,7 +87,7 @@ document.getElementById('test').addEventListener('UNLClassReady', (e) => {
 });
         </pre>
         <p>Since this component uses the toggle buttons under the hood we also get access to all the toggle button events. The button in the <code>&lt;legend&gt;</code> is the toggle button and the toggle element is the <code>&lt;div&gt;</code> that wraps the content inside the fieldset. So there are 4 events for toggling the <code>&lt;fieldset&gt;</code> open and closes those 4 events dispatched from the button and the element: <code>toggleButtonOn</code>, <code>toggleButtonOff</code>, <code>toggleElementOn</code>, <code>toggleElementOff</code>. The toggle button and toggle element also listen for 3 command events to trigger specific actions in the component: <code>commandOpen</code>, <code>commandClose</code>, and <code>commandToggle</code>.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Toggle Button Events">
+        <pre class="unl-code-snippet" data-title="Javascript - Toggle Button Events" data-language="js">
 // Listening for button to be toggled to open
 document.querySelector('#test legend button').addEventListener('toggleButtonOn', (e) => {
     console.log('Event Name: toggleButtonOn', e);
@@ -96,7 +96,7 @@ document.querySelector('#test legend button').addEventListener('toggleButtonOn',
 document.querySelector('#test > div').dispatchEvent(new CustomEvent('commandToggle'));
         </pre>
         <p>You can also use the plugin events to catch when the plugin/element is loaded.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - More Events">
+        <pre class="unl-code-snippet" data-title="Javascript - More Events" data-language="js">
 document.addEventListener('UNLPluginInitialized', (e) => {
     console.log('Event Name: UNLPluginInitialized', e);
 });
