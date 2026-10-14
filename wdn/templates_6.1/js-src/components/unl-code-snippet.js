@@ -20,6 +20,8 @@ export default class UNLCodeSnippet {
      */
     codeBlock = null;
 
+    originalText = '';
+
     /**
      * @param { HTMLElement } codeBlock
      */
@@ -29,6 +31,8 @@ export default class UNLCodeSnippet {
         if (this.codeBlock.getAttribute('id') === '' || this.codeBlock.getAttribute('id') === null) {
             this.codeBlock.setAttribute('id', this.uuid.concat('-code-snippet'));
         }
+
+        this.originalText = unescapeHTML(dedent(this.codeBlock.innerHTML));
 
         this.codeSnippetElement = document.createElement('div');
         this.codeSnippetElement.classList.add('dcf-grid-full', 'dcf-overflow-hidden', 'dcf-mb-5');
@@ -72,7 +76,7 @@ export default class UNLCodeSnippet {
         this.codeBlock.setAttribute('tabindex', 0);
 
         document.getElementById(this.uuid.concat('-code-snippet-copy')).addEventListener('click', async() => {
-            await navigator.clipboard.writeText(unescapeHTML(dedent(this.codeBlock.innerHTML)));
+            await navigator.clipboard.writeText(this.originalText);
         });
 
         const language = (this.codeBlock.getAttribute('data-language') ?? '').toLowerCase();
