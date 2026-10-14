@@ -52,9 +52,11 @@ async function fakeDefine(jQuery) {
     };
     window.define.amd = true;
 
-    // Import which should use the fake define we set up
-    await import('@js-src/lib/jquery-ui.js');
-
-    // Restore old define
-    window.define = oldDefine;
+    try {
+        // Import which should use the fake define we set up
+        await import('@js-src/lib/jquery-ui.js');
+    } finally {
+        // Restore old define
+        window.define = oldDefine;
+    }
 }

@@ -20,13 +20,12 @@ export default ({ mode }) => {
 
     const versionPath = resolve('./VERSION_DEP');
     if (!existsSync(versionPath)) {
-        this.error(`Version file not found: ${versionPath}`);
+        throw new Error(`Version file not found: ${versionPath}`);
     }
     const version = readFileSync(versionPath, 'utf8').trim();
 
     // Default plugins which are loaded every time
     const plugins = [
-        wdnCleanupPlugin,
         wdnCleanupPlugin,
         wdnFinalJsUrlPlugin({
             version: version,
@@ -94,15 +93,7 @@ export default ({ mode }) => {
     }
 
     return defineConfig({
-        esbuild: {
-            // These options will allow us to keep the class names and other variables in the code
-            //   This is super helpful for debugging and console logging
-            minifyIdentifiers: false,
-            keepNames: true,
-        },
         build: {
-            minify: 'esbuild',
-
             // Tells the bundler to target modern browsers
             //   Specifically allows us to do top level await
             target: 'esnext',
@@ -201,8 +192,32 @@ export default ({ mode }) => {
 
             // These are additional options defined to adjust the final built code
             // Do not include leading slash on file paths
-            rollupOptions: {
+            rolldownOptions: {
+
+                // External packages being imported
+                external: [
+                    'jquery',
+                    'datatables.net',
+                    'datatables.net-dt',
+                    'datatables.net-buttons',
+                    'datatables.net-responsive',
+                ],
+
+                // Avoid vite complaining about how slow eslint and sass is
+                checks: {
+                    pluginTimings: false,
+                },
+
                 output: {
+                    // This lets us keep the names for classes, functions/methods, and properties from obfuscating
+                    minify: {
+                        compress: {
+                            keepNames: { function: true, class: true },
+                        },
+                        mangle: {
+                            keepNames: true,
+                        },
+                    },
 
                     // These are definitions for folder/file paths for all the other files found during build
                     assetFileNames: (assetInfo) => {
@@ -211,7 +226,7 @@ export default ({ mode }) => {
                             if (assetInfo.originalFileNames.length > 0) {
                                 // This will extract the directory the file is in
                                 // If it finds a file it will include it in the returned built file path
-                                const folderRegex = /wdn\/templates_6\.0\/images\/([^/]+)\/[^/]+/i;
+                                const folderRegex = /wdn\/templates_6\.1\/images\/([^/]+)\/[^/]+/i;
                                 const path = folderRegex.exec(assetInfo.originalFileNames[0]);
                                 if (path !== null && path.length === 2) {
                                     return `wdn/templates_6.1/assets/images/${path[1]}/[name][extname]`;
@@ -280,11 +295,11 @@ export default ({ mode }) => {
         // resolve.alias will replace the `@js-src` with the path before building
         resolve: {
             alias: {
-                '@js-src': resolve(__dirname, './wdn/templates_6.1/js-src'),
-                '@scss': resolve(__dirname, './wdn/templates_6.1/scss'),
-                '@fonts': resolve(__dirname, './wdn/templates_6.1/fonts'),
-                '@images': resolve(__dirname, './wdn/templates_6.1/images'),
-                '@dcf': process.env.DCF_DIR ?? resolve(__dirname, './node_modules/dcf'),
+                '@js-src': resolve(import.meta.dirname, './wdn/templates_6.1/js-src'),
+                '@scss': resolve(import.meta.dirname, './wdn/templates_6.1/scss'),
+                '@fonts': resolve(import.meta.dirname, './wdn/templates_6.1/fonts'),
+                '@images': resolve(import.meta.dirname, './wdn/templates_6.1/images'),
+                '@dcf': process.env.DCF_DIR ?? resolve(import.meta.dirname, './node_modules/dcf'),
             },
         },
     });
