@@ -11,7 +11,6 @@
 
 @forward "@dcf/scss/variables/backgrounds" with (
 
-  $backdrop-filter-blur: 4px !default,
   $bg-color-white-light-mode: color_palette.$white !default,
   $bg-color-white-dark-mode: color_palette.$darker-gray-s1 !default,
   $bg-color-light-gray-light-mode: color_palette.$light-gray !default,
