@@ -145,7 +145,7 @@
     text-wrap: balance;
   }
   html {
-    font: normal 500 1em/1.5 'Work Sans', 'Sans Serif Fallback', sans-serif;
+    font: normal 500 1em/1.5 'Work Sans', var(--sans-serif-fallback), sans-serif;
     font-synthesis: none;
   }
   ol,
@@ -275,7 +275,7 @@
     color: var(--btn-tertiary);
   }
   .dcf-institution-title {
-    font-family: 'Source Serif 4 UNL Wordmark', 'Serif Fallback', serif;
+    font-family: 'Source Serif 4 UNL Wordmark', var(--serif-fallback), serif;
   }
   .unl-institution-title-ls {
     letter-spacing: .18em;
