@@ -16,7 +16,7 @@
         <p>The auto-loader references <code>/wdn/templates_6.1/js/plugins/plugin.event-list.js</code> by default. That plugin will be looking for <code>.unl-event-list:not(.unl-event-list-initialized)</code> as the trigger to load the components code dependencies and initialize the component.</p>
         <div id="test" class="unl-event-list dcf-mb-4"></div>
         <p>To create the component you can add the class <code>unl-event-list</code> onto <code>&lt;div&gt;</code> which will be the container of the component. By default it will pull events from the main <abbr title="University of Nebraska–Lincoln">UNL</abbr> calendar but we will get into configuring the options later in the docs.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Component Example">
+        <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
 &lt;div id="test" class="unl-event-list">&lt;/div>
         </pre>
         <p>If the container <code>&lt;div&gt;</code> element the fieldset do not have <code>id</code> then randomly generated one will be assigned to them. Once initialized the class <code>unl-event-list-initialized</code> will be added to the container element and it will remove the <code>hidden</code> attribute from the it. The class will also add itself to the <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference of the class instance.</p>
@@ -24,7 +24,7 @@
         <p>The Event List component has a few options associated with its functionality.</p>
         <h3>Calendar/Feed <abbr title="Uniform Resource Locator">URL</abbr></h3>
         <p>This option allows you to pick which calendar feed the events are being pulled from. To change the calendar feed <abbr title="Uniform Resource Locator">URL</abbr> you can add <code>data-url</code> to the container <code>&lt;div&gt;</code> and set its value to the events <abbr title="Uniform Resource Locator">URL</abbr>. This can also reference the different feeds on events such as upcoming, featured, or event searches or filtered lists of events.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Calendar/Feed URL">
+        <pre class="unl-code-snippet" data-title="HTML - Calendar/Feed URL" data-language="html">
 &lt;-- Specific Calendar -->
 &lt;div class="unl-event-list" data-url="https://events.unl.edu/SheldonMuseum">&lt;/div>
 &lt;-- Upcoming Feed -->
@@ -36,12 +36,12 @@
         </pre>
         <h3>Limit</h3>
         <p>This limit will set how many events are being displayed in the event list. To change the event limit you can add <code>data-limit</code> to the container <code>&lt;div&gt;</code> and set its value to the number of events you want to display.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Limit">
+        <pre class="unl-code-snippet" data-title="HTML - Limit" data-language="html">
 &lt;div class="unl-event-list" data-url="https://events.unl.edu/search/?q=ice+cream" data-limit="3">&lt;/div>
         </pre>
         <h3>Rooms</h3>
-        <p>This option will toggle if the rooms are displayed in the event’s location. To enable the rooms you can add <code>data-rooms="true"</code> to the container div.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Rooms">
+        <p>This option will toggle if the rooms are displayed in the event's location. To enable the rooms you can add <code>data-rooms="true"</code> to the container div.</p>
+        <pre class="unl-code-snippet" data-title="HTML - Rooms" data-language="html">
 &lt;div class="unl-event-list" data-url="https://events.unl.edu/ianr/upcoming" data-rooms="true">&lt;/div>
         </pre>
         <h3>Layout</h3>
@@ -52,14 +52,14 @@
         <div id="band" class="unl-event-list dcf-mb-4" data-layout="band"></div>
         <h4>Month-Widget Example</h4>
         <div id="month-widget" class="unl-event-list dcf-mb-4" data-layout="month-widget"></div>
-        <pre class="unl-code-snippet" data-type="HTML - Layout">
+        <pre class="unl-code-snippet" data-title="HTML - Layout" data-language="html">
 &lt;div class="unl-event-list" data-layout="grid">&lt;/div>
 &lt;div class="unl-event-list" data-layout="band">&lt;/div>
 &lt;div class="unl-event-list" data-layout="month-widget">&lt;/div>
         </pre>
         <h2>Events</h2>
         <p>The Event List component dispatches a few events. When the class is finished initializing it will dispatch <code>eventListReady</code> and <code>UNLClassReady</code> both from the container element.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Events">
+        <pre class="unl-code-snippet" data-title="Javascript - Events" data-language="js">
 // Listening for class to be ready
 document.getElementById('test').addEventListener('eventListReady', (e) => {
   console.log('Event Name: eventListReady', e);
@@ -69,7 +69,7 @@ document.getElementById('test').addEventListener('UNLClassReady', (e) => {
 });
         </pre>
         <p>You can also use the plugin/auto-loader events to catch when the plugin/element is loaded.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - More Events">
+        <pre class="unl-code-snippet" data-title="Javascript - More Events" data-language="js">
 document.addEventListener('UNLPluginInitialized', (e) => {
   console.log('Event Name: UNLPluginInitialized', e);
 });

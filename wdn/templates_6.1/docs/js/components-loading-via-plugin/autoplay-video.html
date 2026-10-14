@@ -20,7 +20,7 @@
           </video>
         </div>
         <p>To create the component you can wrap your video inside a <code>&lt;div&gt;</code> with the <code>dcf-autoplay-video</code> class added to it. Your video element should have <code>loop</code>, <code>muted</code>, <code>playsinline</code>, and <code>autoplay</code> attributes on it to have the video playing by default in case the JavaScript does not load.</p>
-        <pre class="unl-code-snippet" data-type="HTML - Component Example">
+        <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
 &lt;div id="test" class="dcf-autoplay-video dcf-w-100%">
     &lt;video class="dxf-16x9" poster="/poster.jpg" autoplay loop muted playsinline>
         &lt;source src="/video.mp4" type="video/mp4">
@@ -35,7 +35,7 @@
         <p>If the component does not have an <code>id</code> a randomly generated one will be assigned to it. Once initialized the class <code>dcf-autoplay-video-initialized</code> is added to the component and it will remove the <code>hidden</code> attribute from itself. The class will also add itself to the <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference of the class instance.</p>
         <h2>Exposed Methods</h2>
         <p>The class instance of the component exposes a few methods for playing and pausing all the instances of the component using <code>pauseAll</code> and <code>playAll</code>. You can also see if the videos are currently playing or not using <code>isPlaying</code>.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Methods">
+        <pre class="unl-code-snippet" data-title="Javascript - Methods" data-language="js">
 import * as autoplayVideoPlugin from '/wdn/templates_6.1/js/plugins/plugin.autoplay-video.js';
 const testElement = document.getElementById('test');
 const autoplayVideoClass = await autoplayVideoPlugin.loadElement(testElement);
@@ -46,7 +46,7 @@ console.log(autoplayVideoClass.isPlaying());
         </pre>
         <h2>Events</h2>
         <p>The Autoplay Video component listens and dispatches a few events. When the class is finished initializing it will dispatch <code>autoplayVideoReady</code> and <code>UNLClassReady</code> both from the video container. The class also dispatches the event <code>dcfAutoplayVideoToggle</code> in the window when the video playback is toggled.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - Events">
+        <pre class="unl-code-snippet" data-title="Javascript - Events" data-language="js">
 // Listening for class to be ready
 document.getElementById('test').addEventListener('autoplayVideoReady', (e) => {
     console.log('Event Name: autoplayVideoReady', e);
@@ -60,7 +60,7 @@ window.addEventListener('dcfAutoplayVideoToggle', (e) => {
 });
         </pre>
         <p>You can also use the plugin events to catch when the plugin/element is loaded.</p>
-        <pre class="unl-code-snippet" data-type="Javascript - More Events">
+        <pre class="unl-code-snippet" data-title="Javascript - More Events" data-language="js">
 document.addEventListener('UNLPluginInitialized', (e) => {
     console.log('Event Name: UNLPluginInitialized', e);
 });
