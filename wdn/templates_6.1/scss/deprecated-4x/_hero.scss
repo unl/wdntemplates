@@ -151,7 +151,7 @@
 }
 
 
-@media only screen and (min-width:80em) and (min-height: #{ms(26)}em) {
+@media only screen and (min-width:80em) and (min-height: #{var.$ms26}em) {
 
   .wdn-hero {
     height: #{var.$ms24}em;

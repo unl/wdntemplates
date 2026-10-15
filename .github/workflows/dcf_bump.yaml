@@ -2,84 +2,64 @@ name: Bump DCF Version
 
 on:
   schedule:
-    - cron: "0 */1 * * *"
-
+    - cron: "0 * * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   check-DCF-version:
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-24.04
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
-      - name: Get latest commit timestamp
-        id: get-commit
+      - name: Compare locked DCF commit with upstream
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Try up to 3 times to get a valid commit timestamp
-          for i in {1..3}; do
-            LATEST_TIMESTAMP=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.1 | jq -r '.commit.committer.date')
-            if [ "$LATEST_TIMESTAMP" != "null" ] && [ -n "$LATEST_TIMESTAMP" ]; then
-              break
-            fi
-            sleep 2
-          done
+          # gh api fails the step loudly on API errors (rate limits, auth, etc.)
+          LATEST_SHA=$(gh api repos/digitalcampusframework/dcf/branches/4.1 --jq '.commit.sha')
 
-          # Handle null or missing timestamp
-          if [ "$LATEST_TIMESTAMP" = "null" ] || [ -z "$LATEST_TIMESTAMP" ]; then
-            echo "No valid timestamp retrieved. Skipping commit check."
-            echo "recent_commit=false" >> $GITHUB_OUTPUT
-            exit 0
+          if ! [[ "$LATEST_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Unexpected SHA from API: '$LATEST_SHA'"
+            exit 1
           fi
 
-          echo "timestamp=$LATEST_TIMESTAMP" >> $GITHUB_OUTPUT
+          CURRENT_SHA=$(jq -r '.packages."node_modules/dcf".resolved' package-lock.json | sed 's/.*#//')
+          echo "Current: $CURRENT_SHA"
+          echo "Latest:  $LATEST_SHA"
 
-      - name: Compare commit timestamps
-        id: compare-commits
-        if: ${{ steps.get-commit.outputs.timestamp != '' && steps.get-commit.outputs.timestamp != 'null' }}
-        run: |
-          CURRENT_TIMESTAMP=$(date +%s)
-          echo "Current timestamp: $CURRENT_TIMESTAMP"
-
-          LATEST_TIMESTAMP=$(date -d "${{ steps.get-commit.outputs.timestamp }}" +%s)
-          echo "Latest commit timestamp: $LATEST_TIMESTAMP"
-
-          TIME_DIFF=$((CURRENT_TIMESTAMP - LATEST_TIMESTAMP))
-          echo "Time difference: $TIME_DIFF seconds"
-
-          if [ $TIME_DIFF -lt 3600 ]; then
-            echo "Recent commit found!"
-            echo "recent_commit=true" >> $GITHUB_OUTPUT
+          if [ "$CURRENT_SHA" != "$LATEST_SHA" ]; then
+            echo "needs_update=true" >> "$GITHUB_OUTPUT"
+            echo "latest_sha=$LATEST_SHA" >> "$GITHUB_OUTPUT"
+            echo "short_hash=${LATEST_SHA:0:7}" >> "$GITHUB_OUTPUT"
           else
-            echo "No recent commit"
-            echo "recent_commit=false" >> $GITHUB_OUTPUT
+            echo "needs_update=false" >> "$GITHUB_OUTPUT"
+            echo "Already up to date."
           fi
 
       - name: Modify package-lock.json
-        id: modify-file
-        if: ${{ steps.compare-commits.outputs.recent_commit == 'true' }}
+        if: steps.check.outputs.needs_update == 'true'
         run: |
-          FILE_PATH="package-lock.json"
-          FILE_CONTENT=$(cat $FILE_PATH)
-
-          NEW_COMMIT_HASH=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.1 | jq -r '.sha')
-          UPDATED_CONTENT=$(echo "$FILE_CONTENT" | jq --arg new_version "git+ssh://git@github.com/digitalcampusframework/dcf.git#$NEW_COMMIT_HASH" '.packages."node_modules/dcf".resolved = $new_version')
-
-          echo "$UPDATED_CONTENT" > $FILE_PATH
-
-          # Store short hash for use in branch name
-          echo "short_hash=${NEW_COMMIT_HASH:0:7}" >> $GITHUB_OUTPUT
+          jq --arg url "git+ssh://git@github.com/digitalcampusframework/dcf.git#${{ steps.check.outputs.latest_sha }}" \
+            '.packages."node_modules/dcf".resolved = $url' \
+            package-lock.json > package-lock.tmp
+          mv package-lock.tmp package-lock.json
 
       - name: Create pull request
+        if: steps.check.outputs.needs_update == 'true'
         uses: gr2m/create-or-update-pull-request-action@v1
-        if: ${{ steps.compare-commits.outputs.recent_commit == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          title: "Bump DCF (${{ steps.modify-file.outputs.short_hash }})"
+          title: "Bump DCF (${{ steps.check.outputs.short_hash }})"
           body: "Updated DCF commit hash"
-          branch: "gw-dcf-bump-branch-${{ steps.modify-file.outputs.short_hash }}"
+          branch: "gw-dcf-bump-branch-${{ steps.check.outputs.short_hash }}"
           commit-message: "Bumped DCF"
           labels: dependency
           reviewers: tommyneu, skoolbus39
