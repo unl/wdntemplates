@@ -14,6 +14,7 @@ import wdnLayerPolyfill from './vite.wdnLayerPolyfill.js';
 import wdnImportVersion from './vite.wdnImportVersion.js';
 import wdnMockBannerInjector from './vite.wdnMockBannerInjector.js';
 import wdnCriticalCSSTest from './vite.wdnCriticalCSSTest.js';
+import wdnDepVersionInjector from './vite.wdnDepVersionInjector.js';
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
@@ -42,6 +43,7 @@ export default ({ mode }) => {
             ],
         }),
         wdnMockBannerInjector(process.env.VITE_MOCK_BANNER_FILE),
+        wdnDepVersionInjector(version),
     ];
 
     // If we are in a development environment
