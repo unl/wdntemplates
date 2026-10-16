@@ -21,7 +21,7 @@
           <img class="dcf-gallery-img dcf-b-1 dcf-b-solid unl-b-light-gray dcf-w-10" src="/wdn/templates_6.1/images/test/test_768.jpg" alt="Placeholder image.">
         </div>
         <p>To create the component you can add the class <code>dcf-gallery-img</code> to the <code>img</code> you wish to open in a gallery viewer.</p>
-        <p>That plugin will be looking for <code>.dcf-gallery-img:not(.dcf-gallery-img-initialized)</code> as the trigger to load the components code dependencies and initialize the component.</p>
+        <p>The plugin will be looking for <code>.dcf-gallery:not(.dcf-gallery-initialized)</code> when you run <code>loadElementsOnPage</code>, or you can pass in individual elements that you know are valid gallery components using <code>loadElement</code> or <code>loadElements</code>.</p>
         <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
         &lt;img
           id="test"
