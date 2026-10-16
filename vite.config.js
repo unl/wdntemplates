@@ -271,9 +271,6 @@ export default ({ mode }) => {
                 },
             },
 
-            // If emptyOutDir is set to true it deletes everything
-            emptyOutDir: false,
-
             // We want js source maps but inline ones are slow for production
             sourcemap: true,
 
