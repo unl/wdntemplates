@@ -1016,6 +1016,16 @@
         <p>Like <a href="https://github.com/unl/wdntemplates/wiki/HTML-Elements#quotes">inline quotes</a> (<code>&lt;q&gt;</code>), the blockquote component automatically adds quotation marks—no need to add your own.</p>
         <p><code>.dcf-attribution</code></p>
         <p>To attribute the source of a quote, put the attribution in a <code>&lt;footer&gt;</code> element with the <code>dcf-attribution</code> class. It will automatically prepend an em dash (<code>&amp;mdash;</code>) followed by a thin space (<code>&amp;thinsp;</code>). If the attribution source comes from a creative work, it should be cited using the <code>&lt;cite&gt;</code> element and italicized with the <code>&lt;i&gt;</code> element to visually offset the title of the work from the rest of the attribution.</p>
+        <pre class="unl-code-snippet" data-title="HTML - Blockquote Example" data-language="html">&lt;blockquote class="dcf-blockquote"&gt;
+  &lt;p&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;footer class="dcf-attribution"&gt;Jane Doe, &lt;cite&gt;Title of the Book&lt;/cite&gt;&lt;/footer&gt</pre>
+        <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+          <blockquote class="dcf-blockquote">
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor.</p>
+          </blockquote>
+          <footer class="dcf-attribution">Jane Doe, <cite>Title of the Book</cite></footer>
+        </figure>
         <h3 class="dcf-mt-6" id="buttons">Buttons</h3>
         <p>Buttons include the <code>&lt;button&gt;</code> element, as well as form inputs (<code>type="button"</code> and <code>type="submit"</code>) and links styled to appear as buttons.</p>
         <p><code>.dcf-btn</code></p>
