@@ -1,3 +1,5 @@
+import depVersion from 'virtual:depVersion';
+
 import UNLTabUrl from '@js-src/plugins/multi/tab.js?finalUrl';
 import UNLToggleButtonUrl from '@js-src/plugins/multi/toggle-button.js?finalUrl';
 import UNLCollapsibleFieldsetUrl from '@js-src/plugins/multi/collapsible-fieldset.js?finalUrl';
@@ -23,6 +25,7 @@ import UNLRandomizerUrl from '@js-src/plugins/multi/randomizer?finalUrl';
 
 
 window.UNL = window.UNL || {};
+window.UNL.depVersion = depVersion;
 window.UNL.classes = window.UNL.classes || {};
 
 window.UNL.autoLoader = {
