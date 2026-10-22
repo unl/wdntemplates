@@ -15,6 +15,7 @@
 /node_modules
 /vagrant/dev/.vagrant
 /dist
+/debug
 /wdn/templates_*/assets
 /wdn/templates_*/css
 /wdn/templates_*/dcf

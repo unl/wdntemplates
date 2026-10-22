@@ -158,7 +158,7 @@ export default class UNLEventList {
                 header = `<h2 class="dcf-sr-only">${displayType} Events</h2>`;
                 moreEvents = `<div class="dcf-d-flex dcf-jc-center"><a class="dcf-btn dcf-btn-tertiary" href="${this.calendarUrl}">More Events</a></div>`;
             } else {
-                this.eventListElement.classList.add('unl-event-teaser-list', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-6');
+                this.eventListElement.classList.add('unl-event-teaser-list', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-6', 'dcf-ml-6');
                 this.eventListElement.setAttribute('role', 'list');
                 grid.classList.add('unl-offset-grid', 'dcf-col-gap-4');
             }
