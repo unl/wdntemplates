@@ -91,10 +91,12 @@
     --sans-serif-fallback: "Sans Serif Fallback";
     --bg-body: #fefdfa;
     --bg-btn-primary: #d00000;
+    --bg-btn-secondary: #fff;
     --b: #e3e3e2;
     --b-btn-primary: #d00000;
     --body: #424240;
     --btn-primary: #fefdfa;
+    --btn-secondary: #d00000;
     --heading: #242423;
     --inverse: #fefdfa;
     --link: #d00000;
@@ -168,6 +170,7 @@
     margin-left: -.013em;
   }
   a.dcf-btn-primary,
+  a.dcf-btn-secondary,
   .dcf-header a,
   .unl h1 a,
   .unl h2 a {
@@ -196,12 +199,6 @@
   .unl h1 a,
   .unl h2 a {
     text-decoration: none;
-  }
-  .dcf-btn-inverse-tertiary {
-    color: #ebebeb;
-    background-color: #0000;
-    border-color: #0000;
-    text-decoration: underline;
   }
   .unl .dcf-header ul {
     list-style-type: "";
@@ -251,6 +248,18 @@
     background-color: var(--bg-btn-primary);
     border-color: var(--b-btn-primary);
     color: var(--btn-primary);
+  }
+  .dcf-btn-secondary,
+  .dcf-btn-secondary:link {
+    background-color: var(--bg-btn-secondary);
+    color: var(--btn-secondary);
+    border-color: currentColor
+  }
+  .dcf-btn-inverse-tertiary {
+    color: #ebebeb;
+    background-color: #0000;
+    border-color: #0000;
+    text-decoration: underline;
   }
   .dcf-institution-title {
     font-family: 'Source Serif 4 UNL Wordmark', var(--serif-fallback), serif;
@@ -365,6 +374,9 @@
   .dcf-col-gap-7 {
     column-gap: 2.37em;
   }
+  .dcf-col-gap-vw {
+    column-gap: 3.16vw
+  }
   .dcf-row-gap-1 {
     gap: .42em;
   }
@@ -412,6 +424,9 @@
   }
   .dcf-max-w-lg {
     max-width: 42.09rem;
+  }
+  .dcf-mt-4 {
+    margin-top: 1em;
   }
   .dcf-mr-4 {
     margin-right: 1em;
@@ -562,10 +577,12 @@
       --inverse: #232323;
       --bg-body: #242423;
       --bg-btn-primary: #ebebea;
+      --bg-btn-secondary: transparent;
       --b: #424240;
       --b-btn-primary: #ebebea;
       --body: #c7c8ca;
       --btn-primary: #d00000;
+      --btn-secondary: #ebebeb;
       --heading: #fefdfa;
       --link: #71bdd3;
       --bg-lighter-gray: #2e2e2d;
