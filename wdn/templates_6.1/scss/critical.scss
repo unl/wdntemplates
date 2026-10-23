@@ -72,11 +72,11 @@
   *,
   *:before,
   *:after {
-    box-sizing: border-box
+    box-sizing: border-box;
   }
   * {
     margin: 0;
-    padding: 0
+    padding: 0;
   }
   *:not([role=dialog])[hidden],
   #unl-footer-herbie {
@@ -84,7 +84,7 @@
   }
   [role=dialog][hidden] {
     display: block;
-    visibility: hidden
+    visibility: hidden;
   }
   :root {
     --serif-fallback: "Serif Fallback";
@@ -101,12 +101,12 @@
     --bg-lighter-gray: #ebebea;
   }
   a:link {
-    color: var(--link)
+    color: var(--link);
   }
   body {
     background-color: var(--bg-body);
     color: var(--body);
-    container-type: inline-size
+    container-type: inline-size;
   }
   button,
   input[type=button],
@@ -114,13 +114,13 @@
     cursor: pointer;
     font: inherit;
     letter-spacing: inherit;
-    word-spacing: inherit
+    word-spacing: inherit;
   }
   h1 {
-    font-size: 2em
+    font-size: 2em;
   }
   h2 {
-    font-size: 1.78em
+    font-size: 1.78em;
   }
   h1,
   h2 {
@@ -136,14 +136,14 @@
   }
   ol,
   ul {
-    padding-left: 1.78em
+    padding-left: 1.78em;
   }
   ol[role=list],
   ul[role=list],
   ol[role=tablist],
   ul[role=tablist] {
     list-style: none;
-    padding: 0
+    padding: 0;
   }
   dl,
   ol,
@@ -152,14 +152,14 @@
     margin-bottom: 1em;
     margin-top: 0;
     overflow-wrap: break-word;
-    text-wrap: pretty
+    text-wrap: pretty;
   }
   img,
   svg,
   video {
     display: block;
     height: auto;
-    max-width: 100%
+    max-width: 100%;
   }
   .unl h1,
   .unl h2 {
@@ -201,7 +201,7 @@
     color: #ebebeb;
     background-color: #0000;
     border-color: #0000;
-    text-decoration: underline
+    text-decoration: underline;
   }
   .unl .dcf-header ul {
     list-style-type: "";
@@ -232,12 +232,12 @@
     background-color: var(--bg-lighter-gray);
     margin-bottom: 3.16em;
     padding-top: 1.33em;
-    padding-bottom: 1em
+    padding-bottom: 1em;
   }
   .unl .dcf-hero-default .dcf-page-title {
     padding-top: 1.78em;
     padding-left: 5.62vw;
-    padding-right: 5.62vw
+    padding-right: 5.62vw;
   }
   .dcf-btn {
     border-style: solid;
@@ -339,7 +339,7 @@
     display: block;
   }
   .dcf-d-inline {
-    display: inline
+    display: inline;
   }
   .dcf-d-flex {
     display: flex;
@@ -369,13 +369,13 @@
     gap: .42em;
   }
   .dcf-row-gap-4 {
-    row-gap: 1em
+    row-gap: 1em;
   }
   .dcf-row-gap-6 {
-    row-gap: 1.78em
+    row-gap: 1.78em;
   }
   .dcf-gap-3 {
-    gap: .75em
+    gap: .75em;
   }
   .dcf-h-4 {
     height: 1em;
@@ -411,7 +411,7 @@
     min-width: 0;
   }
   .dcf-max-w-lg {
-    max-width: 42.09rem
+    max-width: 42.09rem;
   }
   .dcf-mr-4 {
     margin-right: 1em;
@@ -504,7 +504,7 @@
     white-space: nowrap;
   }
   .dcf-z-1 {
-    z-index: 1
+    z-index: 1;
   }
   .dcf-txt-3xs {
     font-size: .56em;
@@ -517,7 +517,7 @@
     border-top: .32em solid #0000;
     border-bottom: .32em solid #0000;
     border-left: .32em solid #c7c8ca;
-    margin-left: .56em
+    margin-left: .56em;
   }
   .dcf-txt-xs {
     font-size: .75em;
@@ -532,7 +532,7 @@
     font-size: 1.33em;
   }
   .dcf-txt-h1 {
-    font-size: 2em
+    font-size: 2em;
   }
   .unl-ls-1 {
     letter-spacing: .01em;
@@ -551,7 +551,7 @@
     a.unl-cream,
     a.unl-cream:link,
     a.unl-cream:visited {
-      color: #fefdfa
+      color: #fefdfa;
     }
   }
   @media (prefers-color-scheme: dark) {
@@ -569,7 +569,7 @@
     }
 
     .unl-bg-darkest-gray {
-      background-color: #232323
+      background-color: #232323;
     }
 
     .unl a.dcf-link-header-global:link,
@@ -580,13 +580,13 @@
   }
   @media only screen and (width>=56.12em) {
     .dcf-txt-h1 {
-      font-size: 2.37em
+      font-size: 2.37em;
     }
     .dcf-txt-h4 {
-      font-size: 1.5em
+      font-size: 1.5em;
     }
     .dcf-txt-h5 {
-      font-size: 1.33em
+      font-size: 1.33em;
     }
     .dcf-txt-h6 {
       font-size: 1.13em;
@@ -595,7 +595,7 @@
   @media only screen and (min-width: 31.57em) {
     html {
       // font-size: calc(.93em + .23vw);
-      font-size: calc(1em + (1.33 - 1) * (100vw - 31.57em) / (177.38 - 31.57))
+      font-size: calc(1em + (1.33 - 1) * (100vw - 31.57em) / (177.38 - 31.57));
     }
   }
   @media only screen and (max-width: 56.12em) {
@@ -714,7 +714,7 @@
   }
   @media only screen and (min-width: 177.38em) {
     html {
-      font-size: 1.33em
+      font-size: 1.33em;
     }
   }
 }
