@@ -122,11 +122,16 @@
   .dcf-txt-h1 {
     font-size: 2em;
   }
-  h2 {
+  h2,
+  .dcf-txt-h2 {
     font-size: 1.78em;
   }
   h1,
-  h2 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: var(--heading);
     line-height: 1.13;
     margin-bottom: 1rem;
@@ -163,7 +168,11 @@
     max-width: 100%;
   }
   .unl h1,
-  .unl h2 {
+  .unl h2,
+  .unl h3,
+  .unl h4,
+  .unl h5,
+  .unl h6 {
     font-weight: 600;
     letter-spacing: -.013em;
     margin-left: -.013em;
@@ -508,9 +517,15 @@
   .dcf-txt-sm {
     font-size: .84em;
   }
+  h3,
+  .dcf-txt-h3 {
+    font-size: 1.5em
+  }
+  h4,
   .dcf-txt-h4 {
     font-size: 1.33em;
   }
+  h5,
   .dcf-txt-h5 {
     font-size: 1.13em;
   }
@@ -565,6 +580,7 @@
       // font-size: calc(.93em + .23vw);
       font-size: calc(1em + (1.33 - 1) * (100vw - 31.57em) / (177.38 - 31.57));
     }
+    h6,
     .dcf-txt-h6 {
       font-size: 1.13em;
     }
@@ -611,7 +627,8 @@
     .dcf-txt-h1 {
       font-size: 2.37em;
     }
-    h2 {
+    h2,
+    .dcf-txt-h2 {
       font-size: 2em;
     }
     .unl .dcf-breadcrumbs li:first-child,
@@ -667,11 +684,17 @@
     .unl .dcf-search-toggle-wrapper .dcf-btn-header-global-toggle-icon {
       color: var(--inverse);
     }
-    .dcf-txt-h5 {
-      font-size: 1.33em;
+    h3,
+    .dcf-txt-h3 {
+      font-size: 1.78em
     }
+    h4,
     .dcf-txt-h4 {
       font-size: 1.5em;
+    }
+    h5,
+    .dcf-txt-h5 {
+      font-size: 1.33em;
     }
     .dcf-d-none\@md,
     .unl .dcf-nav-toggle-group,
