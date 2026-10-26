@@ -225,10 +225,10 @@
     margin-right: .56em; // TODO: Convert to col-gap
   }
   .unl .dcf-breadcrumbs li:not(:last-child)::after {
-    // border-bottom: .32em solid transparent;
-    // border-left: .32em solid #c7c8ca;
-    // border-top: .32em solid transparent;
     content: "";
+    border-top: .32em solid #0000;
+    border-bottom: .32em solid #0000;
+    border-left: .32em solid #c7c8ca;
     margin-left: .56em;
   }
   .unl .dcf-hero-default {
@@ -279,9 +279,6 @@
   }
   .unl .dcf-page-title h1 {
     margin-bottom: 0;
-  }
-  .unl .dcf-hero-default .dcf-page-title {
-    padding-left: 5.62vw;
   }
   .unl .dcf-nav-local a:link {
     color: #fefdfa;
@@ -534,13 +531,6 @@
   }
   .unl .dcf-breadcrumbs {
     font-size: .63em;
-  }
-  .unl .dcf-breadcrumbs li:not(:last-child):after {
-    content: "";
-    border-top: .32em solid #0000;
-    border-bottom: .32em solid #0000;
-    border-left: .32em solid #c7c8ca;
-    margin-left: .56em;
   }
   .dcf-txt-xs {
     font-size: .75em;
