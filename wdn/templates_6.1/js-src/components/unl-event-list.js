@@ -232,7 +232,7 @@ export default class UNLEventList {
         }
 
         const month = `<span class="dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-3 unl-cream unl-bg-scarlet">${startDate.format('MMM')}</span>`;
-        const day   = `<span class="dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray dcf-bg-white">${startDate.format('D')}</span>`;
+        const day   = `<span class="dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray unl-darker-gray@dark dcf-bg-white unl-bg-light-gray@dark">${startDate.format('D')}</span>`;
         const date  = `<time class="unl-event-date dcf-flex-shrink-0 dcf-w-8 dcf-txt-center" datetime="${startDate.format('YYYY-MM-DD')}">${month}${day}</time>`;
         let time    = '';
 
