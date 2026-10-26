@@ -101,6 +101,7 @@
     --inverse: #fefdfa;
     --link: #d00000;
     --bg-lighter-gray: #ebebea;
+    --bg-card: #fefdfa;
   }
   a:link {
     color: var(--link);
@@ -238,6 +239,14 @@
     padding-top: 1.78em;
     padding-inline: 5.62vw;
   }
+  .dcf-card {
+    background-color: var(--bg-card);
+    margin-bottom: 0;
+    font-size: .84em;
+  }
+  .dcf-card-block {
+    padding: 2.37em 1.78em;
+  }
   .dcf-btn-primary,
   .dcf-btn-primary:link {
     background-color: var(--bg-btn-primary);
@@ -255,6 +264,13 @@
     background-color: #0000;
     border-color: #0000;
     text-decoration: underline;
+  }
+  .dcf-btn:has(img),
+  .dcf-btn:has(svg) {
+    grid-gap: .56em;
+    grid-auto-flow: column;
+    align-items: center;
+    display: inline-grid;
   }
   .dcf-institution-title {
     font-family: 'Source Serif 4 UNL Wordmark', var(--serif-fallback), serif;
@@ -587,6 +603,7 @@
       --heading: #fefdfa;
       --link: #71bdd3;
       --bg-lighter-gray: #2e2e2d;
+      --bg-card: #414140;
     }
 
     .unl-bg-darkest-gray {
