@@ -30,4 +30,5 @@
   @include meta.load-css("./nav-menu");
   @include meta.load-css("./nav-toggle");
   @include meta.load-css("./regions");
+  @include meta.load-css("./search");
 };
