@@ -502,6 +502,27 @@
   .dcf-z-1 {
     z-index: 1;
   }
+  .dcf-16x9 {
+    aspect-ratio: 16/9;
+  }
+  .dcf-9x16 {
+    aspect-ratio: 9/16;
+  }
+  .dcf-4x3 {
+    aspect-ratio: 4/3;
+  }
+  .dcf-3x4 {
+    aspect-ratio: 3/4;
+  }
+  .dcf-1x1 {
+    aspect-ratio: 1;
+  }
+  .dcf-1st {
+    order: 1;
+  }
+  .dcf-2nd {
+    order: 2;
+  }
   .dcf-rounded {
     border-radius: 3px;
   }
@@ -538,6 +559,9 @@
   @media screen {
     .unl-bg-scarlet {
       background-color: #d00000;
+    }
+    .unl-bg-cream {
+      background-color: var(--bg-body);
     }
     .unl-bt-scarlet {
       border-top-color: #d00000;
