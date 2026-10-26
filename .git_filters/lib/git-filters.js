@@ -123,7 +123,7 @@ module.exports = {
 
 			// Replace values that are already smudged, keeping prefix (group 1) and suffix (group 2, if any)
 			content = content.replace(staticTokens[i], function(match, prefix, suffix) {
-				return prefix + replacement + (suffix || '');
+				return prefix + replacement + (typeof suffix === 'string' ? suffix : '');
 			});
 		}
 
