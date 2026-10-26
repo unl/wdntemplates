@@ -194,6 +194,11 @@
     appearance: none;
     cursor: pointer;
     border-radius: 3px;
+    border-style: solid;
+    border-width: 2px;
+    font-size: .84em;
+    font-weight: 600;
+    padding: .75em 1em;
   }
   a.dcf-btn-primary,
   .dcf-header a,
@@ -236,13 +241,6 @@
     padding-top: 1.78em;
     padding-left: 5.62vw;
     padding-right: 5.62vw;
-  }
-  .dcf-btn {
-    border-style: solid;
-    border-width: 2px;
-    font-size: .84em;
-    font-weight: 600;
-    padding: .75em 1em;
   }
   .dcf-btn-primary,
   .dcf-btn-primary:link {
