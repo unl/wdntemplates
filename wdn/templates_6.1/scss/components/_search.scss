@@ -1,0 +1,20 @@
+//////////////////////////////
+// THEME / COMPONENTS / SEARCH
+//////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+@include mixins.mq(md, min, width) {
+
+  .unl .dcf-search-toggle-label {
+    min-width: 6ch; // Maintain same width whether label contains "Search" or "Close"
+  }
+
+
+  .unl .dcf-search-toggle-wrapper .dcf-btn-header-global-toggle-icon {
+    color: var(--inverse);
+  }
+
+}
