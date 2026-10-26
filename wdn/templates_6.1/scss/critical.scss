@@ -646,6 +646,9 @@
       display: grid;
       grid-template-columns: 4.21rem 1fr;
     }
+    .unl .dcf-nav-local {
+      grid-column: 2 / 3;
+    }
     .unl .dcf-nav-local > ul:first-child {
       grid-template-columns: repeat(6, 1fr);
       overflow: hidden;
