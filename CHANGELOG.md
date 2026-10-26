@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.1.7 (October 26, 2026)
+- Critical CSS optimizations
+- Added dep version to window.UNL object
+- Added auto loader opt out includes and options
+- Fix smudging data version
+- Update event list styles for dark mode
+- Added dark mode styles for dark mode
+- Moved non-js search styles to main.css
+- Updated vite build process
+
 ## 6.1.6 (September 8, 2026)
 - Fix in plugin autoloader opt-out
 
