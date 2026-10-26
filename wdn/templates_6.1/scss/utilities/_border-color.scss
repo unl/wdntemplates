@@ -76,3 +76,79 @@
 .unl-br-darkest-gray { @include mixins.br-darkest-gray; }  // Right
 .unl-bb-darkest-gray { @include mixins.bb-darkest-gray; }  // Bottom
 .unl-bl-darkest-gray { @include mixins.bl-darkest-gray; }  // Left
+
+
+@media screen and (prefers-color-scheme: dark) {
+
+ // Scarlet
+ .unl-b-scarlet\@dark { @include mixins.b-scarlet; }    // All Sides
+ .unl-bt-scarlet\@dark { @include mixins.bt-scarlet; }  // Top
+ .unl-br-scarlet\@dark { @include mixins.br-scarlet; }  // Right
+ .unl-bb-scarlet\@dark { @include mixins.bb-scarlet; }  // Bottom
+ .unl-bl-scarlet\@dark { @include mixins.bl-scarlet; }  // Left
+
+
+ // Cream
+ .unl-b-cream\@dark { @include mixins.b-cream; }    // All Sides
+ .unl-bt-cream\@dark { @include mixins.bt-cream; }  // Top
+ .unl-br-cream\@dark { @include mixins.br-cream; }  // Right
+ .unl-bb-cream\@dark { @include mixins.bb-cream; }  // Bottom
+ .unl-bl-cream\@dark { @include mixins.bl-cream; }  // Left
+
+
+ // Gray
+ .unl-b-gray\@dark { @include mixins.b-gray; }    // All Sides
+ .unl-bt-gray\@dark { @include mixins.bt-gray; }  // Top
+ .unl-br-gray\@dark { @include mixins.br-gray; }  // Right
+ .unl-bb-gray\@dark { @include mixins.bb-gray; }  // Bottom
+ .unl-bl-gray\@dark { @include mixins.bl-gray; }  // Left
+
+
+ // Lightest Gray
+ .unl-b-lightest-gray\@dark { @include mixins.b-lightest-gray-at-dark; }    // All Sides
+ .unl-bt-lightest-gray\@dark { @include mixins.bt-lightest-gray-at-dark; }  // Top
+ .unl-br-lightest-gray\@dark { @include mixins.br-lightest-gray-at-dark; }  // Right
+ .unl-bb-lightest-gray\@dark { @include mixins.bb-lightest-gray-at-dark; }  // Bottom
+ .unl-bl-lightest-gray\@dark { @include mixins.bl-lightest-gray-at-dark; }  // Left
+
+
+ // Lighter Gray
+ .unl-b-lighter-gray\@dark { @include mixins.b-lighter-gray-at-dark; }    // All Sides
+ .unl-bt-lighter-gray\@dark { @include mixins.bt-lighter-gray-at-dark; }  // Top
+ .unl-br-lighter-gray\@dark { @include mixins.br-lighter-gray-at-dark; }  // Right
+ .unl-bb-lighter-gray\@dark { @include mixins.bb-lighter-gray-at-dark; }  // Bottom
+ .unl-bl-lighter-gray\@dark { @include mixins.bl-lighter-gray-at-dark; }  // Left
+
+
+ // Light Gray
+ .unl-b-light-gray\@dark { @include mixins.b-light-gray-at-dark; }    // All Sides
+ .unl-bt-light-gray\@dark { @include mixins.bt-light-gray-at-dark; }  // Top
+ .unl-br-light-gray\@dark { @include mixins.br-light-gray-at-dark; }  // Right
+ .unl-bb-light-gray\@dark { @include mixins.bb-light-gray-at-dark; }  // Bottom
+ .unl-bl-light-gray\@dark { @include mixins.bl-light-gray-at-dark; }  // Left
+
+
+ // Dark Gray
+ .unl-b-dark-gray\@dark { @include mixins.b-dark-gray; }    // All Sides
+ .unl-bt-dark-gray\@dark { @include mixins.bt-dark-gray; }  // Top
+ .unl-br-dark-gray\@dark { @include mixins.br-dark-gray; }  // Right
+ .unl-bb-dark-gray\@dark { @include mixins.bb-dark-gray; }  // Bottom
+ .unl-bl-dark-gray\@dark { @include mixins.bl-dark-gray; }  // Left
+
+
+ // Darker Gray
+ .unl-b-darker-gray\@dark { @include mixins.b-darker-gray; }    // All Sides
+ .unl-bt-darker-gray\@dark { @include mixins.bt-darker-gray; }  // Top
+ .unl-br-darker-gray\@dark { @include mixins.br-darker-gray; }  // Right
+ .unl-bb-darker-gray\@dark { @include mixins.bb-darker-gray; }  // Bottom
+ .unl-bl-darker-gray\@dark { @include mixins.bl-darker-gray; }  // Left
+
+
+ // Darkest Gray
+ .unl-b-darkest-gray\@dark { @include mixins.b-darkest-gray; }    // All Sides
+ .unl-bt-darkest-gray\@dark { @include mixins.bt-darkest-gray; }  // Top
+ .unl-br-darkest-gray\@dark { @include mixins.br-darkest-gray; }  // Right
+ .unl-bb-darkest-gray\@dark { @include mixins.bb-darkest-gray; }  // Bottom
+ .unl-bl-darkest-gray\@dark { @include mixins.bl-darkest-gray; }  // Left
+
+}

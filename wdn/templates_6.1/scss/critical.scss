@@ -177,6 +177,7 @@
     text-decoration: none;
   }
   .dcf-bleed {
+    position: relative;
     width: 100cqw;
     margin-inline-start: calc(50% - 50cqw);
     margin-inline-end: calc(50% - 50cqw);
@@ -353,6 +354,9 @@
   .dcf-d-flex {
     display: flex;
   }
+  .dcf-d-grid {
+    display: grid;
+  }
   .dcf-flex-col {
     flex-direction: column;
   }
@@ -419,7 +423,7 @@
   .dcf-w-100\% {
     width: 100%;
   }
-  .dcf-w-min-0 {
+  .dcf-min-w-0 {
     min-width: 0;
   }
   .dcf-max-w-lg {
