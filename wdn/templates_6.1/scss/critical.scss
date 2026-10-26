@@ -189,6 +189,7 @@
     text-decoration: none;
   }
   .dcf-bleed {
+    position: relative;
     width: 100cqw;
     margin-inline-start: calc(50% - 50cqw);
     margin-inline-end: calc(50% - 50cqw);
