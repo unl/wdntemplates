@@ -369,9 +369,6 @@
   .dcf-flex-shrink-0 {
     flex-shrink: 0;
   }
-  .dcf-d-grid {
-    display: grid;
-  }
   .dcf-col-gap-2 {
     column-gap: .56em;
   }
@@ -448,6 +445,9 @@
     height: 100%;
     object-fit: cover;
     width: 100%;
+  }
+  .dcf-obj-top {
+    object-position: top
   }
   .dcf-overflow-hidden {
     overflow: hidden;
