@@ -488,6 +488,9 @@
   .dcf-fixed {
     position: fixed;
   }
+  .dcf-bottom-0 {
+    bottom: 0px;
+  }
   .dcf-fill-current {
     fill: currentColor;
   }
@@ -639,6 +642,7 @@
       padding-bottom: 1em;
     }
     .unl .dcf-nav-toggle-region {
+      z-index: 99999;
       padding-inline: .75em;
     }
     .unl .dcf-nav-toggle-group {
