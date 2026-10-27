@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.1.8 (October 27, 2026)
+- Updated DCF version to fix bug with object fit utility classes
+
 ## 6.1.7 (October 26, 2026)
 - Critical CSS optimizations
 - Added dep version to window.UNL object
