@@ -100,6 +100,9 @@ export default ({ mode }) => {
             //   Specifically allows us to do top level await
             target: 'esnext',
 
+            // Minify CSS with esbuild
+            cssMinify: 'esbuild',
+
             // outDir is where the files will be built to
             // wdnCleanupPlugin will copy them to the correct locations after the fact
             outDir: './dist',
