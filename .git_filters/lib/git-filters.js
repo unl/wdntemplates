@@ -108,16 +108,23 @@ module.exports = {
 			replacement = '';
 			switch (currentKeyword) {
 				case 'HTML_VERSION':
-					replacement += smudgeValues.htmlVers;
+					replacement = smudgeValues.htmlVers;
 					break;
 				case 'DEP_VERSION':
-					replacement += smudgeValues.depVers;
+					replacement = smudgeValues.depVers;
 					break;
 			}
 
-			content = content.replace(new RegExp('\\$' + currentKeyword + '\\$', 'g'), replacement);
-			replacement = '$1' + replacement;
-			content = content.replace(staticTokens[i], replacement);
+			// Replace the clean-form placeholder, e.g. $HTML_VERSION$
+			content = content.replace(
+				new RegExp('\\$' + currentKeyword + '\\$', 'g'),
+				function() { return replacement; }
+			);
+
+			// Replace values that are already smudged, keeping prefix (group 1) and suffix (group 2, if any)
+			content = content.replace(staticTokens[i], function(match, prefix, suffix) {
+				return prefix + replacement + (typeof suffix === 'string' ? suffix : '');
+			});
 		}
 
 		if (asReturn) {

@@ -50,7 +50,9 @@ if (searchWidgets.length > 0) {
 }
 
 // Load QA link
-const qaLink = document.getElementById('qa-test');
-if (qaLink !== null) {
-    new UNLQa();
+if (!('qaDisabled' in window.UNL && window.UNL.qaDisabled === true)) {
+    const qaLink = document.getElementById('qa-test');
+    if (qaLink !== null) {
+        new UNLQa();
+    }
 }

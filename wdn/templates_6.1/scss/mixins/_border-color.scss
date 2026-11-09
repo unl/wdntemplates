@@ -31,27 +31,42 @@
 
 
 // Lightest Gray
-@mixin b-lightest-gray($imp:null) { border-color: var(--b-lightest-gray) $imp; }          // All Sides
-@mixin bt-lightest-gray($imp:null) { border-top-color: var(--b-lightest-gray) $imp; }     // Top
-@mixin br-lightest-gray($imp:null) { border-right-color: var(--b-lightest-gray) $imp; }   // Right
-@mixin bb-lightest-gray($imp:null) { border-bottom-color: var(--b-lightest-gray) $imp; }  // Bottom
-@mixin bl-lightest-gray($imp:null) { border-left-color: var(--b-lightest-gray) $imp; }    // Left
+@mixin b-lightest-gray($imp:null) { border-color: var(--b-lightest-gray) $imp; }              // All Sides
+@mixin b-lightest-gray-at-dark($imp:null) { border-color: var.$lightest-gray $imp; }          // All Sides
+@mixin bt-lightest-gray($imp:null) { border-top-color: var(--b-lightest-gray) $imp; }         // Top
+@mixin bt-lightest-gray-at-dark($imp:null) { border-top-color: var.$lightest-gray $imp; }     // Top
+@mixin br-lightest-gray($imp:null) { border-right-color: var(--b-lightest-gray) $imp; }       // Right
+@mixin br-lightest-gray-at-dark($imp:null) { border-right-color: var.$lightest-gray $imp; }   // Right
+@mixin bb-lightest-gray($imp:null) { border-bottom-color: var(--b-lightest-gray) $imp; }      // Bottom
+@mixin bb-lightest-gray-at-dark($imp:null) { border-bottom-color: var.$lightest-gray $imp; }  // Bottom
+@mixin bl-lightest-gray($imp:null) { border-left-color: var(--b-lightest-gray) $imp; }        // Left
+@mixin bl-lightest-gray-at-dark($imp:null) { border-left-color: var.$lightest-gray $imp; }    // Left
 
 
 // Lighter Gray
-@mixin b-lighter-gray($imp:null) { border-color: var(--b-lighter-gray) $imp; }          // All Sides
-@mixin bt-lighter-gray($imp:null) { border-top-color: var(--b-lighter-gray) $imp; }     // Top
-@mixin br-lighter-gray($imp:null) { border-right-color: var(--b-lighter-gray) $imp; }   // Right
-@mixin bb-lighter-gray($imp:null) { border-bottom-color: var(--b-lighter-gray) $imp; }  // Bottom
-@mixin bl-lighter-gray($imp:null) { border-left-color: var(--b-lighter-gray) $imp; }    // Left
+@mixin b-lighter-gray($imp:null) { border-color: var(--b-lighter-gray) $imp; }              // All Sides
+@mixin b-lighter-gray-at-dark($imp:null) { border-color: var.$lighter-gray $imp; }          // All Sides
+@mixin bt-lighter-gray($imp:null) { border-top-color: var(--b-lighter-gray) $imp; }         // Top
+@mixin bt-lighter-gray-at-dark($imp:null) { border-top-color: var.$lighter-gray $imp; }     // Top
+@mixin br-lighter-gray($imp:null) { border-right-color: var(--b-lighter-gray) $imp; }       // Right
+@mixin br-lighter-gray-at-dark($imp:null) { border-right-color: var.$lighter-gray $imp; }   // Right
+@mixin bb-lighter-gray($imp:null) { border-bottom-color: var(--b-lighter-gray) $imp; }      // Bottom
+@mixin bb-lighter-gray-at-dark($imp:null) { border-bottom-color: var.$lighter-gray $imp; }  // Bottom
+@mixin bl-lighter-gray($imp:null) { border-left-color: var(--b-lighter-gray) $imp; }        // Left
+@mixin bl-lighter-gray-at-dark($imp:null) { border-left-color: var.$lighter-gray $imp; }    // Left
 
 
 // Light Gray
-@mixin b-light-gray($imp:null) { border-color: var(--b-light-gray) $imp; }          // All Sides
-@mixin bt-light-gray($imp:null) { border-top-color: var(--b-light-gray) $imp; }     // Top
-@mixin br-light-gray($imp:null) { border-right-color: var(--b-light-gray) $imp; }   // Right
-@mixin bb-light-gray($imp:null) { border-bottom-color: var(--b-light-gray) $imp; }  // Bottom
-@mixin bl-light-gray($imp:null) { border-left-color: var(--b-light-gray) $imp; }    // Left
+@mixin b-light-gray($imp:null) { border-color: var(--b-light-gray) $imp; }              // All Sides
+@mixin b-light-gray-at-dark($imp:null) { border-color: var.$light-gray $imp; }          // All Sides
+@mixin bt-light-gray($imp:null) { border-top-color: var(--b-light-gray) $imp; }         // Top
+@mixin bt-light-gray-at-dark($imp:null) { border-top-color: var.$light-gray $imp; }     // Top
+@mixin br-light-gray($imp:null) { border-right-color: var(--b-light-gray) $imp; }       // Right
+@mixin br-light-gray-at-dark($imp:null) { border-right-color: var.$light-gray $imp; }   // Right
+@mixin bb-light-gray($imp:null) { border-bottom-color: var(--b-light-gray) $imp; }      // Bottom
+@mixin bb-light-gray-at-dark($imp:null) { border-bottom-color: var.$light-gray $imp; }  // Bottom
+@mixin bl-light-gray($imp:null) { border-left-color: var(--b-light-gray) $imp; }        // Left
+@mixin bl-light-gray-at-dark($imp:null) { border-left-color: var.$light-gray $imp; }    // Left
 
 
 // Dark Gray
