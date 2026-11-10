@@ -42,7 +42,7 @@
         <p>Alternatively, you can also use <a href="https://wdn-cdn.unl.edu/">wdn-cdn.unl.edu</a> instead of locally hosting the framework files in case that works better for your use case. Just make sure to use a cloud template for your site instead of a local version.</p>
 
         <h2><abbr title="Cascading Style Sheets">CSS</abbr></h2>
-        <p>The styling architecture is strictly class-based, behaving similarly to frameworks like Tailwind. Atomic <abbr title="Cascading Style Sheets">CSS</abbr> classes are applied directly to elements to build <abbr title="user interface">UI</abbr> layouts.</p>
+        <p>The styling architecture is strictly class-based, behaving similarly to frameworks like Tailwind. Atomic <a href="css.html"><abbr title="Cascading Style Sheets">CSS</abbr> classes</a> are applied directly to elements to build <abbr title="user interface">UI</abbr> layouts.</p>
         <p>Because we extend the Digital Campus Framework, you will notice two distinct prefixes:</p>
         <ul>
           <li><code>dcf-</code> denotes core utility and layout classes coming from the baseline framework.</li>
@@ -50,7 +50,7 @@
         </ul>
 
         <h2>JavaScript</h2>
-        <p>Dynamic features (like slideshows or modal dialogs) rely on custom JavaScript components managed by a <strong>plugin auto-loader</strong>.</p>
+        <p>Dynamic features (like slideshows or modal dialogs) rely on custom JavaScript components managed by a <a href="/js/auto-loader.html">plugin auto-loader</a>.</p>
         <p>Instead of bundling all scripts into a massive payload, the auto-loader scans the <abbr title="Document Object Model">DOM</abbr> on page load and downloads a component’s <abbr title="JavaScript">JS</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr> files <em>only</em> if its respective <abbr title="Hypertext Markup Language">HTML</abbr> markup is present on the page.</p>
         <p>Each component is architected around a JavaScript class exposing programmatic hooks (such as open/close triggers for dialogs), combined with a plugin file that maps out dependencies and auto-load triggers.</p>
 
