@@ -22,6 +22,7 @@ import UNLQaUrl from '@js-src/plugins/single/qa.js?finalUrl';
 import UNLFontSerifUrl from '@js-src/plugins/single/font-serif.js?finalUrl';
 import UNLFileSizeValidatorUrl from '@js-src/plugins/multi/file-size-validator.js?finalUrl';
 import UNLRandomizerUrl from '@js-src/plugins/multi/randomizer?finalUrl';
+import UNLCodeSnippetUrl from '@js-src/plugins/multi/code-snippet?finalUrl';
 
 
 window.UNL = window.UNL || {};
@@ -191,6 +192,13 @@ window.UNL.autoLoader = {
                 customConfig: {},
                 onPluginLoadedElement: null,
                 url: UNLFileSizeValidatorUrl,
+            },
+            UNLCodeSnippet: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLCodeSnippetUrl,
             },
         },
     },
