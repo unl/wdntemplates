@@ -102,6 +102,9 @@ export default ({ mode }) => {
             //   Specifically allows us to do top level await
             target: 'esnext',
 
+            // Targets browsers defined in .browserslistrc (baseline widely available)
+            // Also prevents lightningCSS from producing invalid CSS for browsers
+            //   that do not support all new features
             cssTarget: browserslistToEsbuild(browserslist()),
 
             // outDir is where the files will be built to
