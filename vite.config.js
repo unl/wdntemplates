@@ -4,6 +4,8 @@ import { defineConfig, loadEnv } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 import autoprefixer from 'autoprefixer';
 import postcssNested from 'postcss-nested';
+import browserslist from 'browserslist';
+import browserslistToEsbuild from 'browserslist-to-esbuild';
 
 import wdnCleanupPlugin from './vite.wdnCleanupPlugin.js';
 import wdnFinalJsUrlPlugin from './vite.wdnFinalJsUrlPlugin.js';
@@ -100,8 +102,7 @@ export default ({ mode }) => {
             //   Specifically allows us to do top level await
             target: 'esnext',
 
-            // Minify CSS with esbuild
-            cssMinify: 'esbuild',
+            cssTarget: browserslistToEsbuild(browserslist()),
 
             // outDir is where the files will be built to
             // wdnCleanupPlugin will copy them to the correct locations after the fact
