@@ -4,6 +4,8 @@ import { defineConfig, loadEnv } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 import autoprefixer from 'autoprefixer';
 import postcssNested from 'postcss-nested';
+import browserslist from 'browserslist';
+import browserslistToEsbuild from 'browserslist-to-esbuild';
 
 import wdnCleanupPlugin from './vite.wdnCleanupPlugin.js';
 import wdnFinalJsUrlPlugin from './vite.wdnFinalJsUrlPlugin.js';
@@ -99,6 +101,11 @@ export default ({ mode }) => {
             // Tells the bundler to target modern browsers
             //   Specifically allows us to do top level await
             target: 'esnext',
+
+            // Targets browsers defined in .browserslistrc (baseline widely available)
+            // Also prevents lightningCSS from producing invalid CSS for browsers
+            //   that do not support all new features
+            cssTarget: browserslistToEsbuild(browserslist()),
 
             // outDir is where the files will be built to
             // wdnCleanupPlugin will copy them to the correct locations after the fact
