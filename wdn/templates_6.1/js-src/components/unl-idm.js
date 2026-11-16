@@ -630,6 +630,11 @@ export default class UNLIdm {
             singleLabel.innerHTML = 'My UNL';
         });
 
+        const personalCards = Array.from(document.querySelectorAll('.unl-idm-personal-card'));
+        personalCards.forEach((singleCard) => {
+            singleCard.classList.remove('dcf-card-as-link');
+        });
+
         const bigLabels = Array.from(document.querySelectorAll('.unl-idm-btn-log-in'));
         bigLabels.forEach((singleLink) => {
             singleLink.classList.add('dcf-m-auto');
@@ -655,6 +660,7 @@ export default class UNLIdm {
 
         const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
         viewProfileLinks.forEach((singleLink) => {
+            singleLink.classList.remove('dcf-card-link');
             singleLink.classList.add('dcf-d-none');
         });
 
@@ -677,6 +683,11 @@ export default class UNLIdm {
         const labels = Array.from(document.querySelectorAll('.unl-idm-label'));
         labels.forEach((singleLabel) => {
             singleLabel.innerHTML = 'Log in to this site';
+        });
+
+        const personalCards = Array.from(document.querySelectorAll('.unl-idm-personal-card'));
+        personalCards.forEach((singleCard) => {
+            singleCard.classList.remove('dcf-card-as-link');
         });
 
         const loginLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-in'));
@@ -710,6 +721,7 @@ export default class UNLIdm {
 
         const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
         viewProfileLinks.forEach((singleLink) => {
+            singleLink.classList.remove('dcf-card-link');
             singleLink.classList.add('dcf-d-none');
         });
 
@@ -733,6 +745,11 @@ export default class UNLIdm {
         const labels = Array.from(document.querySelectorAll('.unl-idm-label'));
         labels.forEach((singleLabel) => {
             singleLabel.innerHTML = userDisplayName;
+        });
+
+        const personalCards = Array.from(document.querySelectorAll('.unl-idm-personal-card'));
+        personalCards.forEach((singleCard) => {
+            singleCard.classList.add('dcf-card-as-link');
         });
 
         const bigLabels = Array.from(document.querySelectorAll('.unl-idm-firstname-lastname'));
@@ -760,7 +777,7 @@ export default class UNLIdm {
         const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
         viewProfileLinks.forEach((singleLink) => {
             singleLink.classList.remove('dcf-d-none');
-            singleLink.classList.add('dcf-d-block');
+            singleLink.classList.add('dcf-d-block', 'dcf-card-link');
             singleLink.setAttribute('href', this.getProfileUrl());
         });
 
