@@ -369,9 +369,6 @@
   .dcf-col-gap-2 {
     column-gap: .56em;
   }
-  .dcf-col-gap-7 {
-    column-gap: 2.37em;
-  }
   .dcf-col-gap-vw {
     column-gap: 3.16vw;
   }
@@ -687,6 +684,7 @@
     }
     .unl .dcf-header-global {
       border-bottom: 1px solid var(--b);
+      column-gap: 2.37vw;
       height: 2.67em;
       padding-top: .18em;
     }

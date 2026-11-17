@@ -53,6 +53,7 @@
 
   .unl .dcf-header-global {
     border-bottom: 1px solid var.$border-color-light-gray;
+    column-gap: #{var.$ms06}vw;
     height: #{var.$ms07}em;
     padding-top: #{var.$ms-12}em;
   }
