@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.1.9 (November 17, 2026)
+- Updated IDM links and layouts
+- Added framework docs
+- Fix alert script loading
+- Added animations to debug page
+- Fixed animation css output
+
 ## 6.1.8 (October 27, 2026)
 - Updated DCF version to fix bug with object fit utility classes
 
