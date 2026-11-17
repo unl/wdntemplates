@@ -1,9 +1,11 @@
-import { loadJS, setCookie, getCookie } from '../lib/unl-utility.js';
+import { removeJS, loadJS, setCookie, getCookie } from '../lib/unl-utility.js';
 import unlAlertCssUrl from '@scss/components-js/_unl-alert.scss?url';
 import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 export default class UNLAlert {
     alertDataUrl;
+
+    previousJSSrc = null;
 
     alertDataActiveIDs = [];
 
@@ -308,10 +310,14 @@ export default class UNLAlert {
 
     async #fetchAlertData() {
         try {
-
             const dataURL = new URL(this.alertDataUrl);
             dataURL.searchParams.set('cb', Date.now());
+            if (this.previousJSSrc !== null) {
+                removeJS(this.previousJSSrc);
+            }
             await loadJS(dataURL.toString());
+            this.previousJSSrc = dataURL.toString();
+
             const unlAlertsData = window.unlAlerts.data;
 
             // Check if alert data exists and the page is not in an iframe, then alert the user.
