@@ -134,8 +134,20 @@ export function isValidateEmail(email) {
 }
 
 /**
- * Loads a stylesheet
- * Avoids loading the same stylesheet twice
+ * Removes a JS script
+ * @param {string} jsSrc
+ * @returns {void}
+ */
+export function removeJS(jsSrc) {
+    const scriptToRemove = document.querySelector(`script[src="${jsSrc}"]`);
+    if (scriptToRemove !== null) {
+        scriptToRemove.remove();
+    }
+}
+
+/**
+ * Loads a script tag
+ * Avoids loading the same script source twice
  * @param {string} jsSrc
  * @returns {Promise<void>}
  */
@@ -147,7 +159,7 @@ export function loadJS(jsSrc, module=false) {
             return;
         }
 
-        // If the stylesheet is not already there then load it
+        // If the script is not already there then load it
         const newScript = document.createElement('script');
         newScript.src = jsSrc;
         if (module) {
