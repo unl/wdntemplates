@@ -1563,6 +1563,151 @@
         <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_480.jpg" alt="Placeholder image.">
       </div>
 
+      <div class="dcf-pt-8 dcf-pb-8">
+        <h2>Animations</h2>
+        <div class="dcf-d-grid dcf-row-gap-6">
+          <div class="dcf-d-grid dcf-grid-cols-2@md">
+            <figure class="unl-scroll-trigger-container">
+              <img
+                  class="dcf-w-100% unl-scroll-fx-fade-in"
+                  sizes="(min-width: 41.956em) 43vw, 88vw"
+                  srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="">
+              <figcaption class="dcf-figcaption dcf-mt-3">Fade in on scroll</figcaption>
+            </figure>
+          </div>
+          <div class="dcf-d-grid dcf-grid-cols-2@md">
+            <figure class="unl-scroll-trigger-container">
+              <img
+                  class="dcf-w-100% unl-scroll-fx-move-left"
+                  sizes="(min-width: 41.956em) 43vw, 88vw"
+                  srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="">
+              <figcaption class="dcf-figcaption dcf-mt-3">Move left on scroll</figcaption>
+            </figure>
+          </div>
+          <div class="dcf-d-grid dcf-grid-cols-2@md">
+            <figure class="unl-scroll-trigger-container">
+              <img
+                  class="dcf-w-100% unl-scroll-fx-move-right"
+                  sizes="(min-width: 41.956em) 43vw, 88vw"
+                  srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="">
+              <figcaption class="dcf-figcaption dcf-mt-3">Move right on scroll</figcaption>
+            </figure>
+          </div>
+          <div class="dcf-d-grid dcf-grid-cols-2@md">
+            <figure class="unl-scroll-trigger-container">
+              <img
+                  class="dcf-w-100% unl-scroll-fx-move-up"
+                  sizes="(min-width: 41.956em) 43vw, 88vw"
+                  srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+              wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="">
+              <figcaption class="dcf-figcaption dcf-mt-3">Move up on scroll</figcaption>
+            </figure>
+          </div>
+
+          <figure class="unl-scroll-trigger-container">
+            <div class="dcf-d-grid dcf-grid-cols-2@sm dcf-grid-cols-4@md dcf-col-gap-4 dcf-row-gap-4 unl-scroll-trigger-stagger">
+              <picture class="unl-scroll-trigger-container">
+                <img
+                    class="dcf-w-100% unl-scroll-fx-fade-in"
+                    sizes="(min-width: 41.956em) 43vw, 88vw"
+                    srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                    alt="">
+              </picture>
+              <picture class="unl-scroll-trigger-container">
+                <img
+                    class="dcf-w-100% unl-scroll-fx-fade-in"
+                    sizes="(min-width: 41.956em) 43vw, 88vw"
+                    srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                    alt="">
+              </picture>
+              <picture class="unl-scroll-trigger-container">
+                <img
+                    class="dcf-w-100% unl-scroll-fx-fade-in"
+                    sizes="(min-width: 41.956em) 43vw, 88vw"
+                    srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                    alt="">
+              </picture>
+              <picture class="unl-scroll-trigger-container">
+                <img
+                    class="dcf-w-100% unl-scroll-fx-fade-in"
+                    sizes="(min-width: 41.956em) 43vw, 88vw"
+                    srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                    alt="">
+              </picture>
+              <picture class="unl-scroll-trigger-container">
+                <img
+                    class="dcf-w-100% unl-scroll-fx-fade-in"
+                    sizes="(min-width: 41.956em) 43vw, 88vw"
+                    srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                    alt="">
+              </picture>
+              <picture class="unl-scroll-trigger-container">
+                <img
+                    class="dcf-w-100% unl-scroll-fx-fade-in"
+                    sizes="(min-width: 41.956em) 43vw, 88vw"
+                    srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                    alt="">
+              </picture>
+              <picture class="unl-scroll-trigger-container">
+                <img
+                    class="dcf-w-100% unl-scroll-fx-fade-in"
+                    sizes="(min-width: 41.956em) 43vw, 88vw"
+                    srcset="wdn/templates_6.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-md-min.jpg 505w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+                wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                    alt="">
+              </picture>
+            </div>
+            <figcaption class="dcf-figcaption dcf-mt-3">Staggered fade-in on scroll</figcaption>
+          </figure>
+        </div>
+      </div>
+
     <!-- InstanceEndEditable -->
     </div>
   </main>
