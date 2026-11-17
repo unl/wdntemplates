@@ -632,8 +632,8 @@ export default class UNLIdm {
 
         const profileCards = Array.from(document.querySelectorAll('.unl-idm-profile-card'));
         profileCards.forEach((singleCard) => {
-            singleCard.classList.remove('dcf-w-fit-content', 'dcf-card-as-link');
-            singleCard.classList.add('dcf-w-100%');
+            singleCard.classList.remove('dcf-card-as-link');
+            singleCard.classList.add('dcf-m-auto');
         });
 
         const imgs = Array.from(document.querySelectorAll('.unl-idm-img'));
@@ -683,8 +683,8 @@ export default class UNLIdm {
 
         const profileCards = Array.from(document.querySelectorAll('.unl-idm-profile-card'));
         profileCards.forEach((singleCard) => {
-            singleCard.classList.remove('dcf-w-100%');
-            singleCard.classList.add('dcf-w-fit-content', 'dcf-card-as-link');
+            singleCard.classList.remove('dcf-m-auto');
+            singleCard.classList.add('dcf-card-as-link');
         });
 
         const avatarContainer = Array.from(document.querySelectorAll('.unl-idm-avatar-container'));
@@ -740,8 +740,8 @@ export default class UNLIdm {
 
         const profileCards = Array.from(document.querySelectorAll('.unl-idm-profile-card'));
         profileCards.forEach((singleCard) => {
-            singleCard.classList.remove('dcf-w-100%');
-            singleCard.classList.add('dcf-w-fit-content', 'dcf-card-as-link');
+            singleCard.classList.remove('dcf-m-auto');
+            singleCard.classList.add('dcf-card-as-link');
         });
 
         const bigLabels = Array.from(document.querySelectorAll('.unl-idm-firstname-lastname'));
