@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="dark light" name="color-scheme"/>
+    <title>Popup - Auto-Loader</title>
+    <link href="/wdn/templates_6.1/css/critical.css" rel="stylesheet"/>
+    <link href="/wdn/templates_6.1/css/main.css" rel="stylesheet"/>
+  </head>
+  <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid dcf-min-h-100vh">
+    <main class="dcf-d-flex dcf-jc-center dcf-wrapper dcf-pt-7 dcf-pb-7">
+      <div class="dcf-w-100% dcf-max-w-75ch">
+        <h1>Popup - Auto-Loader</h1>
+        <p>The popup component, otherwise known as a tooltip, is a second of content that can pop up when a button is clicked or hovered. This is great for some added details that may clutter the page if it was always displayed.</p>
+        <p><strong>Warning!</strong> This component is needed for the base page templates so if the visit, apply, give buttons are not working correctly you may have changed the default Popup component configuration in the auto-loader.</p>
+        <p>This component inherits a lot of its functionality, keyboard interactions, and events from the toggle button component.</p>
+        <p>The auto-loader references <code>/wdn/templates_6.1/js/plugins/plugin.popup.js</code> by default. That plugin will be looking for <code>.dcf-popup:not(.dcf-popup-initialized)</code> as the trigger to load the components code dependencies and initialize the component.</p>
+        <div id="test" class="dcf-popup dcf-mb-3">
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup</button>
+          <div class="dcf-popup-content unl-bg-cerulean unl-cream dcf-rounded dcf-w-100% dcf-p-3" hidden>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
+          </div>
+        </div>
+        <p>To create the component you can add the class <code>dcf-popup</code> class onto a <code>div</code> element. This <code>div</code> element will also need a <code>button</code> as the toggle for the <code>popup</code> and another <code>div</code> that will become the content of the popup. These popups are designed to have basically no styles applied to them to give as much flexibility to the developer as possible.</p>
+        <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
+          &lt;div id="test" class="dcf-popup">
+            &lt;button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup&lt;/button>
+            &lt;!-- There are lots of additional styling classes applied to .dcf-popup-content in this example --&gt;
+            &lt;div class="dcf-popup-content unl-bg-cerulean unl-cream dcf-rounded dcf-w-100% dcf-p-3" hidden>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
+            &lt;/div>
+          &lt;/div>
+        </pre>
+        <p>The <code>div.dcf-popup</code> element will need an <code>id</code>, and if it does not have <code>id</code> then a randomly generated one will be assigned to it. Once initialized the class <code>dcf-popup-initialized</code> will be added to the <code>div.dcf-popup</code> element and it will remove the <code>hidden</code> attribute from the it. The class instance will also add itself to the <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference of the class instance.</p>
+        <h2>Options</h2>
+        <p>The popup component has a couple options associated with its functionality.</p>
+        <h3>Hover</h3>
+        <p>The first option is the option to hover over the button to open the popup. You can enable this option by adding <code>data-hover="true"</code> to the <code>div.dcf-popup</code> element.</p>
+        <div class="dcf-popup dcf-mb-3" data-hover="true">
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Hover Example</button>
+          <div class="dcf-popup-content unl-bg-cerulean unl-cream dcf-rounded dcf-w-100% dcf-p-3" hidden>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </div>
+        </div>
+        <pre class="unl-code-snippet" data-title="HTML - Hover Example" data-language="html">
+          &lt;div class="dcf-popup" data-hover="true">
+            &lt;button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Hover Example&lt;/button>
+            &lt;div class="dcf-popup-content" hidden>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            &lt;/div>
+          &lt;/div>
+        </pre>
+        <h3>Position & Alignment</h3>
+        <p>The position and alignment of the popup is relative to the toggle button. As of now these values are dumb and do not change based on where in the viewport the button is located so there is a chance that the popup content might overflow off the side of the viewport. Position is referring to which side of the button the popup will be located when opened, and alignment is referring to the alignment of the popup on that side. To change the position and alignment you can add the data attributes <code>data-position</code> and <code>data-alignment</code>. The available values for position is top, bottom, left, and right; with bottom being default. The available values for alignment are start, end, and center; with center being the default.</p>
+        <div class="dcf-d-flex dcf-gap-3">
+          <div class="dcf-popup dcf-mb-3" data-position="top" data-alignment="start">
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Top And Start</button>
+            <div class="dcf-popup-content unl-bg-cerulean unl-cream dcf-rounded dcf-p-3" hidden>
+              Lorem ipsum.
+            </div>
+          </div>
+          <div class="dcf-popup dcf-mb-3" data-position="bottom" data-alignment="end">
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Bottom And End</button>
+            <div class="dcf-popup-content unl-bg-cerulean unl-cream dcf-rounded dcf-p-3" hidden>
+              Lorem ipsum.
+            </div>
+          </div>
+          <div class="dcf-popup dcf-mb-3" data-position="right" data-alignment="center">
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Top And Center</button>
+            <div class="dcf-popup-content unl-bg-cerulean unl-cream dcf-rounded dcf-p-3" hidden>
+              Lorem ipsum.
+            </div>
+          </div>
+        </div>
+        <pre class="unl-code-snippet" data-title="HTML - Position and Alignment" data-language="html">
+          &lt;div class="dcf-popup" data-position="top" data-alignment="start">
+            &lt;button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Top And Start&lt;/button>
+            &lt;div class="dcf-popup-content" hidden>
+              Lorem ipsum.
+            &lt;/div>
+          &lt;/div>
+          &lt;div class="dcf-popup" data-position="bottom" data-alignment="end">
+            &lt;button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Bottom And End&lt;/button>
+            &lt;div class="dcf-popup-content" hidden>
+              Lorem ipsum.
+            &lt;/div>
+          &lt;/div>
+          &lt;div class="dcf-popup" data-position="right" data-alignment="center">
+            &lt;button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Top And Center&lt;/button>
+            &lt;div class="dcf-popup-content" hidden>
+              Lorem ipsum.
+            &lt;/div>
+          &lt;/div>
+        </pre>
+        <h3>Point</h3>
+        <p>This option is related to the styling of the popup content. Specifically whether a point (aka arrow, or triangle) is attached to the popup content pointing towards the popup button. By default this option is set to false but to enable it you can add <code>data-point="true"</code> to the <code>div.dcf-popup</code> element.</p>
+        <div class="dcf-popup dcf-mb-3" data-point="true">
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Point Example</button>
+          <div class="dcf-popup-content unl-bg-cerulean unl-cream dcf-rounded dcf-w-100% dcf-p-3" hidden>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </div>
+        </div>
+        <pre class="unl-code-snippet" data-title="HTML - Point Example" data-language="html">
+          &lt;div class="dcf-popup" data-point="true">
+            &lt;button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Point Example&lt;/button>
+            &lt;div class="dcf-popup-content" hidden>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            &lt;/div>
+          &lt;/div>
+        </pre>
+        <h3>Close Button</h3>
+        <p>By default the only way to close a popup (besides the hover option and keyboard interactions) is to click the toggle button for the popup. Another way is by adding a button with the class <code>dcf-btn-close-popup</code> inside the popup content.</p>
+        <div class="dcf-popup dcf-mb-3">
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup With Close Button</button>
+          <div class="dcf-popup-content unl-bg-cerulean unl-cream dcf-rounded dcf-w-100% dcf-p-3" hidden>
+            Lorem ipsum dolor sit amet.
+            <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup</button>
+          </div>
+        </div>
+        <pre class="unl-code-snippet" data-title="HTML - Disable Default Classes" data-language="html">
+          &lt;div class="dcf-popup">
+            &lt;button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup With Close Button&lt;/button>
+            &lt;div class="dcf-popup-content" hidden>
+              Lorem ipsum dolor sit amet.
+              &lt;button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup&lt;/button>
+            &lt;/div>
+          &lt;/div>
+        </pre>
+        <h2>Keyboard interactions</h2>
+        <p>The toggle button, when the user focuses on it, has the default toggle button keyboard interactions. Where <kbd>enter</kbd>, <kbd>space</kbd> will toggle the popup; and <kbd>esc</kbd> will collapse it.</p>
+        <h2>Methods</h2>
+        <p>While the popup class does not expose any methods the toggle button class does expose one method for toggling, opening, and closing the fieldset. The <code>toggleSwitched</code> method handles all three actions which seemed like a good idea at the time but feels like a bad decision now. By passing no value the toggle button will toggle, or by passing in the string <code>'open'</code> or <code>'close'</code> it will do the respective action. That toggle button class instance is accessible through the property <code>toggleButtonObj</code>.</p>
+        <pre class="unl-code-snippet" data-title="Javascript - Method" data-language="js">
+import { getClassInstance } from '/wdn/templates_6.1/lib/unl-utility';
+const popupClass = await getClassInstance('test');
+// You could also use window.UNL.classes['test'] once the class is initialized
+// Open and close the fieldset
+popupClass.toggleButtonObj.toggleSwitched('open');
+popupClass.toggleButtonObj.toggleSwitched('close');
+// Toggle fieldset
+popupClass.toggleButtonObj.toggleSwitched();
+        </pre>
+        <h2>Events</h2>
+        <p>The popup component dispatches a few events. When the class is finished initializing it will dispatch <code>popupReady</code> and <code>UNLClassReady</code>.</p>
+        <pre class="unl-code-snippet" data-title="Javascript - Events" data-language="js">
+// Listening for class to be ready
+document.getElementById('test').addEventListener('popupReady', (e) => {
+  console.log('Event Name: popupReady', e);
+});
+document.getElementById('test').addEventListener('UNLClassReady', (e) => {
+  console.log('Event Name: UNLClassReady', e);
+});
+        </pre>
+        <p>Since this component uses the toggle buttons under the hood we also get access to all the toggle button events. The button in the figure is the toggle button and the toggle element is the <code>&lt;figcaption&gt;</code> element. So there are 4 events for toggling the fieldset open and closes those 4 events dispatched from the button and the figcaption: <code>toggleButtonOn</code>, <code>toggleButtonOff</code>, <code>toggleElementOn</code>, <code>toggleElementOff</code>. The toggle button and toggle element also listen for 3 command events to trigger specific actions in the component: <code>commandOpen</code>, <code>commandClose</code>, and <code>commandToggle</code>.</p>
+        <pre class="unl-code-snippet" data-title="Javascript - Toggle Button Events" data-language="js">
+// Listening for button to be toggled to open
+document.querySelector('#test button.dcf-btn-toggle-popup').addEventListener('toggleButtonOn', (e) => {
+  console.log('Event Name: toggleButtonOn', e);
+})
+// Toggle the popup content open or closed
+document.querySelector('#test .dcf-popup-content').dispatchEvent(new CustomEvent('commandToggle'));
+        </pre>
+        <p>You can also use the plugin/auto-loader events to catch when the plugin/element is loaded.</p>
+        <pre class="unl-code-snippet" data-title="Javascript - More Events" data-language="js">
+document.addEventListener('UNLPluginInitialized', (e) => {
+  console.log('Event Name: UNLPluginInitialized', e);
+});
+document.addEventListener('UNLPluginLoadedElement', (e) => {
+  console.log('Event Name: UNLPluginLoadedElement', e);
+});
+window.UNL.autoLoader.config.plugins.UNLPopup.onPluginLoadedElement = (loaded_element) => {
+  console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+}
+        </pre>
+      </main>
+    <script src="/wdn/templates_6.1/js/auto-loader.js" type="module"></script>
+  </body>
+</html>

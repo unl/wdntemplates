@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="dark light" name="color-scheme"/>
+    <title>Notice - Auto-Loader</title>
+    <link href="/wdn/templates_6.1/css/critical.css" rel="stylesheet"/>
+    <link href="/wdn/templates_6.1/css/main.css" rel="stylesheet"/>
+  </head>
+  <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid dcf-min-h-100vh">
+    <main class="dcf-d-flex dcf-jc-center dcf-wrapper dcf-pt-7 dcf-pb-7">
+      <div class="dcf-w-100% dcf-max-w-75ch">
+        <h1>Notice - Auto-Loader</h1>
+        <p>The notice component allows a specific and uniform way to alert the user about specific time sensitive information.</p>
+        <p>The auto-loader references <code>/wdn/templates_6.1/js/plugins/plugin.notice.js</code> by default. That plugin will be looking for <code>.dcf-notice:not(.dcf-notice-initialized)</code> as the trigger to load the components code dependencies and initialize the component.</p>
+        <div id="test" class="dcf-notice dcf-notice-info" hidden>
+          <h2>Info</h2>
+          <div>This is additional information for this notice.</div>
+        </div>
+        <p>To create the component you can add the class <code>dcf-notice</code> to a <code>div</code> along with an <code>h2</code> for the notice heading and another <code>div</code> for the notice message.</p>
+        <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
+          &lt;div id="test" class="dcf-notice dcf-notice-info" hidden>
+            &lt;h2>Info&lt;/h2>
+            &lt;div>This is additional information for this notice.&lt;/div>
+          &lt;/div>
+        </pre>
+        <p>If the <code>&lt;div.dcf-notice&gt;</code> element does not have <code>id</code> then a randomly generated one will be assigned to it. Once initialized the class <code>dcf-notice-initialized</code> will be added to the <code>&lt;div.dcf-notice&gt;</code> element and it will remove the <code>hidden</code> attribute from the it. The class will also add itself to the <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference of the class instance.</p>
+        <p>You will also want to add the <code>hidden</code> attribute to the <code>div.dcf-notice</code> element to avoid an unstyled notice being displayed before the JavaScript has been ran to initialize it.</p>
+        <h2>Options</h2>
+        <p>The notice component has a couple options associated with its functionality.</p>
+        <h3>Notice Type</h3>
+        <p>The main option for the notice component is it's type. There are four types of notices info, success, warning, and danger. Each type has it's own basic usage like success when a process has been completed, info for displaying time sensitive information to the user, warning for displaying basic formatting or simple errors, or danger when an error really goes wrong. Once the component is initialized each type has a specific color and icon associated with it.</p>
+        <p>The type for the notice can be defined by adding it's corresponding class to the <code>div.dcf-notice</code> element. <code>dcf-notice-info</code>, <code>dcf-notice-success</code>, <code>dcf-notice-warning</code>, <code>dcf-notice-warning</code>.</p>
+        <div id="test" class="dcf-notice dcf-notice-info" hidden>
+          <h2>Info</h2>
+          <div>This is additional information for this notice.</div>
+        </div>
+        <div class="dcf-notice dcf-notice-success" hidden>
+          <h2>Success!</h2>
+          <div>You've successfully completed an action.</div>
+        </div>
+        <div class="dcf-notice dcf-notice-warning" hidden>
+          <h2>Warning!</h2>
+          <div>Proceed with caution.</div>
+        </div>
+        <div class="dcf-notice dcf-notice-danger" hidden>
+          <h2>Danger!</h2>
+          <div>Uh-oh. Something wrong happened.</div>
+        </div>
+        <pre class="unl-code-snippet" data-title="HTML - Notice Type Example" data-language="html">
+          &lt;div class="dcf-notice dcf-notice-info" hidden>
+            &lt;h2>Info&lt;/h2>
+            &lt;div>This is additional information for this notice.&lt;/div>
+          &lt;/div>
+          &lt;div class="dcf-notice dcf-notice-success" hidden>
+            &lt;h2>Success!&lt;/h2>
+            &lt;div>You've successfully completed an action.&lt;/div>
+          &lt;/div>
+          &lt;div class="dcf-notice dcf-notice-warning" hidden>
+            &lt;h2>Warning!&lt;/h2>
+            &lt;div>Proceed with caution.&lt;/div>
+          &lt;/div>
+          &lt;div class="dcf-notice dcf-notice-danger" hidden>
+            &lt;h2>Danger!&lt;/h2>
+            &lt;div>Uh-oh. Something wrong happened.&lt;/div>
+          &lt;/div>
+        </pre>
+        <h3>No close button</h3>
+        <p>Sometimes you need the notice to always stay open so we can add the attribute <code>data-no-close-button="true"</code> to the <code>div.dcf-notice</code> element to remove the close button.</p>
+        <div class="dcf-notice dcf-notice-success" data-no-close-button="true" hidden>
+          <h2>Success!</h2>
+          <div>You've successfully completed an action.</div>
+        </div>
+        <pre class="unl-code-snippet" data-title="HTML - Overlay Example" data-language="html">
+          &lt;div class="dcf-notice dcf-notice-success" data-no-close-button="true" hidden>
+            &lt;h2>Success!&lt;/h2>
+            &lt;div>You've successfully completed an action.&lt;/div>
+          &lt;/div>
+        </pre>
+        <h3>Overlay</h3>
+        <p>There are certain special overlay position that you can customize for your notice. So instead of being displayed as a block in your content, you can have the notice overlay the heading or overlay the main content. This can be achieved by adding the attribute <code>data-overlay="dcf-header"</code> or <code>data-overlay="dcf-main"</code> to the <code>div.dcf-notice</code> element.</p>
+        <pre class="unl-code-snippet" data-title="HTML - Overlay Example" data-language="html">
+          &lt;div class="dcf-notice dcf-notice-info" hidden data-overlay="dcf-header">
+            &lt;h2>I'm Floating!&lt;/h2>
+            &lt;div>This notice overlays the header.&lt;/div>
+          &lt;/div>
+          &lt;div class="dcf-notice dcf-notice-success" hidden data-overlay="dcf-main">
+            &lt;h2>I'm Floating!&lt;/h2>
+            &lt;div>This notice overlays the maincontent.&lt;/div>
+          &lt;/div>
+        </pre>
+        <h2>Events</h2>
+        <p>The notice component dispatches a few events. When the class is finished initializing it will dispatch <code>noticeReady</code> and <code>UNLClassReady</code> both from the <code>div.dcf-notice</code> element.</p>
+        <pre class="unl-code-snippet" data-title="Javascript - Events" data-language="js">
+          // Listening for class to be ready
+          document.getElementById('test').addEventListener('noticeReady', (e) => {
+            console.log('Event Name: noticeReady', e);
+          });
+          document.getElementById('test').addEventListener('UNLClassReady', (e) => {
+            console.log('Event Name: UNLClassReady', e);
+          });
+        </pre>
+        <p>You can also use the plugin/auto-loader events to catch when the plugin/element is loaded.</p>
+        <pre class="unl-code-snippet" data-title="Javascript - More Events" data-language="js">
+          document.addEventListener('UNLPluginInitialized', (e) => {
+            console.log('Event Name: UNLPluginInitialized', e);
+          });
+          document.addEventListener('UNLPluginLoadedElement', (e) => {
+            console.log('Event Name: UNLPluginLoadedElement', e);
+          });
+          window.UNL.autoLoader.config.plugins.UNLNotice.onPluginLoadedElement = (loaded_element) => {
+            console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+          }
+        </pre>
+      </div>
+    </main>
+    <script src="/wdn/templates_6.1/js/auto-loader.js" type="module"></script>
+  </body>
+</html>

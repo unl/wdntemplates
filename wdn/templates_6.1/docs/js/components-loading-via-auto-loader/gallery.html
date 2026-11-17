@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="dark light" name="color-scheme"/>
+    <title>Gallery - Auto-Loader</title>
+    <link href="/wdn/templates_6.1/css/critical.css" rel="stylesheet"/>
+    <link href="/wdn/templates_6.1/css/main.css" rel="stylesheet"/>
+  </head>
+  <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid dcf-min-h-100vh">
+    <main class="dcf-d-flex dcf-jc-center dcf-wrapper dcf-pt-7 dcf-pb-7">
+      <div class="dcf-w-100% dcf-max-w-75ch">
+        <h1>Gallery - Auto-Loader</h1>
+        <p>The gallery is an excellent way to view multiple images quickly on a single page. This component gives a interactive way to view a blown up view of a picture and allows easy and accessible controls to click through the list of images.</p>
+        <p>This component uses a dialog under the hood to display a full screen take over for the image list but it does not inherit or forward any of it's functionality except for the opening and closing functionality.</p>
+        <p>The auto-loader references <code>/wdn/templates_6.1/js/plugins/plugin.gallery.js</code> by default. That plugin will be looking for <code>.dcf-gallery-img:not(.dcf-gallery-img-initialized)</code> as the trigger to load the components code dependencies and initialize the component.</p>
+        <div class="dcf-d-flex dcf-mb-3">
+          <img id="test" class="dcf-gallery-img dcf-b-1 dcf-b-solid unl-b-light-gray dcf-w-10" src="/wdn/templates_6.1/images/test/test_320.jpg" alt="Placeholder image." data-cutline="Cras justo odio, dapibus ac facilisis in, egestas eget quam." data-credit="Photo by Jane Doe">
+          <img class="dcf-gallery-img dcf-b-1 dcf-b-solid unl-b-light-gray dcf-w-10" src="/wdn/templates_6.1/images/test/test_480.jpg" alt="Placeholder image.">
+          <img class="dcf-gallery-img dcf-b-1 dcf-b-solid unl-b-light-gray dcf-w-10" src="/wdn/templates_6.1/images/test/test_600.jpg" alt="Placeholder image.">
+          <img class="dcf-gallery-img dcf-b-1 dcf-b-solid unl-b-light-gray dcf-w-10" src="/wdn/templates_6.1/images/test/test_768.jpg" alt="Placeholder image.">
+        </div>
+        <p>To create the component you can add the class <code>dcf-gallery-img</code> to the <code>img</code> you wish to open in a gallery viewer.</p>
+        <pre class="unl-code-snippet" data-title="HTML - Component Example" data-language="html">
+        &lt;img
+          id="test"
+          class="dcf-gallery-img dcf-b-1 dcf-b-solid unl-b-light-gray"
+          src="/wdn/templates_6.1/images/test/test_320.jpg"
+          alt="Placeholder image.">
+        </pre>
+        <p>If the <code>&lt;img&gt;</code> element does not have <code>id</code> then a randomly generated one will be assigned to it. Once initialized the class <code>dcf-gallery-img-initialized</code> will be added to the <code>&lt;img&gt;</code> element and it will remove the <code>hidden</code> attribute from the it. The class will also add itself to the <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference of the class instance.</p>
+        <h2>Options</h2>
+        <p>The Gallery component has a couple options associated with its functionality.</p>
+        <h3>Cutline & Credit</h3>
+        <p>Both the cutline and credit for an image via a data attribute on the <code>img</code> tag, and will be displayed when the gallery viewer is opened.</p>
+        <pre class="unl-code-snippet" data-title="HTML - Cutline & Credit Example" data-language="html">
+        &lt;img
+          id="test"
+          class="dcf-gallery-img dcf-b-1 dcf-b-solid unl-b-light-gray"
+          src="/wdn/templates_6.1/images/test/test_320.jpg"
+          alt="Placeholder image."
+          data-cutline="Cras justo odio, dapibus ac facilisis in, egestas eget quam."
+          data-credit="Photo by Jane Doe">
+        </pre>
+        <h3>Groups</h3>
+        <p>You can assign gallery images to different groups by using the groups data attribute on the <code>img</code> tag. Only images within the group will display in the gallery viewer.</p>
+        <pre class="unl-code-snippet" data-title="HTML - Group Example" data-language="html">
+        &lt;img
+          id="test"
+          class="dcf-gallery-img dcf-b-1 dcf-b-solid unl-b-light-gray"
+          src="/wdn/templates_6.1/images/test/test_320.jpg"
+          alt="Placeholder image."
+          data-group="group_1">
+        </pre>
+        <h2>Keyboard interactions</h2>
+        <p>The images themselves do not have any keyboard interactions but once the dialog is opened then the standard dialog keyboard interactions will work. These are managed by the dialog component.</p>
+        <h2>Methods</h2>
+        <p>While the gallery class does not expose any methods itself, it uses a helper class to manage and create the dialog that the gallery opens. That helper class does expose methods for opening, closing, and toggling the dialog as well as switching to previous image and next image. That gallery helper class instance is accessible through the property <code>dialog</code> in the normal gallery class.</p>
+        <pre class="unl-code-snippet" data-title="Javascript - Method" data-language="js">
+          import { getClassInstance } from '/wdn/templates_6.1/lib/unl-utility';
+          const galleryClass = await getClassInstance('test');
+          // You could also use window.UNL.classes['test'] once the class is initialized
+          // Open and close the gallery dialog
+          galleryClass.dialog.open();
+          galleryClass.dialog.close();
+          // Go to the next image
+          galleryClass.dialog.nextImage();
+          galleryClass.dialog.previousImage();
+        </pre>
+        <h2>Events</h2>
+        <p>The gallery component dispatches a few events. When the class is finished initializing it will dispatch <code>galleryReady</code> and <code>UNLClassReady</code> both from the <code>&lt;img&gt;</code> element.</p>
+        <pre class="unl-code-snippet" data-title="Javascript - Events" data-language="js">
+// Listening for class to be ready
+document.getElementById('test').addEventListener('galleryReady', (e) => {
+  console.log('Event Name: galleryReady', e);
+});
+document.getElementById('test').addEventListener('UNLClassReady', (e) => {
+  console.log('Event Name: UNLClassReady', e);
+});
+        </pre>
+        <p>This component uses a dialog for the gallery viewer but it does not directly use or forward any of the dialog events.</p>
+        <p>You can also use the plugin/auto-loader events to catch when the plugin/element is loaded.</p>
+        <pre class="unl-code-snippet" data-title="Javascript - More Events" data-language="js">
+document.addEventListener('UNLPluginInitialized', (e) => {
+  console.log('Event Name: UNLPluginInitialized', e);
+});
+document.addEventListener('UNLPluginLoadedElement', (e) => {
+  console.log('Event Name: UNLPluginLoadedElement', e);
+});
+window.UNL.autoLoader.config.plugins.UNLGallery.onPluginLoadedElement = (loaded_element) => {
+  console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+}
+        </pre>
+      </div>
+    </main>
+    <script src="/wdn/templates_6.1/js/auto-loader.js" type="module"></script>
+  </body>
+</html>

@@ -12,6 +12,10 @@ export default defineConfig([
         './wdn/templates_6.1/js-src/lib/jquery.js',
         './wdn/templates_6.1/js-src/lib/jquery-ui.js',
         './wdn/templates_6.1/js-src/lib/jquery-validator.js',
+        './wdn/templates_6.1/js-src/lib/highlight.min.js',
+        './wdn/templates_6.1/js-src/lib/highlight-js-languages/css.min.js',
+        './wdn/templates_6.1/js-src/lib/highlight-js-languages/javascript.min.js',
+        './wdn/templates_6.1/js-src/lib/highlight-js-languages/xml.min.js',
     ]),
     {
         files: ['**/*.{js,mjs,cjs}'],
