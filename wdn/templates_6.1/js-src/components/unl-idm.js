@@ -630,15 +630,9 @@ export default class UNLIdm {
             singleLabel.innerHTML = 'My UNL';
         });
 
-        const personalCards = Array.from(document.querySelectorAll('.unl-idm-personal-card'));
-        personalCards.forEach((singleCard) => {
+        const profileCards = Array.from(document.querySelectorAll('.unl-idm-profile-card'));
+        profileCards.forEach((singleCard) => {
             singleCard.classList.remove('dcf-card-as-link');
-        });
-
-        const bigLabels = Array.from(document.querySelectorAll('.unl-idm-btn-log-in'));
-        bigLabels.forEach((singleLink) => {
-            singleLink.classList.add('dcf-m-auto');
-            singleLink.setAttribute('href', this.logInUrl);
         });
 
         const imgs = Array.from(document.querySelectorAll('.unl-idm-img'));
@@ -658,10 +652,11 @@ export default class UNLIdm {
             singleLabel.classList.add('dcf-d-none');
         });
 
-        const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
-        viewProfileLinks.forEach((singleLink) => {
+        const profileLinks = Array.from(document.querySelectorAll('.unl-idm-profile-link'));
+        profileLinks.forEach((singleLink) => {
             singleLink.classList.remove('dcf-card-link');
-            singleLink.classList.add('dcf-d-none');
+            singleLink.classList.add('dcf-m-auto', 'dcf-btn', 'dcf-btn-inverse-primary', 'dcf-txt-decor-none', 'dcf-w-fit-content', 'dcf-truncate');
+            singleLink.setAttribute('href', this.logInUrl);
         });
 
         const logOutLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-out'));
@@ -685,16 +680,9 @@ export default class UNLIdm {
             singleLabel.innerHTML = 'Log in to this site';
         });
 
-        const personalCards = Array.from(document.querySelectorAll('.unl-idm-personal-card'));
-        personalCards.forEach((singleCard) => {
-            singleCard.classList.remove('dcf-card-as-link');
-        });
-
-        const loginLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-in'));
-        loginLinks.forEach((singleLink) => {
-            singleLink.classList.remove('dcf-d-none');
-            singleLink.innerHTML = `Log in to this site as ${this.getFullName()}`;
-            singleLink.setAttribute('href', this.logInUrl);
+        const profileCards = Array.from(document.querySelectorAll('.unl-idm-profile-card'));
+        profileCards.forEach((singleCard) => {
+            singleCard.classList.add('dcf-card-as-link');
         });
 
         const avatarContainer = Array.from(document.querySelectorAll('.unl-idm-avatar-container'));
@@ -719,10 +707,11 @@ export default class UNLIdm {
             singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100% dcf-circle" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
         });
 
-        const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
-        viewProfileLinks.forEach((singleLink) => {
-            singleLink.classList.remove('dcf-card-link');
-            singleLink.classList.add('dcf-d-none');
+        const profileLinks = Array.from(document.querySelectorAll('.unl-idm-profile-link'));
+        profileLinks.forEach((singleLink) => {
+            singleLink.classList.add('dcf-m-auto', 'dcf-btn', 'dcf-btn-inverse-primary', 'dcf-txt-decor-none', 'dcf-w-fit-content', 'dcf-truncate', 'dcf-card-link');
+            singleLink.setAttribute('href', this.logInUrl);
+            singleLink.innerHTML = `Log in to this site as ${this.getFullName()}`;
         });
 
         const logOutLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-out'));
@@ -747,8 +736,8 @@ export default class UNLIdm {
             singleLabel.innerHTML = userDisplayName;
         });
 
-        const personalCards = Array.from(document.querySelectorAll('.unl-idm-personal-card'));
-        personalCards.forEach((singleCard) => {
+        const profileCards = Array.from(document.querySelectorAll('.unl-idm-profile-card'));
+        profileCards.forEach((singleCard) => {
             singleCard.classList.add('dcf-card-as-link');
         });
 
@@ -774,16 +763,12 @@ export default class UNLIdm {
             singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100% dcf-circle" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
         });
 
-        const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
-        viewProfileLinks.forEach((singleLink) => {
-            singleLink.classList.remove('dcf-d-none');
-            singleLink.classList.add('dcf-d-block', 'dcf-card-link');
+        const profileLinks = Array.from(document.querySelectorAll('.unl-idm-profile-link'));
+        profileLinks.forEach((singleLink) => {
+            singleLink.classList.remove('dcf-btn', 'dcf-btn-inverse-primary', 'dcf-txt-decor-none', 'dcf-w-fit-content', 'dcf-truncate');
+            singleLink.classList.add('dcf-txt-xs', 'dcf-card-link', 'dcf-txt-decor-hover', 'unl-cream');
             singleLink.setAttribute('href', this.getProfileUrl());
-        });
-
-        const loginLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-in'));
-        loginLinks.forEach((singleLink) => {
-            singleLink.classList.add('dcf-d-none');
+            singleLink.innerHTML = 'View Profile';
         });
 
         const logOutLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-out'));
